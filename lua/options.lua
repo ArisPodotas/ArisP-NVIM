@@ -78,3 +78,4 @@ vim.opt.splitright = true
 
 -- Horizontal splits appear on the bottom
 vim.opt.splitbelow = true
+
