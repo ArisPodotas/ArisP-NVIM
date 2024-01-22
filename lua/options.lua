@@ -15,8 +15,6 @@ vim.wo.relativenumber = true
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
@@ -42,8 +40,6 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
-vim.o.linebreak = true
-
 -- ArisSettin custom setups
 
 -- Attemtpting to turn on line wrap on my own
@@ -56,12 +52,17 @@ vim.opt.scrolloff = 12
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
+-- Something about line number printing position
 vim.opt.nu = true
 
--- Making visual block mode allow the cursor to take any positon on the screen instead of just text like the terminal
-vim.opt.virtualedit = "block"
+-- Making the cursor to take any positon on the screen instead of just text like the terminal
+vim.opt.virtualedit = "all"
+
 -- Relative line numbers
 vim.opt.relativenumber = true
+
+-- Update me
 vim.opt.updatetime = 50
 
 -- Highlight searched word for the whole file after search input

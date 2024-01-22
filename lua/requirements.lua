@@ -224,7 +224,7 @@ require('lazy').setup({
 }, {})
 
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
+-- See `:help vim.eymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Diagnostic keymaps
