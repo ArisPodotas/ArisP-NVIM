@@ -40,7 +40,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- ArisSettin custom setups
+-- Aris Settin custom setups
 
 -- Attemtpting to turn on line wrap on my own
 vim.opt.wrap = false
