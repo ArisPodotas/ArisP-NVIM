@@ -24,11 +24,22 @@ end
 
 local function direct()
   vim.cmd.cd("%")
+  vim.cmd.pwd()
+end
+
+local function bash()
+  vim.cmd.vs()
+  vim.cmd.terminal("bash")
 end
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+-- Splits remaps (using the starting functions)
+vim.keymap.set("n", "<C-w>tv", termsplitv, { desc = 'Opens [T]erminal in a [V]ertical split' })
+vim.keymap.set("n", "<C-w>ts", termsplith, { desc = 'Opens [T]erminal [S]plit' })
+vim.keymap.set("n", "<C-w>tb", bash, { desc = 'Opens [T]erminal [S]plit' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -48,8 +59,6 @@ vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
--- Splits remaps
-
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
 vim.keymap.set("x", "<leader>p", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
@@ -58,8 +67,6 @@ vim.keymap.set("x", "<leader>p", "\"_dP", { desc = '[P]aste over highlighted wit
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 vim.keymap.set("n", "<leader>tt", powershell, { desc = 'Opens the powershell [T]erminal in a new tab' })
-vim.keymap.set("n", "<leader>i", termsplitv, { desc = 'Opens Terminal in a vert[I]cal split' })
-vim.keymap.set("n", "<leader>u", termsplith, { desc = 'Opens Terminal [U]nder split' })
 vim.keymap.set("n", "<leader>o", direct, { desc = 'Changes direct[O]ry to current view' })
 
 -- Tree sitter parser
