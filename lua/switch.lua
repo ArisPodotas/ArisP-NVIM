@@ -42,9 +42,6 @@ local function bashh()
   vim.cmd.terminal("bash")
 end
 
-local function Switch()
-  require("switch")
-end
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
@@ -80,10 +77,7 @@ vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left>
 vim.keymap.set("x", "<leader>p", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
 
 -- Tree sitter parser
-vim.keymap.set("n", "<C-`>", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
-
--- KSwitch
-vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
+vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
 -- Control T section
 
