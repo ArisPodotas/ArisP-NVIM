@@ -52,6 +52,8 @@ vim.opt.scrolloff = 12
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.list = true
+vim.opt.listchars = { eol = '↲' }
 
 -- Something about line number printing position
 vim.opt.nu = true
