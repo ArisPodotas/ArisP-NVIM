@@ -160,12 +160,12 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
     },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {'branch', 'diff', { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = ' '}, sources = { "nvim_diagnostic" } } },
         lualine_c = {'filename'},
         lualine_y = {'progress'},
         lualine_z = {'location', 'searchcount'}
