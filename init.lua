@@ -1,5 +1,5 @@
 require("options")
-require("remaps")
 require("requirements")
+require("remaps")
 require("rconfig")
 

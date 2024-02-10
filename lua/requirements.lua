@@ -191,6 +191,7 @@ require('lazy').setup({
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'BurntSushi/ripgrep',
       -- Fuzzy Finder Algorithm which requires local dependencies to be built.
       -- Only load if `make` is available. Make sure you have the system
       -- requirements installed.
@@ -214,6 +215,12 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  }
 
 --       These are some example plugins that I've included in the kickstart repository.
 --       Uncomment any of the lines below to enable them.

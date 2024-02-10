@@ -1,16 +1,35 @@
 -- [[ Basic Keymaps
 -- Set <space> as the leader key
 -- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
---  ]]
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)]]
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- This is like my first own lua function
 -- These functions are used in the command remaps section
+local harpoon = require("harpoon")
+
 local function powershell()
   vim.cmd.tabnew()
   vim.fn.termopen("powershell")
+end
+
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
 end
 
 local function bash()
@@ -60,6 +79,14 @@ local function Switch()
   require("switch")
 end
 
+local function pgup()
+  -- implement the font size change
+end
+
+local function pgdown()
+  -- Implement the font change down
+end
+
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Command remaps
@@ -104,6 +131,25 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 
 -- KSwitch
 -- vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
+
+-- Comments
+-- vim.keymap.set("v", "<C-?>", "", { desc = "Comments line" })
+-- vim.keymap.set("v", "<C-/", "", { desc = "UnComments line" })
+-- v
+-- v- Harpoon
+-- vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+-- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+-- v
+-- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+-- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
+-- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
+-- vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+-- v
+-- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+-- v
+-- v- Toggle previous & next buffers stored within Harpoon list
+-- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
+-- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
 -- Control T section
 
