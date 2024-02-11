@@ -124,7 +124,7 @@ vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
 
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
-vim.keymap.set("x", "<leader>p", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
+vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
 
 -- Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
@@ -132,26 +132,43 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 -- KSwitch
 -- vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
 
--- Comments
--- vim.keymap.set("v", "<C-?>", "", { desc = "Comments line" })
--- vim.keymap.set("v", "<C-/", "", { desc = "UnComments line" })
--- v
--- v- Harpoon
--- vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
--- vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
--- v
--- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
--- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
--- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
--- vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
+-- Harpoon
+vim.keymap.set("n", "<leader>p", function() harpoon:list():append() end, { desc = 'Appends the file to the har[P]oon list' })
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
+
+vim.keymap.set("n", "<C-_>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
 -- v
 -- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
--- v
--- v- Toggle previous & next buffers stored within Harpoon list
+
+-- Toggle previous & next buffers stored within Harpoon list
+
 -- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
 -- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
 
 -- Control T section
+
+-- Telescope
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+    theme = "dropdown"
+  })
+end, { desc = '[/] Fuzzily search in current buffer' })
+
+vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
+vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 -- Keymaps that will most likeley remain uncahnged forever
 
