@@ -136,17 +136,13 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 vim.keymap.set("n", "<leader>p", function() harpoon:list():append() end, { desc = 'Appends the file to the har[P]oon list' })
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
 
-vim.keymap.set("n", "<C-_>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-2>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-3>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-4>", function() harpoon:list():select(4) end)
--- v
--- vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
-
--- Toggle previous & next buffers stored within Harpoon list
-
--- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
--- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })
+vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Opens second harpoon listing file" })
+vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Opens third harpoon listing file" })
+vim.keymap.set("n", "<A-4>", function() harpoon:list():select(4) end, { desc = "Opens fourth harpoon listing file" })
+vim.keymap.set("n", "<A-t>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
 
 -- Control T section
 
