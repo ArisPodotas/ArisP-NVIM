@@ -43,7 +43,7 @@ vim.o.termguicolors = true
 -- Aris Settin custom setups
 
 -- Attemtpting to turn on line wrap on my own
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Never have less than 12 lines above or below cursor
 vim.opt.scrolloff = 12
@@ -53,7 +53,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.list = true
-vim.opt.listchars = { eol = '↲' }
+vim.opt.listchars = { eol = '↲', tab = '   ' }
 
 -- Something about line number printing position
 vim.opt.nu = true

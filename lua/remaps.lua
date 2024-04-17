@@ -1,19 +1,10 @@
--- [[ Basic Keymaps
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)]]
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- This is like my first own lua function
 -- These functions are used in the command remaps section
 local harpoon = require("harpoon")
-
-local function powershell()
-  vim.cmd.tabnew()
-  vim.fn.termopen("powershell")
-end
 
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)
@@ -35,6 +26,11 @@ end
 local function bash()
   vim.cmd.tabnew()
   vim.fn.termopen("bash")
+end
+
+local function powershell()
+  vim.cmd.tabnew()
+  vim.fn.termopen("powershell")
 end
 
 local function termsplith()
