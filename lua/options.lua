@@ -71,7 +71,7 @@ vim.opt.updatetime = 50
 -- Highlight searched word for the whole file after search input
 vim.opt.hlsearch = true
 
--- Highlight searched ccontents incrumentally while typing into the register
+-- Highlight searched contents incrumentally while typing into the register
 vim.opt.incsearch = true
 
 -- File manager sorts files by type
@@ -83,3 +83,8 @@ vim.opt.splitright = true
 -- Horizontal splits appear on the bottom
 vim.opt.splitbelow = true
 
+-- Learning about folds
+vim.opt.foldmethod = 'fold-indent'
+
+-- Maximum fold nesting
+vim.opt.foldnestmax = 20
