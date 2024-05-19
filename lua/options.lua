@@ -52,8 +52,9 @@ vim.opt.scrolloff = 12
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 vim.opt.list = true
-vim.opt.listchars = { eol = '↲', tab = '   ' }
+vim.opt.listchars = { eol = '↲', tab = '|  ', space = '·', lead = ' ' }
 
 -- Something about line number printing position
 vim.opt.nu = true
@@ -83,8 +84,3 @@ vim.opt.splitright = true
 -- Horizontal splits appear on the bottom
 vim.opt.splitbelow = true
 
--- Learning about folds
-vim.opt.foldmethod = 'fold-indent'
-
--- Maximum fold nesting
-vim.opt.foldnestmax = 20
