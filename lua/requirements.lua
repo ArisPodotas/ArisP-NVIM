@@ -201,7 +201,14 @@ require('lazy').setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    dependencies = { "nvim-lua/plenary.nvim" },
+    settings = {
+      save_on_toggle = true,
+      save_on_ui_sync = true,
+      key = function()
+        return vim.loop.cwd()
+      end,
+    }
   }
 }, {})
 
