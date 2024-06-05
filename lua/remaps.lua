@@ -71,17 +71,17 @@ local function bashh()
   vim.cmd.terminal("bash")
 end
 
-local function Switch()
-  require("switch")
-end
-
-local function pgup()
-  -- implement the font size change
-end
-
-local function pgdown()
-  -- Implement the font change down
-end
+-- local function Switch()
+--   require("switch")
+-- end
+--
+-- local function pgup()
+--   -- implement the font size change
+-- end
+--
+-- local function pgdown()
+--   -- Implement the font change down
+-- end
 
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
@@ -111,6 +111,7 @@ vim.keymap.set("n", "<C-w>h", "<C-w>h<C-w>", { desc = 'Go to the left window' })
 vim.keymap.set("n", "<C-w>j", "<C-w>j<C-w>", { desc = 'Go to the window below' })
 vim.keymap.set("n", "<C-w>k", "<C-w>k<C-w>", { desc = 'Go to the window above' })
 vim.keymap.set("n", "<C-w>l", "<C-w>l<C-w>", { desc = 'Go to the window to the right' })
+
 Thing i stole form the documentation for remaping the save command
 vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
 --]]
@@ -126,6 +127,7 @@ vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted wit
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
 -- KSwitch
+-- Now renamed to nvim3D
 -- vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
 
 -- Harpoon
@@ -141,6 +143,7 @@ vim.keymap.set("n", "<A-6>", function() harpoon:list():select(6) end, { desc = "
 vim.keymap.set("n", "<A-7>", function() harpoon:list():select(7) end, { desc = "Opens first harpoon listing file" })
 vim.keymap.set("n", "<A-8>", function() harpoon:list():select(8) end, { desc = "Opens first harpoon listing file" })
 vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end, { desc = "Opens first harpoon listing file" })
+
 vim.keymap.set("n", "<A-t>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
 vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
 vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
@@ -186,3 +189,5 @@ vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
+-- keybinds that remain un binded for future use
+--
