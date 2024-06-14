@@ -14,6 +14,30 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
+-- local function b0()
+--     local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
+--     local result = handle:read("*a")
+--     handle:close()
+--
+--     -- Extract the number from the output
+--     local batteryPercentage = tonumber(result:match("%d+"))
+--     return batteryPercentage
+-- end
+--
+-- local battery = b0()
+
+-- local function b1()
+--     local handle = io.popen("powershell -Command \"(Get-WmiObject -Query 'Select * from Win32_Battery').EstimatedChargeRemaining\"")
+--     local result = handle:read("*a")
+--     handle:close()
+--
+--     -- Extract the number from the output
+--     local batteryPercentage = tonumber(result:match("%d+"))
+--     return batteryPercentage
+-- end
+--
+-- local battery = b1()
+
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
@@ -142,6 +166,49 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'onedark'
+      require('onedark').setup {
+        transparent = true,
+        style = 'deep',
+        -- toggle theme style ---
+        toggle_style_key = '<A-c>', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+        -- Change code style ---
+        -- Options are italic, bold, underline, none
+        -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+        code_style = {
+            comments = 'italic',
+            keywords = 'bold,italic',
+            functions = 'bold,underline',
+            strings = 'none',
+            variables = 'none'
+        },
+
+        -- Lualine options --
+        lualine = {
+            transparent = true, -- lualine center bar transparency
+        },
+
+        -- -- Custom Highlights --
+        -- colors = {
+        -- },
+        highlights = {
+        CurSearch = {fg = '#ffffff', bg = '#7a05ff', fmt = 'underline,italic'},
+        IncSearch = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
+        Visual = {bg = '#555555', fmt = 'underline,bold,italic'},
+        Search = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
+        -- Cursor = {fmt = "reverse"},
+        -- vCursor = {fmt = "reverse"},
+        -- iCursor = {fmt = "reverse"},
+        -- lCursor = {fmt = "reverse"},
+        -- CursorIM = {fmt = "reverse"},
+        -- CursorColumn = {bg = '#555555'},
+        -- CursorLine = {bg = '#555555'},
+        -- ColorColumn = {bg = '#555555'},
+        -- CursorLineNr = {fg = '#555555'},
+        }
+      }
+      require('onedark').load()
     end,
   },
 
@@ -158,6 +225,8 @@ require('lazy').setup({
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = ' '}, sources = { "nvim_diagnostic" } } },
         lualine_c = {'filename'},
+        -- lualine_x = {},
+        -- lualine_x = {"󰁹" .. battery .. "%"},
         lualine_y = {'progress'},
         lualine_z = {'location', 'searchcount'}
       },

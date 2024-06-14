@@ -5,6 +5,9 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- nerd font
+vim.g.have_nerd_font = true
+
 -- Make line numbers default
 vim.wo.number = true
 
@@ -68,6 +71,10 @@ vim.opt.relativenumber = true
 -- netrw
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
 
+-- File manager sorts files by type
+vim.g.netrw_sort_by = "extention"
+vim.g.netrw_liststyle = 5
+
 -- Update me
 vim.opt.updatetime = 50
 
@@ -76,9 +83,6 @@ vim.opt.hlsearch = true
 
 -- Highlight searched contents incrumentally while typing into the register
 vim.opt.incsearch = true
-
--- File manager sorts files by type
-vim.g.netrw_sort_by = "extention"
 
 -- Vertical splits happen to the right of nvim
 vim.opt.splitright = true

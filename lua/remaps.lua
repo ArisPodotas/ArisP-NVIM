@@ -23,33 +23,6 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
-local function bash()
-  vim.cmd.tabnew()
-  vim.fn.termopen("bash")
-end
-
-local function powershell()
-  vim.cmd.tabnew()
-  vim.fn.termopen("powershell")
-end
-
-local function termsplith()
-  vim.cmd.sp()
-  vim.cmd.terminal("powershell")
-end
-
-local function termsplitv()
-  vim.cmd.vs()
-  vim.cmd.terminal("powershell")
-end
-
--- Will not work when multiple windows are open
-local function direct()
-  vim.cmd.cd("%")
-  vim.cmd.cd(".")
-  vim.cmd.pwd()
-end
-
 --[[local function toggle()
 -- vim.opt.list = true
 -- vim.opt.listchars = { space = '·', eol = '$' }
@@ -60,16 +33,6 @@ end
 -- vim.opt.list = false
 end
 --]]
-
-local function bashv()
-  vim.cmd.vs()
-  vim.cmd.terminal("bash")
-end
-
-local function bashh()
-  vim.cmd.sp()
-  vim.cmd.terminal("bash")
-end
 
 -- local function Switch()
 --   require("switch")
@@ -88,15 +51,44 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Command remaps
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
-vim.keymap.set("n", "<leader>o", direct, { desc = 'Changes direct[O]ry to current view' })
+
+-- Will not work when multiple windows are open
+vim.keymap.set("n", "<leader>o", function()
+  vim.cmd.cd("%")
+  vim.cmd.cd(".")
+  vim.cmd.pwd()
+end, { desc = 'Changes direct[O]ry to current view' })
 
 -- Terminal splits
-vim.keymap.set("n", "<leader>tt", powershell, { desc = 'Opens the powershell [T]erminal in a new tab' })
-vim.keymap.set("n", "<leader>tb", bash, { desc = 'Opens [B]ash [T]erminal in a new tab' })
-vim.keymap.set("n", "<leader>it", termsplitv, { desc = 'Opens [T]erminal in a [V]ertical split' })
-vim.keymap.set("n", "<leader>ib", bashv, { desc = 'Opens [B]ash terminal in a vertical [S]plit' })
-vim.keymap.set("n", "<leader>ut", termsplith, { desc = 'Opens [T]erminal [S]plit' })
-vim.keymap.set("n", "<leader>ub", bashh, { desc = 'Opens [B]ash terminal [S]plit' })
+vim.keymap.set("n", "<leader>tt", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("powershell")
+end, { desc = 'Opens the powershell [T]erminal in a new tab' })
+
+vim.keymap.set("n", "<leader>tb", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("bash")
+end, { desc = 'Opens [B]ash [T]erminal in a new tab' })
+
+vim.keymap.set("n", "<leader>it", function()
+  vim.cmd.vs()
+  vim.cmd.terminal("powershell")
+end, { desc = 'Opens [T]erminal in a [V]ertical split' })
+
+vim.keymap.set("n", "<leader>ib", function()
+  vim.cmd.vs()
+  vim.cmd.terminal("bash")
+end, { desc = 'Opens [B]ash terminal in a vertical [S]plit' })
+
+vim.keymap.set("n", "<leader>ut", function()
+  vim.cmd.sp()
+  vim.cmd.terminal("powershell")
+end, { desc = 'Opens [T]erminal [S]plit' })
+
+vim.keymap.set("n", "<leader>ub", function()
+  vim.cmd.sp()
+  vim.cmd.terminal("bash")
+end, { desc = 'Opens [B]ash terminal [S]plit' })
 
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
