@@ -14,17 +14,17 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
--- local function b0()
---     local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
---     local result = handle:read("*a")
---     handle:close()
---
---     -- Extract the number from the output
---     local batteryPercentage = tonumber(result:match("%d+"))
---     return batteryPercentage
--- end
---
--- local battery = b0()
+local function b0()
+    local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
+    local result = handle:read("*a")
+    handle:close()
+
+    -- Extract the number from the output
+    local batteryPercentage = tonumber(result:match("%d+"))
+    return batteryPercentage
+end
+
+local battery = b0()
 
 -- local function b1()
 --     local handle = io.popen("powershell -Command \"(Get-WmiObject -Query 'Select * from Win32_Battery').EstimatedChargeRemaining\"")
@@ -228,7 +228,7 @@ require('lazy').setup({
         -- lualine_x = {},
         -- lualine_x = {"󰁹" .. battery .. "%"},
         lualine_y = {'progress'},
-        lualine_z = {'location', 'searchcount'}
+        lualine_z = {'location', 'searchcount', ("%d").format(battery)}
       },
     },
   },
