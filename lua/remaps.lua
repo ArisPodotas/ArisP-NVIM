@@ -123,9 +123,10 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 -- vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
 
 -- Harpoon
-vim.keymap.set("n", "<leader>p", function() harpoon:list():append() end, { desc = 'Appends the file to the har[P]oon list' })
+vim.keymap.set("n", "<leader>p", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
 
+vim.keymap.set("n", "<A-0>", function() harpoon:list():select(0) end, { desc = "Opens first harpoon listing file" })
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })
 vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Opens second harpoon listing file" })
 vim.keymap.set("n", "<A-3>", function() harpoon:list():select(3) end, { desc = "Opens third harpoon listing file" })
