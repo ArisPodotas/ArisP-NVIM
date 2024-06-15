@@ -272,8 +272,8 @@ require('lazy').setup({
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     settings = {
-      save_on_toggle = true,
-      save_on_ui_sync = true,
+      save_on_toggle = false,
+      save_on_ui_sync = false,
       key = function()
         return vim.loop.cwd()
       end,
