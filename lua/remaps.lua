@@ -52,12 +52,20 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 
--- Will not work when multiple windows are open
+-- Change directory
 vim.keymap.set("n", "<leader>o", function()
-  vim.cmd.cd("%")
-  vim.cmd.cd(".")
-  vim.cmd.pwd()
+  if pcall(function()
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+  end) ~= 0 then vim.cmd.pwd()
+  else
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+    vim.cmd.pwd()
+  end
 end, { desc = 'Changes direct[O]ry to current view' })
+
+-- vim.keymap.set("n", "<leader>o", "<leader>x<leader>o", { desc = 'Changes direct[O]ry to current view' })
 
 -- Terminal splits
 vim.keymap.set("n", "<leader>tt", function()
@@ -70,6 +78,10 @@ vim.keymap.set("n", "<leader>tb", function()
   vim.fn.termopen("bash")
 end, { desc = 'Opens [B]ash [T]erminal in a new tab' })
 
+vim.keymap.set("n", "<leader>ii", function()
+  vim.cmd.vs()
+end, { desc = 'Opens vert[I]cal split' })
+
 vim.keymap.set("n", "<leader>it", function()
   vim.cmd.vs()
   vim.cmd.terminal("powershell")
@@ -79,6 +91,10 @@ vim.keymap.set("n", "<leader>ib", function()
   vim.cmd.vs()
   vim.cmd.terminal("bash")
 end, { desc = 'Opens [B]ash terminal in a vertical [S]plit' })
+
+vim.keymap.set("n", "<leader>uu", function()
+  vim.cmd.sp()
+end, { desc = 'Opens [S]plit' })
 
 vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.sp()
@@ -95,8 +111,8 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to nor
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 
 -- Splits remaps
-vim.keymap.set("n", "<leader>ii", "<C-w>v", { desc = 'Opens a vertical split' })
-vim.keymap.set("n", "<leader>uu", "<C-w>s", { desc = 'Opens a split' })
+-- vim.keymap.set("n", "<leader>ii", "<C-w>v", { desc = 'Opens a vertical split' })
+-- vim.keymap.set("n", "<leader>uu", "<C-w>s", { desc = 'Opens a split' })
 
 --[[ These don't work properly becuase the next input isnt picked up as a control w its a plain key
 vim.keymap.set("n", "<C-w>h", "<C-w>h<C-w>", { desc = 'Go to the left window' })
@@ -113,6 +129,7 @@ vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
 
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
+-- vim.keymap.set("v", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
 vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
 
 -- Tree sitter parser
@@ -184,3 +201,5 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
 -- keybinds that remain un binded for future use
 --
+-- vim.keymap.set("n", "<leader>ii", "<C-w>v", { desc = 'Opens a vertical split' })
+-- vim.keymap.set("n", "<leader>uu", "<C-w>s", { desc = 'Opens a split' })

@@ -14,18 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
-local function b0()
-    local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
-    local result = handle:read("*a")
-    handle:close()
-
-    -- Extract the number from the output
-    local batteryPercentage = tonumber(result:match("%d+"))
-    return batteryPercentage
-end
-
-local battery = b0()
-
 -- local function b1()
 --     local handle = io.popen("powershell -Command \"(Get-WmiObject -Query 'Select * from Win32_Battery').EstimatedChargeRemaining\"")
 --     local result = handle:read("*a")
@@ -38,6 +26,16 @@ local battery = b0()
 --
 -- local battery = b1()
 
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
@@ -228,7 +226,14 @@ require('lazy').setup({
         -- lualine_x = {},
         -- lualine_x = {"󰁹" .. battery .. "%"},
         lualine_y = {'progress'},
-        lualine_z = {'location', 'searchcount', ("%d").format(battery)}
+        lualine_z = {'location', 'searchcount', function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
+                                              local result = handle:read("*a")
+                                              handle:close()
+
+                                              -- Extract the number from the output
+                                              local batteryPercentage = tonumber(result:match("%d+"))
+                                              return batteryPercentage
+                                          end}
       },
     },
   },
@@ -272,8 +277,8 @@ require('lazy').setup({
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     settings = {
-      save_on_toggle = false,
-      save_on_ui_sync = false,
+      save_on_toggle = true,
+      save_on_ui_sync = true,
       key = function()
         return vim.loop.cwd()
       end,
