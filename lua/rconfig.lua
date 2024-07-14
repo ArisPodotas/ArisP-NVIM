@@ -78,10 +78,15 @@ vim.defer_fn(function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '~',
-        node_incremental = '|',
-        scope_incremental = '<c-s>',
-        node_decremental = '_',
+        init_selection = 'gss',
+        scope_incremental = 'gsi',
+        node_incremental = 'gsn',
+        node_decremental = 'gsd',
+      },
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
       },
     },
     textobjects = {
@@ -89,42 +94,140 @@ vim.defer_fn(function()
         enable = true,
         lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
         keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
+          ['iee'] = '@assignment.inner',
+          ['iel'] = '@assignment.lhs',
+          ['ae'] = '@assignment.outer',
+          ['ier'] = '@assignment.rhs',
+          ['ia'] = '@attribute.inner',
+          ['aa'] = '@attribute.outer',
+          ['ib'] = '@block.inner',
+          ['ab'] = '@block.outer',
+          ['ik'] = '@call.inner',
+          ['ak'] = '@call.outer',
+          ['io'] = '@comment.inner',
+          ['ao'] = '@comment.outer',
+          ['im'] = '@frame.inner',
+          ['am'] = '@frame.outer',
+          ['in'] = '@number.inner',
+          ['ix'] = '@regex.inner',
+          ['ax'] = '@regex.outer',
+          ['ir'] = '@return.inner',
+          ['ar'] = '@return.outer',
+          ['is'] = '@scopename.inner',
+          ['as'] = '@statement.outer',
+          ['av'] = '@parameter.outer',
+          ['iv'] = '@parameter.inner',
           ['af'] = '@function.outer',
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          ['al'] = '@loop.outer',
+          ['il'] = '@loop.inner',
+          ['ai'] = '@conditional.outer',
+          ['ii'] = '@conditional.inner',
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          ['gje'] = '@assignment.outer',
+          ['gja'] = '@attribute.outer',
+          ['gjb'] = '@block.outer',
+          ['gjk'] = '@call.outer',
+          ['gjo'] = '@comment.outer',
+          ['gjm'] = '@frame.outer',
+          ['gjx'] = '@regex.outer',
+          ['gjr'] = '@return.outer',
+          ['gjs'] = '@statement.outer',
+          ['gjp'] = '@parameter.outer',
+          ['gjf'] = '@function.outer',
+          ['gjc'] = '@class.outer',
+          ['gjl'] = '@loop.outer',
+          ['gji'] = '@conditional.outer',
         },
         goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
+          ['gJe'] = '@assignment.outer',
+          ['gJa'] = '@attribute.outer',
+          ['gJb'] = '@block.outer',
+          ['gJk'] = '@call.outer',
+          ['gJo'] = '@comment.outer',
+          ['gJm'] = '@frame.outer',
+          ['gJx'] = '@regex.outer',
+          ['gJr'] = '@return.outer',
+          ['gJs'] = '@statement.outer',
+          ['gJp'] = '@parameter.outer',
+          ['gJf'] = '@function.outer',
+          ['gJc'] = '@class.outer',
+          ['gJl'] = '@loop.outer',
+          ['gJi'] = '@conditional.outer',
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ['gke'] = '@assignment.outer',
+          ['gka'] = '@attribute.outer',
+          ['gkb'] = '@block.outer',
+          ['gkk'] = '@call.outer',
+          ['gko'] = '@comment.outer',
+          ['gkm'] = '@frame.outer',
+          ['gkx'] = '@regex.outer',
+          ['gkr'] = '@return.outer',
+          ['gks'] = '@statement.outer',
+          ['gkp'] = '@parameter.outer',
+          ['gkf'] = '@function.outer',
+          ['gkc'] = '@class.outer',
+          ['gkl'] = '@loop.outer',
+          ['gki'] = '@conditional.outer',
         },
         goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
+          ['gKe'] = '@assignment.outer',
+          ['gKa'] = '@attribute.outer',
+          ['gKb'] = '@block.outer',
+          ['gKk'] = '@call.outer',
+          ['gKo'] = '@comment.outer',
+          ['gKm'] = '@frame.outer',
+          ['gKx'] = '@regex.outer',
+          ['gKr'] = '@return.outer',
+          ['gKs'] = '@statement.outer',
+          ['gKp'] = '@parameter.outer',
+          ['gKf'] = '@function.outer',
+          ['gKc'] = '@class.outer',
+          ['gKl'] = '@loop.outer',
+          ['gKi'] = '@conditional.outer',
         },
       },
       swap = {
         enable = true,
         swap_next = {
-          ['<leader>a'] = '@parameter.inner',
+          ['<leader>je'] = '@assignment.inner',
+          ['<leader>ja'] = '@attribute.inner',
+          ['<leader>jb'] = '@block.inner',
+          ['<leader>jk'] = '@call.inner',
+          ['<leader>jo'] = '@comment.inner',
+          ['<leader>jm'] = '@frame.inner',
+          ['<leader>jx'] = '@regex.inner',
+          ['<leader>jr'] = '@return.inner',
+          ['<leader>js'] = '@statement.inner',
+          ['<leader>jp'] = '@parameter.inner',
+          ['<leader>jf'] = '@function.inner',
+          ['<leader>jc'] = '@class.inner',
+          ['<leader>jl'] = '@loop.inner',
+          ['<leader>ji'] = '@conditional.inner',
         },
         swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
+          ['<leader>ke'] = '@assignment.inner',
+          ['<leader>ka'] = '@attribute.inner',
+          ['<leader>kb'] = '@block.inner',
+          ['<leader>kk'] = '@call.inner',
+          ['<leader>ko'] = '@comment.inner',
+          ['<leader>km'] = '@frame.inner',
+          ['<leader>kx'] = '@regex.inner',
+          ['<leader>kr'] = '@return.inner',
+          ['<leader>ks'] = '@statement.inner',
+          ['<leader>kp'] = '@parameter.inner',
+          ['<leader>kf'] = '@function.inner',
+          ['<leader>kc'] = '@class.inner',
+          ['<leader>kl'] = '@loop.inner',
+          ['<leader>ki'] = '@conditional.inner',
         },
       },
     },
@@ -182,6 +285,8 @@ require('which-key').register {
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
   ['<leader>i'] = { name = 'Vertical spl[I]ts', _ = 'which_key_ignore' },
   ['<leader>u'] = { name = 'Horizontal splits', _ = 'which_key_ignore' },
+  ['<leader>j'] = { name = 'Swap Next', _ = 'which_key_ignore' },
+  ['<leader>k'] = { name = 'Swap Previous', _ = 'which_key_ignore' },
 }
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -204,6 +309,7 @@ local servers = {
   clangd = {},
   -- gopls = {},
   -- pyright = {},
+  -- pylsp = { pylsp = { plugins = { flake8 = { ignore = {'E501', 'E302', 'W191', 'E227', 'W293', 'E251'} } } } },
   -- perlnavigator = {},
   powershell_es = {},
   -- rust_analyzer = {},
@@ -300,6 +406,30 @@ cmp.setup {
 local harpoon = require("harpoon")
 harpoon:setup({})
 
+-- local highlight = {
+--     -- "RainbowRed",
+--     -- "RainbowYellow",
+--     -- "RainbowBlue",
+--     -- "RainbowOrange",
+--     "RainbowGreen",
+--     -- "RainbowViolet",
+--     -- "RainbowCyan",
+-- }
+
+-- local hooks = require "ibl.hooks"
+-- -- create the highlight groups in the highlight setup hook, so they are reset
+-- -- every time the colorscheme changes
+-- hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+--     -- vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+--     -- vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+--     -- vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+--     -- vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+--     vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+--     -- vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+--     -- vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+-- end)
+
+require("ibl").setup()
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 

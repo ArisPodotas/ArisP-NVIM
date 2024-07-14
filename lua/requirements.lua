@@ -94,7 +94,7 @@ require('lazy').setup({
         change = { text = '~' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
-        changedelete = { text = '~' },
+        changedelete = { text = '|' },
       },
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
@@ -287,6 +287,19 @@ require('lazy').setup({
         return vim.loop.cwd()
       end,
     }
+  },
+
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
+  },
+
+  {
+    'prichrd/netrw.nvim',
+    opts = {}
   }
 }, {})
 
