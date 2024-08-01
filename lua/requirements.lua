@@ -287,19 +287,20 @@ require('lazy').setup({
         return vim.loop.cwd()
       end,
     }
-  },
-
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
-  {
-    'prichrd/netrw.nvim',
-    opts = {}
   }
+
+  -- {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   -- Enable `lukas-reineke/indent-blankline.nvim`
+  --   -- See `:help ibl`
+  --   main = 'ibl',
+  --   opts = {},
+  -- }
+
+  -- didnt uninstall still here if i want to enalbe lt
+  -- {
+  --   'prichrd/netrw.nvim',
+  --   opts = {}
+  -- }
 }, {})
 
