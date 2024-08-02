@@ -200,7 +200,6 @@ require('lazy').setup({
         -- iCursor = {fmt = "reverse"},
         -- lCursor = {fmt = "reverse"},
         -- CursorIM = {fmt = "reverse"},
-        -- CursorColumn = {bg = '#555555'},
         -- CursorLine = {bg = '#555555'},
         -- ColorColumn = {bg = '#555555'},
         -- CursorLineNr = {fg = '#555555'},
@@ -216,8 +215,10 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'onedark',
+        -- Alternatives { left = '', right = '' } { left = '', right = '' }
         component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        -- Alternatives { left = '', right = '' } { left = '', right = '' } { left = '', right = '' }
+        section_separators = { left = '', right = '' },
     },
       sections = {
         lualine_a = {'mode'},
@@ -225,19 +226,20 @@ require('lazy').setup({
         lualine_c = {'filename'},
         lualine_y = {'progress'},
         lualine_z = {'location', 'searchcount', function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
-                                                    if handle then
-                                                      local result = handle:read("*a")
-                                                      handle:close()
-                                                      local batteryPercentage = tonumber(result:match("%d+"))
-                                                      return tostring(batteryPercentage) .. " 󰁹"
-                                                    else
-                                                      print("batteryPercentage failed")
-                                                  end
-                                                end,
-                                                function ()
-                                                    local dateTimeString = os.date("%d-%m %H:%M")
-                                                    return dateTimeString
-                                                end }
+            if handle then
+              local result = handle:read("*a")
+              handle:close()
+              local batteryPercentage = tonumber(result:match("%d+"))
+              return tostring(batteryPercentage) .. " 󰁹"
+            else
+              print("batteryPercentage failed")
+            end
+          end,
+          function ()
+            local dateTimeString = os.date("%d-%m %H:%M")
+            return dateTimeString
+          end
+        }
       },
     },
   },
@@ -283,9 +285,6 @@ require('lazy').setup({
     settings = {
       save_on_toggle = true,
       save_on_ui_sync = true,
-      key = function()
-        return vim.loop.cwd()
-      end,
     }
   }
 

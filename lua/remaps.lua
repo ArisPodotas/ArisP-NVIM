@@ -52,6 +52,22 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 
+-- vim.keymap.set("n", "<leader>o", function()
+--   if (vim.api.nvim_buf_get_option(0, "filetype")=="netrw") then
+--     if pcall(function()
+--       vim.cmd.cd("%")
+--       vim.cmd.cd(".")
+--     end) ~= 0 then vim.cmd.pwd()
+--     else
+--       vim.cmd.cd("%")
+--       vim.cmd.cd(".")
+--       vim.cmd.pwd()
+--     end
+--   else
+--     vim.api.nvim_exec(":Vexplore", false)
+--   end
+-- end, { desc = 'Changes direct[O]ry to current view' })
+
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
   if pcall(function()
@@ -186,6 +202,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+-- vim.keymap.set('n', "[t", vim.diagnostic.enable(not vim.diagnostic.is_enabled()), { desc = 'Enable diagnostics' })
 
 -- Visual line mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
@@ -201,5 +218,4 @@ vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
 -- keybinds that remain un binded for future use
 --
--- vim.keymap.set("n", "<leader>ii", "<C-w>v", { desc = 'Opens a vertical split' })
--- vim.keymap.set("n", "<leader>uu", "<C-w>s", { desc = 'Opens a split' })
+
