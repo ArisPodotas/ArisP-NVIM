@@ -195,7 +195,9 @@ require('lazy').setup({
         IncSearch = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
         Visual = {bg = '#555555', fmt = 'underline,bold,italic'},
         Search = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
-        -- Cursor = {fmt = "reverse"},
+        ['@comment'] = {fg = '#848484'},
+        ['@lsp.type.comment'] = {fg = '#819696'},
+-- Cursor = {fmt = "reverse"},
         -- vCursor = {fmt = "reverse"},
         -- iCursor = {fmt = "reverse"},
         -- lCursor = {fmt = "reverse"},
@@ -286,20 +288,24 @@ require('lazy').setup({
       save_on_toggle = true,
       save_on_ui_sync = true,
     }
-  }
+  },
 
-  -- {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   -- Enable `lukas-reineke/indent-blankline.nvim`
-  --   -- See `:help ibl`
-  --   main = 'ibl',
-  --   opts = {},
-  -- }
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
+  },
 
   -- didnt uninstall still here if i want to enalbe lt
-  -- {
-  --   'prichrd/netrw.nvim',
-  --   opts = {}
-  -- }
+  {
+    'prichrd/netrw.nvim',
+    opts = {}
+  },
+
+  { 'echasnovski/mini.nvim', version = false },
+
+  { 'echasnovski/mini.icons', version = false },
 }, {})
 
