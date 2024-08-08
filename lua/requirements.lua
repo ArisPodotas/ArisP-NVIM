@@ -14,18 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 
--- local function b1()
---     local handle = io.popen("powershell -Command \"(Get-WmiObject -Query 'Select * from Win32_Battery').EstimatedChargeRemaining\"")
---     local result = handle:read("*a")
---     handle:close()
---
---     -- Extract the number from the output
---     local batteryPercentage = tonumber(result:match("%d+"))
---     return batteryPercentage
--- end
---
--- local battery = b1()
-
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
@@ -197,7 +185,7 @@ require('lazy').setup({
         Search = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
         ['@comment'] = {fg = '#848484'},
         ['@lsp.type.comment'] = {fg = '#819696'},
--- Cursor = {fmt = "reverse"},
+        -- Cursor = {fmt = "reverse"},
         -- vCursor = {fmt = "reverse"},
         -- iCursor = {fmt = "reverse"},
         -- lCursor = {fmt = "reverse"},
@@ -217,10 +205,12 @@ require('lazy').setup({
       options = {
         icons_enabled = true,
         theme = 'onedark',
-        -- Alternatives { left = '', right = '' } { left = '', right = '' }
-        component_separators = { left = '', right = '' },
-        -- Alternatives { left = '', right = '' } { left = '', right = '' } { left = '', right = '' }
+        -- component_separators = { left = '', right = '' },
+        component_separators = { left = '/', right = '/' },
+        -- component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
+        -- section_separators = { left = '', right = '' },
     },
       sections = {
         lualine_a = {'mode'},
@@ -283,6 +273,7 @@ require('lazy').setup({
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
+    commit = 'e76cb03',
     dependencies = { "nvim-lua/plenary.nvim" },
     settings = {
       save_on_toggle = true,

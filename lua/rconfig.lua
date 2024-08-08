@@ -281,18 +281,23 @@ require('which-key').add ({
   {'<leader>h', desc = 'Git Hunk'},
   {'<leader>r', desc = 'Rename'},
   {'<leader>s', desc = 'Search'},
-  {'<leader>t', desc = 'Toggle'},
+  {'<leader>t', desc = 'Terminal'},
   {'<leader>w', desc = 'Workspace'},
   {'<leader>i', desc = 'Vertical splIts'},
   {'<leader>u', desc = 'Horizontal splits'},
   {'<leader>j', desc = 'Swap Next'},
   {'<leader>k', desc = 'Swap Previous'},
+  {'gj', desc = 'Go to Next Start'},
+  {'gJ', desc = 'Go to Next End'},
+  {'gk', desc = 'Go to Previous Start'},
+  {'gK', desc = 'Go to Previous End'},
 })
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
 require('which-key').add ({
   {'<leader>', name = 'VISUAL <leader>' },
   {'<leader>h', desc = 'Git [H]unk' },
+  {'g', desc = 'Go to'},
 }, { mode = 'v' })
 
 -- mason-lspconfig requires that these setup functions are called in this order
@@ -405,7 +410,10 @@ cmp.setup {
 }
 
 local harpoon = require("harpoon")
-harpoon:setup({})
+harpoon:setup({settings = {
+    save_on_toggle = true,
+    sync_on_ui_close = true,
+},})
 
 local highlight = {
 --     -- "RainbowRed",

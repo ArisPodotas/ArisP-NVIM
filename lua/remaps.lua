@@ -1,28 +1,4 @@
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- These functions are used in the command remaps section
-local harpoon = require("harpoon")
-
-local conf = require("telescope.config").values
-local function toggle_telescope(harpoon_files)
-    local file_paths = {}
-    for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-    end
-
-    require("telescope.pickers").new({}, {
-        prompt_title = "Harpoon",
-        finder = require("telescope.finders").new_table({
-            results = file_paths,
-        }),
-        previewer = conf.file_previewer({}),
-        sorter = conf.generic_sorter({}),
-    }):find()
-end
-
 --[[local function toggle()
 -- vim.opt.list = true
 -- vim.opt.listchars = { space = '·', eol = '$' }
@@ -136,9 +112,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to nor
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 
 -- Splits remaps
--- vim.keymap.set("n", "<leader>ii", "<C-w>v", { desc = 'Opens a vertical split' })
--- vim.keymap.set("n", "<leader>uu", "<C-w>s", { desc = 'Opens a split' })
-
 --[[ These don't work properly becuase the next input isnt picked up as a control w its a plain key
 vim.keymap.set("n", "<C-w>h", "<C-w>h<C-w>", { desc = 'Go to the left window' })
 vim.keymap.set("n", "<C-w>j", "<C-w>j<C-w>", { desc = 'Go to the window below' })
@@ -146,11 +119,9 @@ vim.keymap.set("n", "<C-w>k", "<C-w>k<C-w>", { desc = 'Go to the window above' }
 vim.keymap.set("n", "<C-w>l", "<C-w>l<C-w>", { desc = 'Go to the window to the right' })
 
 Thing i stole form the documentation for remaping the save command
+Looking at this again it's obvious that this is a local command and the buffer part is the local part
 vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
 --]]
-
--- Character listings
--- vim.keymap.set("n", "Lt", toggle(), { desc = "Toggles the space tab and eol characters" })
 
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
@@ -160,11 +131,26 @@ vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted wit
 -- Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
--- KSwitch
--- Now renamed to nvim3D
--- vim.keymap.set("n", "<leader>`", Switch, { desc = "Change all remapst to switch.lua" })
-
 -- Harpoon
+local harpoon = require("harpoon")
+
+local conf = require("telescope.config").values
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({}),
+    }):find()
+end
+
 vim.keymap.set("n", "<leader>p", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
 vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
 
@@ -211,9 +197,12 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous dia
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+--I'm trying
 -- vim.keymap.set('n', "[t", vim.diagnostic.enable(not vim.diagnostic.is_enabled()), { desc = 'Enable diagnostics' })
 
 -- Visual line mode
+-- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
 

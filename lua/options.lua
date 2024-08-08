@@ -5,6 +5,10 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
 -- nerd font
 vim.g.have_nerd_font = true
 
@@ -32,10 +36,6 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
-
--- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -91,4 +91,6 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- aris
---
+
+vim.opt.cursorline = true
+
