@@ -215,6 +215,10 @@ vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
+--Git
+
+vim.keymap.set("n", 'gc', ":Git commit", { desc = '[C]ommit changes' })
+
 -- keybinds that remain un binded for future use
 --
 
