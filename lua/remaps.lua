@@ -28,31 +28,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 
--- vim.keymap.set("n", "<leader>o", function()
---   if not (vim.fn.getftype('.')) then
---     if pcall(function()
---       vim.cmd.execute('')
---       vim.cmd.cd("%")
---       vim.cmd.cd(".")
---     end) ~= 0 then vim.cmd.pwd()
---     else
---       vim.cmd.cd("%")
---       vim.cmd.execute('Ex')
---       vim.cmd.cd(".")
---       vim.cmd.pwd()
---     end
---   else
---     if pcall(function()
---       vim.cmd.cd("%")
---       vim.cmd.cd(".")
---     end) ~= 0 then vim.cmd.pwd()
---     else
---       vim.cmd.cd("%")
---       vim.cmd.cd(".")
---       vim.cmd.pwd()
---     end
---   end
--- end, { desc = 'Changes direct[O]ry to current view' })
 --
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
@@ -60,6 +35,8 @@ vim.keymap.set("n", "<leader>o", function()
     vim.cmd.cd("%")
     vim.cmd.cd(".")
   end) ~= 0 then vim.cmd.pwd()
+  elseif vim.api.nvim_buf_get_name(0) then
+    print('you identified being in the file proeperly')
   else
     vim.cmd.cd("%")
     vim.cmd.cd(".")
@@ -216,8 +193,7 @@ vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
 --Git
-
-vim.keymap.set("n", 'gc', ":Git commit", { desc = '[C]ommit changes' })
+vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
 
 -- keybinds that remain un binded for future use
 --
