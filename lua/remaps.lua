@@ -1,34 +1,9 @@
--- These functions are used in the command remaps section
---[[local function toggle()
--- vim.opt.list = true
--- vim.opt.listchars = { space = '·', eol = '$' }
-end
---]]
-
---[[local function toggle()
--- vim.opt.list = false
-end
---]]
-
--- local function Switch()
---   require("switch")
--- end
---
--- local function pgup()
---   -- implement the font size change
--- end
---
--- local function pgdown()
---   -- Implement the font change down
--- end
-
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
--- Command remaps
+-- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
-vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
+vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
 
---
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
   if pcall(function()
@@ -44,9 +19,9 @@ vim.keymap.set("n", "<leader>o", function()
   end
 end, { desc = 'Changes direct[O]ry to current view' })
 
--- vim.keymap.set("n", "<leader>o", "<leader>x<leader>o", { desc = 'Changes direct[O]ry to current view' })
+-- Tab section
+vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 
--- Terminal splits
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.tabnew()
   vim.fn.termopen("powershell")
@@ -57,6 +32,7 @@ vim.keymap.set("n", "<leader>tb", function()
   vim.fn.termopen("bash")
 end, { desc = 'Opens [B]ash [T]erminal in a new tab' })
 
+-- Vertical section
 vim.keymap.set("n", "<leader>ii", function()
   vim.cmd.vs()
 end, { desc = 'Opens vert[I]cal split' })
@@ -71,6 +47,7 @@ vim.keymap.set("n", "<leader>ib", function()
   vim.cmd.terminal("bash")
 end, { desc = 'Opens [B]ash terminal in a vertical [S]plit' })
 
+-- Under section
 vim.keymap.set("n", "<leader>uu", function()
   vim.cmd.sp()
 end, { desc = 'Opens [S]plit' })
@@ -103,7 +80,6 @@ vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
 
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
--- vim.keymap.set("v", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
 vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
 
 -- Tree sitter parser
@@ -168,7 +144,9 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
--- Keymaps that will most likeley remain uncahnged forever
+--Git
+vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
+vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -179,6 +157,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --I'm trying
 -- vim.keymap.set('n', "[t", vim.diagnostic.enable(not vim.diagnostic.is_enabled()), { desc = 'Enable diagnostics' })
 
+-- Keymaps that will most likeley remain uncahnged forever
+--
 -- Visual line mode
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
@@ -191,10 +171,4 @@ vim.keymap.set("n", "{", "{zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
-
---Git
-vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
-
--- keybinds that remain un binded for future use
---
 
