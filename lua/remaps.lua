@@ -28,43 +28,44 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 
-vim.keymap.set("n", "<leader>o", function()
-  if (vim.api.nvim_get_current_buf()) then
-    if pcall(function()
-      vim.cmd.cd("%")
-      vim.cmd.cd(".")
-    end) ~= 0 then vim.cmd.pwd()
-    else
-      vim.cmd.cd("%")
-      vim.cmd.cd(".")
-      vim.cmd.pwd()
-    end
-  else
-    vim.cmd.execute('Ex')
-    if pcall(function()
-      vim.cmd.cd("%")
-      vim.cmd.cd(".")
-    end) ~= 0 then vim.cmd.pwd()
-    else
-      vim.cmd.cd("%")
-      vim.cmd.cd(".")
-      vim.cmd.pwd()
-    end
-  end
-end, { desc = 'Changes direct[O]ry to current view' })
---
--- Change directory
 -- vim.keymap.set("n", "<leader>o", function()
---   if pcall(function()
---     vim.cmd.cd("%")
---     vim.cmd.cd(".")
---   end) ~= 0 then vim.cmd.pwd()
+--   if not (vim.fn.getftype('.')) then
+--     if pcall(function()
+--       vim.cmd.execute('')
+--       vim.cmd.cd("%")
+--       vim.cmd.cd(".")
+--     end) ~= 0 then vim.cmd.pwd()
+--     else
+--       vim.cmd.cd("%")
+--       vim.cmd.execute('Ex')
+--       vim.cmd.cd(".")
+--       vim.cmd.pwd()
+--     end
 --   else
---     vim.cmd.cd("%")
---     vim.cmd.cd(".")
---     vim.cmd.pwd()
+--     if pcall(function()
+--       vim.cmd.cd("%")
+--       vim.cmd.cd(".")
+--     end) ~= 0 then vim.cmd.pwd()
+--     else
+--       vim.cmd.cd("%")
+--       vim.cmd.cd(".")
+--       vim.cmd.pwd()
+--     end
 --   end
 -- end, { desc = 'Changes direct[O]ry to current view' })
+--
+-- Change directory
+vim.keymap.set("n", "<leader>o", function()
+  if pcall(function()
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+  end) ~= 0 then vim.cmd.pwd()
+  else
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+    vim.cmd.pwd()
+  end
+end, { desc = 'Changes direct[O]ry to current view' })
 
 -- vim.keymap.set("n", "<leader>o", "<leader>x<leader>o", { desc = 'Changes direct[O]ry to current view' })
 

@@ -61,8 +61,6 @@ end
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 
--- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup { sync_install = true,
@@ -234,7 +232,6 @@ vim.defer_fn(function()
   }
 end, 0)
 
--- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -442,10 +439,26 @@ end)
 
 require("ibl").setup { indent = { highlight = highlight } }
 
--- require("ibl").setup()
-
 require("netrw").setup({use_devicons = true})
 
+-- require('mini.ai').setup({
+--    mappings = {
+--     -- Main textobject prefixes
+--     around = 'a',
+--     inside = 'i',
+--
+--     -- Next/last variants
+--     around_next = 'aN',
+--     inside_next = 'iN',
+--     around_last = 'aL',
+--     inside_last = 'iL',
+--
+--     -- Move cursor to corresponding edge of `a` textobject
+--     goto_left = 'g[',
+--     goto_right = 'g]',
+--   },
+-- })
+--
 require('mini.icons').setup({
     default = {
       -- Override default glyph for "file" category (reuse highlight group)
