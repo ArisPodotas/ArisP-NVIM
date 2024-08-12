@@ -92,5 +92,6 @@ vim.opt.splitbelow = true
 
 -- aris
 
+-- Allow cursor on all positons of screen
 vim.opt.cursorline = true
 

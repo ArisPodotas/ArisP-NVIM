@@ -4,6 +4,6 @@ vim.g.maplocalleader = ' '
 
 require("options")
 require("requirements")
-require("remaps")
 require("rconfig")
+require("remaps")
 

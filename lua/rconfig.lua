@@ -437,7 +437,11 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
   vim.api.nvim_set_hl(0, "Whiteness", { fg = "#393939" })
 end)
 
-require("ibl").setup { indent = { highlight = highlight } }
+require("ibl").setup {
+  indent = { highlight = highlight },
+  whitespace = { remove_blankline_trail = true, highlight = highlight},
+  scope = { enabled = true }
+}
 
 require("netrw").setup({use_devicons = true})
 
