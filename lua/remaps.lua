@@ -27,11 +27,6 @@ vim.keymap.set("n", "<leader>tt", function()
   vim.fn.termopen("powershell")
 end, { desc = 'Opens the powershell [T]erminal in a new tab' })
 
-vim.keymap.set("n", "<leader>tb", function()
-  vim.cmd.tabnew()
-  vim.fn.termopen("bash")
-end, { desc = 'Opens [B]ash [T]erminal in a new tab' })
-
 -- Vertical section
 vim.keymap.set("n", "<leader>ii", function()
   vim.cmd.vs()
@@ -42,11 +37,6 @@ vim.keymap.set("n", "<leader>it", function()
   vim.cmd.terminal("powershell")
 end, { desc = 'Opens [T]erminal in a [V]ertical split' })
 
-vim.keymap.set("n", "<leader>ib", function()
-  vim.cmd.vs()
-  vim.cmd.terminal("bash")
-end, { desc = 'Opens [B]ash terminal in a vertical [S]plit' })
-
 -- Under section
 vim.keymap.set("n", "<leader>uu", function()
   vim.cmd.sp()
@@ -56,11 +46,6 @@ vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.sp()
   vim.cmd.terminal("powershell")
 end, { desc = 'Opens [T]erminal [S]plit' })
-
-vim.keymap.set("n", "<leader>ub", function()
-  vim.cmd.sp()
-  vim.cmd.terminal("bash")
-end, { desc = 'Opens [B]ash terminal [S]plit' })
 
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
@@ -147,6 +132,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
 vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
 vim.keymap.set("n", '<leader>gs', ":Git status<CR>", { desc = 'Git [S]tatus' })
+vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
