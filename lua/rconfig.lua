@@ -275,6 +275,7 @@ require('which-key').add ({
   {'<leader>c', desc = 'Code'},
   {'<leader>d', desc = 'Document'},
   {'<leader>g', desc = 'Git'},
+  {'<leader>gr', desc = 'Git Remote'},
   {'<leader>h', desc = 'Git Hunk'},
   {'<leader>r', desc = 'Rename'},
   {'<leader>s', desc = 'Search'},

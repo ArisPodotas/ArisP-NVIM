@@ -4,6 +4,13 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
 
+-- Makes the terminal a little more vimy
+vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+
+-- Makes me do less strokes could be removed and obv bypass the terminal (justify the placement here)
+vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = 'Always opens the terminal in vim mode' })
+vim.keymap.set("n", "<C-q>", ":q<CR>", { desc = 'Always opens the terminal in vim mode' })
+
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
   if pcall(function()
@@ -51,18 +58,6 @@ end, { desc = 'Opens [T]erminal [S]plit' })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 
--- Splits remaps
---[[ These don't work properly becuase the next input isnt picked up as a control w its a plain key
-vim.keymap.set("n", "<C-w>h", "<C-w>h<C-w>", { desc = 'Go to the left window' })
-vim.keymap.set("n", "<C-w>j", "<C-w>j<C-w>", { desc = 'Go to the window below' })
-vim.keymap.set("n", "<C-w>k", "<C-w>k<C-w>", { desc = 'Go to the window above' })
-vim.keymap.set("n", "<C-w>l", "<C-w>l<C-w>", { desc = 'Go to the window to the right' })
-
-Thing i stole form the documentation for remaping the save command
-Looking at this again it's obvious that this is a local command and the buffer part is the local part
-vim.keymap.set('n', '<leader>w', "<cmd>w<cr>", { silent = true, buffer = 5 })
---]]
-
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
 vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
@@ -107,8 +102,6 @@ vim.keymap.set("n", "<A-t>", function() toggle_telescope(harpoon:list()) end, { 
 vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
 vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
 
--- Control T section
-
 -- Telescope
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -133,6 +126,9 @@ vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes'
 vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
 vim.keymap.set("n", '<leader>gs', ":Git status<CR>", { desc = 'Git [S]tatus' })
 vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
+vim.keymap.set("n", '<leader>grv', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
+vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })
+vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
@@ -140,11 +136,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
---I'm trying
--- vim.keymap.set('n', "[t", vim.diagnostic.enable(not vim.diagnostic.is_enabled()), { desc = 'Enable diagnostics' })
-
 -- Keymaps that will most likeley remain uncahnged forever
---
+
 -- Visual line mode
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
