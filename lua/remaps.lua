@@ -34,6 +34,16 @@ vim.keymap.set("n", "<leader>tt", function()
   vim.fn.termopen("powershell")
 end, { desc = 'Opens the powershell [T]erminal in a new tab' })
 
+vim.keymap.set("n", "<leader>ta", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("arch")
+end, { desc = 'Opens the [A]rch [T]erminal in a new tab' })
+
+vim.keymap.set("n", "<leader>tu", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("ubuntu")
+end, { desc = 'Opens the [U]buntu [T]erminal in a new tab' })
+
 -- Vertical section
 vim.keymap.set("n", "<leader>ii", function()
   vim.cmd.vs()
@@ -44,6 +54,16 @@ vim.keymap.set("n", "<leader>it", function()
   vim.cmd.terminal("powershell")
 end, { desc = 'Opens [T]erminal in a [V]ertical split' })
 
+vim.keymap.set("n", "<leader>ia", function()
+  vim.cmd.vs()
+  vim.cmd.terminal("arch")
+end, { desc = 'Opens [A]ch in a [V]ertical split' })
+
+vim.keymap.set("n", "<leader>iu", function()
+  vim.cmd.vs()
+  vim.cmd.terminal("ubuntu")
+end, { desc = 'Opens [U]buntu in a [V]ertical split' })
+
 -- Under section
 vim.keymap.set("n", "<leader>uu", function()
   vim.cmd.sp()
@@ -53,6 +73,16 @@ vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.sp()
   vim.cmd.terminal("powershell")
 end, { desc = 'Opens [T]erminal [S]plit' })
+
+vim.keymap.set("n", "<leader>ua", function()
+  vim.cmd.sp()
+  vim.cmd.terminal("arch")
+end, { desc = 'Opens [A]rch [S]plit' })
+
+vim.keymap.set("n", "<leader>ub", function()
+  vim.cmd.sp()
+  vim.cmd.terminal("ubuntu")
+end, { desc = 'Opens u[B]untu [S]plit' })
 
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
@@ -131,17 +161,36 @@ vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', 'gkd', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', 'gjd', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- Variable to track diagnostic visibility state
+local diagnostics_active = true
+
+function ToggleDiagnostics()
+    diagnostics_active = not diagnostics_active
+    if diagnostics_active then
+        vim.diagnostic.enable()
+        print("Diagnostics enabled")
+    else
+        vim.diagnostic.enable(false)
+        print("Diagnostics disabled")
+    end
+end
+
+vim.keymap.set('n', '<leader>dt', ':lua ToggleDiagnostics()<CR>', { desc = "[T]oggle [D]iagnostics" })
+
 -- Keymaps that will most likeley remain uncahnged forever
 
--- Visual line mode
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
+
+vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
+vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>l", { desc = 'Adds a newline at cursor position' })
+vim.keymap.set("i", "<C-v>", "<C-c>lpi", { desc = 'Adds a newline where the cursor is to write' })
 
 -- Remapping page jumps to center screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Center screen after half page jump' })

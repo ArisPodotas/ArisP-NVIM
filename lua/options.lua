@@ -22,7 +22,7 @@ vim.wo.relativenumber = true
 vim.o.mouse = 'a'
 
 -- Sync clipboard between OS and Neovim.
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = 'unnamed'
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -38,7 +38,7 @@ vim.o.smartcase = true
 vim.wo.signcolumn = 'yes'
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menuone,noselect,preview,noinsert,popup'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
