@@ -8,8 +8,11 @@ vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to
 vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
 
 -- Makes me do less strokes could be removed and obv bypass the terminal (justify the placement here)
-vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = 'Always opens the terminal in vim mode' })
-vim.keymap.set("n", "<C-q>", ":q<CR>", { desc = 'Always opens the terminal in vim mode' })
+vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = '[S]ave' })
+vim.keymap.set("n", "<C-q>", ":q<CR>", { desc = '[Q]uits' })
+
+vim.keymap.set("n", "zj", ":w<CR>", { desc = '[S]ave' })
+vim.keymap.set("n", "zk", ":q<CR>", { desc = '[Q]uits' })
 
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
@@ -84,9 +87,10 @@ vim.keymap.set("n", "<leader>ub", function()
   vim.cmd.terminal("ubuntu")
 end, { desc = 'Opens u[B]untu [S]plit' })
 
--- Terminal exit
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
-vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
+vim.keymap.set("n", "+", "<C-w>3>", { desc = 'Increase width of split by 3' })
+vim.keymap.set("n", "-", "<C-w>3<", { desc = 'Decrease width of split by 3' })
 
 -- Remapping replacing in file
 vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
@@ -94,6 +98,11 @@ vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted wit
 
 -- Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
+
+--buffers 
+vim.keymap.set("n", "<leader>l", ":ls<CR>", { desc = '[L]ist all buffers' })
+vim.keymap.set("n", "<A-n>", ":bn<CR>", { desc = 'go to [N]ext [B]uffer' })
+vim.keymap.set("n", "<A-m>", ":bp<CR>", { desc = 'go to previous [B]uffer' })
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -159,10 +168,11 @@ vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize'
 vim.keymap.set("n", '<leader>grv', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
 vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
+vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', 'gkd', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', 'gjd', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', 'gkd', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
@@ -188,9 +198,9 @@ vim.keymap.set('n', '<leader>dt', ':lua ToggleDiagnostics()<CR>', { desc = "[T]o
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
 
-vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
-vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>l", { desc = 'Adds a newline at cursor position' })
-vim.keymap.set("i", "<C-v>", "<C-c>lpi", { desc = 'Adds a newline where the cursor is to write' })
+-- vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
+vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at cursor position' })
+vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
 
 -- Remapping page jumps to center screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Center screen after half page jump' })
@@ -199,4 +209,9 @@ vim.keymap.set("n", "{", "{zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' })
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
+
+-- Maps that will stay the same forever
+-- Terminal exit
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 

@@ -289,6 +289,7 @@ require('which-key').add ({
   {'gJ', desc = 'Go to Next End'},
   {'gk', desc = 'Go to Previous Start'},
   {'gK', desc = 'Go to Previous End'},
+  {'ZZ', desc = 'Saves and quits'},
 })
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
@@ -301,25 +302,26 @@ require('which-key').add ({
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({ensure_installed = {'pyright', 'lua_ls', 'clangd', 'html', 'ts_ls', 'cssls'}})
 
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+require'lspconfig'.clangd.setup{}
+
 local servers = {
   clangd = {},
   -- gopls = {},
   pyright = {},
-  -- python lsp = {}
   perlnavigator = {},
   intelephense =  {},
   powershell_es = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
-  tsserver = {},
+  ts_ls = {},
   cssls = {},
   lua_ls = {
     Lua = {
@@ -414,36 +416,13 @@ harpoon:setup({settings = {
     sync_on_ui_close = true,
 },})
 
-local highlight = {
---     -- "RainbowRed",
---     -- "RainbowYellow",
---     -- "RainbowBlue",
---     -- "RainbowOrange",
-    -- "RainbowGreen",
---     -- "RainbowViolet",
---     -- "RainbowCyan",
-    "Whiteness"
-}
+--   vim.api.nvim_set_hl(0, "Whiteness", { fg = "#393939" })
 
-local hooks = require "ibl.hooks"
--- -- create the highlight groups in the highlight setup hook, so they are reset
--- -- every time the colorscheme changes
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
---     -- vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
---     -- vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
---     -- vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
---     -- vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-      -- vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
---     -- vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
---     -- vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-  vim.api.nvim_set_hl(0, "Whiteness", { fg = "#393939" })
-end)
-
-require("ibl").setup {
-  indent = { highlight = highlight },
-  whitespace = { remove_blankline_trail = true, highlight = highlight},
-  scope = { enabled = true }
-}
+require("ibl").setup({
+  indent = { char = "│", tab_char = '│'},
+  -- whitespace = { remove_blankline_trail = true },
+  -- scope = { enabled = true, highlight = { "CursorColumn", "Whitespace" } }
+})
 
 require("netrw").setup({use_devicons = true})
 

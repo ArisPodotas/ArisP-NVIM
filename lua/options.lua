@@ -52,7 +52,7 @@ vim.opt.showbreak = "󰘍" -- Icon for the wrapped line
 vim.opt.linebreak = true -- No idea
 
 -- Never have less than 12 lines above or below cursor
-vim.opt.scrolloff = 12
+vim.opt.scrolloff = 20
 
 -- Tabs indent at 4 spaces
 vim.opt.tabstop = 4
@@ -62,8 +62,8 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.listchars = { eol = '↲', tab = '│ ', space = '·', lead = ' ' }
 vim.opt.list = true
-vim.opt.listchars = { eol = '↲', tab = '|  ', space = '·', lead = ' ' }
 
 -- Something about line number printing position
 vim.opt.nu = true

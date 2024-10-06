@@ -168,15 +168,13 @@ require('lazy').setup({
             strings = 'none',
             variables = 'none'
         },
-
         -- Lualine options --
         lualine = {
             transparent = true, -- lualine center bar transparency
         },
-
         -- -- Custom Highlights --
-        -- colors = {
-        -- },
+        colors = {
+        },
         highlights = {
         CurSearch = {fg = '#ffffff', bg = '#7a05ff', fmt = 'underline,italic'},
         IncSearch = {fg = '#ffffff', bg = '#9c06c9', fmt = 'underline,italic'},
@@ -192,7 +190,12 @@ require('lazy').setup({
         -- CursorLine = {bg = '#555555'},
         -- ColorColumn = {bg = '#555555'},
         -- CursorLineNr = {fg = '#555555'},
-        }
+        },
+        diagnostics = {
+          darker = true,
+          undercurl = false,
+          background = true,
+        },
       }
       require('onedark').load()
     end,
@@ -205,6 +208,7 @@ require('lazy').setup({
         icons_enabled = true,
         theme = 'onedark',
         -- component_separators = { left = '', right = '' },
+        -- component_separators = { left = '|', right = '|' },
         component_separators = { left = '/', right = '/' },
         -- component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
@@ -215,21 +219,22 @@ require('lazy').setup({
         lualine_a = {'mode'},
         lualine_b = {'branch', 'diff', { 'diagnostics', symbols = { error = ' ', warn = ' ', info = ' ', hint = ' '}, sources = { "nvim_diagnostic" } } },
         lualine_c = {'filename'},
-        lualine_y = {'progress'},
-        lualine_z = {'location', 'searchcount', function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
-            if handle then
-              local result = handle:read("*a")
-              handle:close()
-              local batteryPercentage = tonumber(result:match("%d+"))
-              return tostring(batteryPercentage) .. " 󰁹"
-            else
-              print("batteryPercentage failed")
-            end
-          end,
-          function ()
-            local dateTimeString = os.date("%d-%m %H:%M")
-            return dateTimeString
-          end
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress', function() return vim.fn.line('$') end},
+        lualine_z = {'location', 'searchcount', --function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
+          --   if handle then
+          --     local result = handle:read("*a")
+          --     handle:close()
+          --     local batteryPercentage = tonumber(result:match("%d+"))
+          --     return tostring(batteryPercentage) .. " 󰁹"
+          --   else
+          --     print("batteryPercentage failed")
+          --   end
+          -- end,
+          -- function ()
+          --   local dateTimeString = os.date("%d-%m %H:%M")
+          --   return dateTimeString
+          -- end
         }
       },
     },
