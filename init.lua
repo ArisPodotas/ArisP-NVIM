@@ -4,6 +4,12 @@ vim.g.maplocalleader = ' '
 
 require("options")
 require("requirements")
-require("rconfig")
+require('Telescope')
+require('Treesitter')
+require('Which')
+require('Lsp')
+require('Harpoon')
+require('Ibl')
+require('Mini')
 require("remaps")
 
