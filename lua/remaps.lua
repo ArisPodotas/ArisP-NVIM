@@ -163,7 +163,8 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 --Git
 vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
 vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
-vim.keymap.set("n", '<leader>gs', ":Git status<CR>", { desc = 'Git [S]tatus' })
+vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative --all<CR>", { desc = 'Git [L]og [T]ree Full' })
+vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git [S]tatus' })
 vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
 vim.keymap.set("n", '<leader>grv', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
 vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })

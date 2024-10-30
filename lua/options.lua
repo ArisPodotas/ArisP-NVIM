@@ -28,6 +28,7 @@ vim.o.clipboard = 'unnamed'
 vim.o.breakindent = true
 
 -- Save undo history
+-- Could this have to do with the shada file issue
 vim.o.undofile = true
 
 -- Case-insensitive searching UNLESS \C or capital in search

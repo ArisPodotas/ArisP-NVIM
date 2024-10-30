@@ -65,7 +65,7 @@ vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup { sync_install = true,
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'vimdoc', 'vim', 'bash', 'perl', 'javascript', 'html', 'css', 'php' }, -- 'go', 'tsx', 'typescript'
+    ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'vimdoc', 'vim', 'bash', 'perl', 'javascript', 'html', 'css', 'php' , 'r' }, -- 'go', 'tsx', 'typescript'
     modules = {},
     ignore_install = {},
 
@@ -308,7 +308,7 @@ require('mason-lspconfig').setup({ensure_installed = {'pyright', 'lua_ls', 'clan
 --  the `settings` field of the server config. You must look up that documentation yourself.
 --
 --  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
+--
 require'lspconfig'.clangd.setup{}
 
 local servers = {
@@ -318,6 +318,7 @@ local servers = {
   perlnavigator = {},
   intelephense =  {},
   powershell_es = {},
+  -- r_language_server = {},
   -- rust_analyzer = {},
   -- tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs'} },
