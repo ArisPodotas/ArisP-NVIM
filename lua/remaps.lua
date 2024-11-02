@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
 
 -- Makes the terminal a little more vimy
-vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+-- vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
 
 -- Makes me do less strokes could be removed and obv bypass the terminal (justify the placement here)
 vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = '[S]ave' })

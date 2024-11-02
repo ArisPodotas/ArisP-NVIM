@@ -77,6 +77,7 @@ vim.opt.relativenumber = true
 
 -- netrw
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_indent = 3
 
 -- File manager sorts files by type
 vim.g.netrw_sort_by = "extention"

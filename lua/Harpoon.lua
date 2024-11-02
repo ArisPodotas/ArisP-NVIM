@@ -4,4 +4,3 @@ harpoon:setup({settings = {
     sync_on_ui_close = true,
 },})
 
-
