@@ -1,18 +1,28 @@
+-- Important I just found out that %s works because % is the current file, '<,'>s is the equivalent for only the highlight Note no %s just s.
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
 
+-- Autosave
+-- These should be at the top
+vim.keymap.set("i", "<Esc>", '<Esc>:w<CR>', { desc = 'Autosaves on [E]xit' })
+vim.keymap.set("n", "x", 'x:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "u", 'u:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "<C-r>", '<C-r>:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "p", 'p:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "dd", 'dd:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("v", "d", 'd:w<CR>', { desc = 'Returns to [H]ome directory' })
+
 -- Makes the terminal a little more vimy
--- vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
 
 -- Makes me do less strokes could be removed and obv bypass the terminal (justify the placement here)
-vim.keymap.set("n", "<C-s>", ":w<CR>", { desc = '[S]ave' })
-vim.keymap.set("n", "<C-q>", ":q<CR>", { desc = '[Q]uits' })
-
-vim.keymap.set("n", "zj", ":w<CR>", { desc = '[S]ave' })
-vim.keymap.set("n", "zk", ":q<CR>", { desc = '[Q]uits' })
+vim.keymap.set("n", "zj", vim.cmd.w, { desc = '[S]ave' })
+-- vim.keymap.set("n", "zj", ":w<CR>", { desc = '[S]ave' })
+-- vim.keymap.set("n", "zk", ":w<CR>q<CR>", { desc = '[Q]uits' })
+vim.keymap.set("n", "zk", vim.cmd.q, { desc = '[Q]uits' })
 
 -- Change directory
 vim.keymap.set("n", "<leader>o", function()
@@ -31,6 +41,7 @@ end, { desc = 'Changes direct[O]ry to current view' })
 
 -- Tab section
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
+vim.keymap.set("n", "<A-t>", ":tabn<CR>", { desc = 'Will change [T]ab' })
 
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.tabnew()
@@ -41,6 +52,10 @@ vim.keymap.set("n", "<leader>tu", function()
   vim.cmd.tabnew()
   vim.fn.termopen("ubuntu")
 end, { desc = 'Opens the [U]buntu [T]erminal in a new tab' })
+
+-- splits section
+vim.keymap.set("n", "<C-w>c", ":wincmd H<CR>", { desc = 'Will make the [W]indow from horizontal to vertical' })
+vim.keymap.set("n", "<C-w>e", ":wincmd K<CR>", { desc = 'Will make the [W]indow from vertical to horizontal' })
 
 -- Vertical section
 vim.keymap.set("n", "<leader>ii", function()
@@ -85,6 +100,7 @@ vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted wit
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
 --buffers 
+--This might change
 vim.keymap.set("n", "<leader>l", ":ls<CR>", { desc = '[L]ist all buffers' })
 vim.keymap.set("n", "<A-n>", ":bn<CR>", { desc = 'go to [N]ext [B]uffer' })
 vim.keymap.set("n", "<A-m>", ":bp<CR>", { desc = 'go to previous [B]uffer' })
@@ -108,8 +124,8 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
-vim.keymap.set("n", "<leader>p", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
+vim.keymap.set("n", "<A-p>", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
+vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
 
 vim.keymap.set("n", "<A-0>", function() harpoon:list():select(0) end, { desc = "Opens 0th(?) harpoon listing file" })
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })
@@ -122,7 +138,7 @@ vim.keymap.set("n", "<A-7>", function() harpoon:list():select(7) end, { desc = "
 vim.keymap.set("n", "<A-8>", function() harpoon:list():select(8) end, { desc = "Opens eighth harpoon listing file" })
 vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end, { desc = "Opens ninth harpoon listing file" })
 
-vim.keymap.set("n", "<A-t>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
+vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
 vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
 vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
 
@@ -151,7 +167,7 @@ vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
 vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative --all<CR>", { desc = 'Git [L]og [T]ree Full' })
 vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git [S]tatus' })
 vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
-vim.keymap.set("n", '<leader>grv', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
+vim.keymap.set("n", '<leader>gr', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
 vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
@@ -196,7 +212,6 @@ vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
--- Maps that will stay the same forever
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
 vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })

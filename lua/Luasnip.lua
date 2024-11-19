@@ -42,7 +42,7 @@ end
 -- Watch TJ for a better way to do this using lua instead of the pre made functions
 -- https://www.youtube.com/watch?v=Dn800rlPIho&t=589s
 -- Use "source %" for recompiling this file and using the snippets within the local nvim instance
---template
+-- template
         -- s('',
         --     fmt('',
         --         {
@@ -65,9 +65,9 @@ ls.add_snippets(
                     i(6, '[name]'),
                     i(7, 'info'),
                     i(8, 'fname'),
-                    f(copy, 1),
-                    i(0, 'body'),
-                    f(copy, 5)
+                    f(copy, 2),
+                    i(0, '-- body'),
+                    f(copy, 6)
                 }
             )
         )

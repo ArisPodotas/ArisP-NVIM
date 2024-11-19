@@ -6,8 +6,9 @@
 vim.o.hlsearch = false
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.updatetime = 100
+vim.o.timeoutlen = 3000
+vim.opt.timeout = false
 
 -- nerd font
 vim.g.have_nerd_font = true
@@ -53,7 +54,7 @@ vim.opt.showbreak = "󰘍" -- Icon for the wrapped line
 vim.opt.linebreak = true -- No idea
 
 -- Never have less than 12 lines above or below cursor
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 12
 
 -- Tabs indent at 4 spaces
 vim.opt.tabstop = 4
