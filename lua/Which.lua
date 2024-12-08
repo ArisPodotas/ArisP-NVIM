@@ -1,3 +1,19 @@
+-- Setup which-key options
+require('which-key').setup({
+    opts = { triggers = { { "<auto>", mode = "nxso" }, {"<A>", mode = "nxso"} } }, -- Alt still wont work but at leas now the other binds are not broken
+    plugins = {
+        spelling = {
+            enabled = true, -- Enable spelling suggestions
+        },
+    },
+    -- Keybinding timeout settings
+    timeoutlen = 300, -- Time to wait for a key sequence (in ms)
+    window = {
+        border = "rounded", -- Border style for the popup window
+        position = "bottom", -- Popup window position
+    },
+})
+
 -- document existing key chains
 require('which-key').add ({
   {'<leader>c', desc = 'Code'},
@@ -23,6 +39,7 @@ require('which-key').add ({
   {'<A-t>', desc = 'Alternate tab'},
   {'<A-1>', desc = 'First harpoon listing item'},
 })
+
 -- register which-key VISUAL mode
 -- required for visual <leader>hs (hunk stage) to work
 require('which-key').add ({
