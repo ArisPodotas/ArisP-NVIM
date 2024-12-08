@@ -13,3 +13,6 @@ I guess you can fork this repo but for what purpose.
 - [ ] Edit the plugins by making a different branch for them in git so that mason does not bug my ass about not being able to pull
 - [ ] Make a file sourcing keybing setup
 
+# Linux
+
+This branch will remove and change things in the config such that it works on linux.

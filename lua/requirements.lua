@@ -339,7 +339,7 @@ require('lazy').setup({
   -- didnt uninstall still here if i want to enalbe lt
   {
     'prichrd/netrw.nvim',
-    opts = {}
+    opts = {icons = {symlinks = '>', directory = '󰉋', file = '󰈔'}}
   },
 
   { 'echasnovski/mini.nvim', version = false },

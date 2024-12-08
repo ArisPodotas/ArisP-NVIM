@@ -3,7 +3,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
-vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "<leader>H", ':cd /home/aris/<CR>', { desc = 'Returns to [H]ome directory' })
 
 -- Autosave
 -- These should be at the top
@@ -45,13 +45,8 @@ vim.keymap.set("n", "<A-t>", ":tabn<CR>", { desc = 'Will change [T]ab' })
 
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.tabnew()
-  vim.fn.termopen("powershell")
+  vim.cmd.terminal()
 end, { desc = 'Opens the powershell [T]erminal in a new tab' })
-
-vim.keymap.set("n", "<leader>tu", function()
-  vim.cmd.tabnew()
-  vim.fn.termopen("ubuntu")
-end, { desc = 'Opens the [U]buntu [T]erminal in a new tab' })
 
 -- splits section
 vim.keymap.set("n", "<C-w>c", ":wincmd H<CR>", { desc = 'Will make the [W]indow from horizontal to vertical' })
@@ -64,13 +59,8 @@ end, { desc = 'Opens vert[I]cal split' })
 
 vim.keymap.set("n", "<leader>it", function()
   vim.cmd.vs()
-  vim.cmd.terminal("powershell")
+  vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal in a [V]ertical split' })
-
-vim.keymap.set("n", "<leader>iu", function()
-  vim.cmd.vs()
-  vim.cmd.terminal("ubuntu")
-end, { desc = 'Opens [U]buntu in a [V]ertical split' })
 
 -- Under section
 vim.keymap.set("n", "<leader>uu", function()
@@ -79,13 +69,8 @@ end, { desc = 'Opens [S]plit' })
 
 vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.sp()
-  vim.cmd.terminal("powershell")
+  vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal [S]plit' })
-
-vim.keymap.set("n", "<leader>ub", function()
-  vim.cmd.sp()
-  vim.cmd.terminal("ubuntu")
-end, { desc = 'Opens u[B]untu [S]plit' })
 
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
