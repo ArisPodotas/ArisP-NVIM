@@ -150,7 +150,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'supermaiven' },
+    -- { name = 'supermaiven' },
     { name = 'path' },
     { name = 'buffer' },
   },

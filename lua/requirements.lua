@@ -345,14 +345,14 @@ require('lazy').setup({
   { 'echasnovski/mini.nvim', version = false },
 
   -- AI power
-  { "supermaven-inc/supermaven-nvim",
-      config = function()
-        require("supermaven-nvim").setup({
-        diable_inline_completion = true,
-        diable_keymaps = true,
-      })
-      end,
-  },
+  -- { "supermaven-inc/supermaven-nvim",
+  --     config = function()
+  --       require("supermaven-nvim").setup({
+  --       diable_inline_completion = true,
+  --       diable_keymaps = true,
+  --     })
+  --     end,
+  -- },
 
 }, {})
 
