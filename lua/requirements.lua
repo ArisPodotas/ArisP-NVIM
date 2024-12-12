@@ -73,7 +73,10 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6f60d52095e129be40a03e99317a5aae0f8a7cc0
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -340,10 +343,23 @@ require('lazy').setup({
   -- didnt uninstall still here if i want to enalbe lt
   {
     'prichrd/netrw.nvim',
-    opts = {}
+    opts = {icons = {symlinks = '>', directory = '󰉋', file = '󰈔'}}
   },
 
   { 'echasnovski/mini.nvim', version = false },
 
+<<<<<<< HEAD
+=======
+  -- AI power
+  -- { "supermaven-inc/supermaven-nvim",
+  --     config = function()
+  --       require("supermaven-nvim").setup({
+  --       diable_inline_completion = true,
+  --       diable_keymaps = true,
+  --     })
+  --     end,
+  -- },
+
+>>>>>>> 6f60d52095e129be40a03e99317a5aae0f8a7cc0
 }, {})
 

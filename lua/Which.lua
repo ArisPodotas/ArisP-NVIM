@@ -1,6 +1,10 @@
 -- Setup which-key options
 require('which-key').setup({
+<<<<<<< HEAD
     opts = { triggers = { { "<auto>", mode = "nxso" }, {"<A>", mode = "nxso"} } }, -- Alt still wont work but at leas now the other binds are not broken
+=======
+    opts = { triggers = { { "<auto>", mode = "nxso" } } },
+>>>>>>> 6f60d52095e129be40a03e99317a5aae0f8a7cc0
     plugins = {
         spelling = {
             enabled = true, -- Enable spelling suggestions
@@ -36,8 +40,8 @@ require('which-key').add ({
   {'ZZ', desc = 'Saves and quits'},
   -- add viel,r
   {'ZZ', desc = 'Saves and quits'},
-  {'<A-t>', desc = 'Alternate tab'},
-  {'<A-1>', desc = 'First harpoon listing item'},
+  -- {'<A-t>', desc = 'Alternate tab'},
+  -- {'<A-1>', desc = 'First harpoon listing item'},
 })
 
 -- register which-key VISUAL mode
