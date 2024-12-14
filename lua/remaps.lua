@@ -111,6 +111,8 @@ end, { desc = 'Opens u[B]untu [S]plit' })
 
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = 'Go to Top split in view' })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = 'Go to Bottom split in view' })
 vim.keymap.set("n", "+", "<C-w>3>", { desc = 'Increase width of split by 3' })
 vim.keymap.set("n", "-", "<C-w>3<", { desc = 'Decrease width of split by 3' })
 
@@ -147,10 +149,9 @@ local function toggle_telescope(harpoon_files)
 end
 
 -- List edits
-vim.keymap.set("n", "<A-p>", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
+vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end, { desc = '[A]ppends the file to the harpoon list' })
 vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
 vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
-
 -- Jumps
 vim.keymap.set("n", "<A-0>", function() harpoon:list():select(0) end, { desc = "Opens 0th(?) harpoon listing file" })
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })
@@ -163,8 +164,8 @@ vim.keymap.set("n", "<A-7>", function() harpoon:list():select(7) end, { desc = "
 vim.keymap.set("n", "<A-8>", function() harpoon:list():select(8) end, { desc = "Opens eighth harpoon listing file" })
 vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end, { desc = "Opens ninth harpoon listing file" })
 -- And the best ones
-vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
-vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<A-n>", function() harpoon:list():next() end, {desc = "[N]ext harpoon listing" })
+vim.keymap.set("n", "<A-p>", function() harpoon:list():prev() end, {desc = "[P]revious harpoon listing" })
 
 -- Telescope
 vim.keymap.set('n', '<leader>br', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })

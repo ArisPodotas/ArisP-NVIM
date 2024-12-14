@@ -66,7 +66,7 @@ which.add (
             {'gk', desc = 'Go to Previous Start'},
             {'gK', desc = 'Go to Previous End'},
             {'ZZ', desc = 'Saves and quits'},
-            -- add viel,r
+
             {'ZZ', desc = 'Saves and quits'},
             {'<A-t>', desc = 'Alternate tab'},
             {'<A-1>', desc = 'First harpoon listing item'},

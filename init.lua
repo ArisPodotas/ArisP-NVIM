@@ -2,15 +2,19 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require("options")
-require("requirements")
+require("Options")
+require("Requirements")
+require('Onedark')
+require('Lualine')
 require('Telescope')
 require('Treesitter')
 require('Lsp')
 require('Luasnip')
+require('Gitsigns')
 require('Harpoon')
 require('Ibl')
 require('Mini')
 require('Which')
-require("remaps")
+require('Cmnt')
+require("Remaps")
 
