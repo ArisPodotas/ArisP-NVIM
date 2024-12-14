@@ -1,5 +1,7 @@
 -- Setup which-key options
-require('which-key').setup({
+local which = require('which-key')
+
+which.setup({
     opts = { triggers = { { "<auto>", mode = "nxso" }, {"<A>", mode = "nxso"} } }, -- Alt still wont work but at leas now the other binds are not broken
     plugins = {
         spelling = {
@@ -15,11 +17,14 @@ require('which-key').setup({
 })
 
 -- document existing key chains
-require('which-key').add ({
+which.add ({
   {'<leader>c', desc = 'Code'},
-  {'<leader>d', desc = 'Document'},
+  {'<leader>b', desc = 'Buffer'},
+  {'<leader>f', desc = 'Find'},
+  {'<leader>d', desc = 'Document, Diagnostics'},
   {'<leader>g', desc = 'Git'},
   {'<leader>gr', desc = 'Git Remote'},
+  {'<leader>gp', desc = 'Git Pull, Push'},
   {'<leader>h', desc = 'Git Hunk'},
   {'<leader>r', desc = 'Rename'},
   {'<leader>s', desc = 'Search'},

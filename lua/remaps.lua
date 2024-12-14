@@ -8,12 +8,34 @@ vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to
 -- Autosave
 -- These should be at the top
 vim.keymap.set("i", "<Esc>", '<Esc>:w<CR>', { desc = 'Autosaves on [E]xit' })
-vim.keymap.set("n", "x", 'x:w<CR>', { desc = 'Returns to [H]ome directory' })
-vim.keymap.set("n", "u", 'u:w<CR>', { desc = 'Returns to [H]ome directory' })
-vim.keymap.set("n", "<C-r>", '<C-r>:w<CR>', { desc = 'Returns to [H]ome directory' })
-vim.keymap.set("n", "p", 'p:w<CR>', { desc = 'Returns to [H]ome directory' })
-vim.keymap.set("n", "dd", 'dd:w<CR>', { desc = 'Returns to [H]ome directory' })
-vim.keymap.set("v", "d", 'd:w<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "x", 'x:w<CR>', { desc = 'Autosaves on [X]' })
+vim.keymap.set("n", "u", 'u:w<CR>', { desc = 'Autosaves on [U]ndo' })
+vim.keymap.set("n", "<C-r>", '<C-r>:w<CR>', { desc = 'Autosaves on [R]edo' })
+vim.keymap.set("n", "p", 'p:w<CR>', { desc = 'Autosaves on [P]aste' })
+vim.keymap.set("n", "dd", 'dd:w<CR>', { desc = 'Autosaves on [D]elete' })
+vim.keymap.set("v", "d", 'd:w<CR>', { desc = 'Autosaves on [D]elete' })
+
+-- Keymaps that will most likely remain uncahnged forever
+
+-- Thanks prime
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
+
+-- vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
+vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at cursor position' })
+vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
+
+-- Remapping page jumps to center screen
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Center screen after half page jump' })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Center screen after half page jump' })
+vim.keymap.set("n", "{", "{zz", { desc = 'Center screen after code block jump' })
+vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' })
+vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
+vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
+
+-- Terminal exit
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 
 -- Makes the terminal a little more vimy
 vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
@@ -93,7 +115,7 @@ vim.keymap.set("n", "+", "<C-w>3>", { desc = 'Increase width of split by 3' })
 vim.keymap.set("n", "-", "<C-w>3<", { desc = 'Decrease width of split by 3' })
 
 -- Remapping replacing in file
-vim.keymap.set("n", "<leader>R", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
+vim.keymap.set("n", "<leader>rr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<left><left><left>", { desc = 'find and [R]eplace {x} under cursor' })
 vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted without replacing buffer' })
 
 -- Tree sitter parser
@@ -101,9 +123,9 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 
 --buffers 
 --This might change
-vim.keymap.set("n", "<leader>l", ":ls<CR>", { desc = '[L]ist all buffers' })
-vim.keymap.set("n", "<A-n>", ":bn<CR>", { desc = 'go to [N]ext [B]uffer' })
-vim.keymap.set("n", "<A-m>", ":bp<CR>", { desc = 'go to previous [B]uffer' })
+vim.keymap.set("n", "<leader>bl", ":ls<CR>", { desc = '[L]ist all [B]uffers' })
+vim.keymap.set("n", "<leader>bn", ":bn<CR>", { desc = 'go to [N]ext [B]uffer' })
+vim.keymap.set("n", "<leader>bp", ":bp<CR>", { desc = 'go to [P]revious [B]uffer' })
 
 -- Harpoon
 local harpoon = require("harpoon")
@@ -124,9 +146,12 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 
+-- List edits
 vim.keymap.set("n", "<A-p>", function() harpoon:list():add() end, { desc = 'Appends the file to the har[P]oon list' })
 vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
+vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
 
+-- Jumps
 vim.keymap.set("n", "<A-0>", function() harpoon:list():select(0) end, { desc = "Opens 0th(?) harpoon listing file" })
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })
 vim.keymap.set("n", "<A-2>", function() harpoon:list():select(2) end, { desc = "Opens second harpoon listing file" })
@@ -137,15 +162,14 @@ vim.keymap.set("n", "<A-6>", function() harpoon:list():select(6) end, { desc = "
 vim.keymap.set("n", "<A-7>", function() harpoon:list():select(7) end, { desc = "Opens seventh harpoon listing file" })
 vim.keymap.set("n", "<A-8>", function() harpoon:list():select(8) end, { desc = "Opens eighth harpoon listing file" })
 vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end, { desc = "Opens ninth harpoon listing file" })
-
-vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
+-- And the best ones
 vim.keymap.set("n", "<A-j>", function() harpoon:list():next() end)
 vim.keymap.set("n", "<A-k>", function() harpoon:list():prev() end)
 
 -- Telescope
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
+vim.keymap.set('n', '<leader>br', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>bb', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>bf', function()
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
     previewer = false,
@@ -168,15 +192,16 @@ vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (
 vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git [S]tatus' })
 vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
 vim.keymap.set("n", '<leader>gr', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
-vim.keymap.set("n", '<leader>gp', ":Git push ", { desc = 'Git [P]ush' })
+vim.keymap.set("n", '<leader>gps', ":Git push ", { desc = 'Git [P]ush' })
+vim.keymap.set("n", '<leader>gpl', ":Git pull ", { desc = 'Git [P]ull' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', 'gjd', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 vim.keymap.set('n', 'gkd', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- Variable to track diagnostic visibility state
 local diagnostics_active = true
@@ -193,26 +218,4 @@ function ToggleDiagnostics()
 end
 
 vim.keymap.set('n', '<leader>dt', ':lua ToggleDiagnostics()<CR>', { desc = "[T]oggle [D]iagnostics" })
-
--- Keymaps that will most likeley remain uncahnged forever
-
--- Thanks prime
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
-
--- vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
-vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at cursor position' })
-vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
-
--- Remapping page jumps to center screen
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Center screen after half page jump' })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = 'Center screen after half page jump' })
-vim.keymap.set("n", "{", "{zz", { desc = 'Center screen after code block jump' })
-vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' })
-vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
-vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
-
--- Terminal exit
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
-vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
 

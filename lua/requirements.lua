@@ -68,6 +68,9 @@ require('lazy').setup({
       -- Adds a number of user-friendly snippets
       -- Consider removing
       'rafamadriz/friendly-snippets',
+
+      -- cmp symbols
+      'onsails/lspkind.nvim',
     },
   },
 
