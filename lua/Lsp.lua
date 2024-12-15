@@ -14,7 +14,7 @@ local on_attach = function(_, bufnr)
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+  nmap('<leader>dd', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
@@ -39,7 +39,7 @@ end
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup({ensure_installed = {'lua_ls', 'clangd', 'pyright'}})
+require('mason-lspconfig').setup({ensure_installed = {'pyright', 'lua_ls', 'clangd', 'html', 'ts_ls', 'cssls'}})
 
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
@@ -50,17 +50,15 @@ require'lspconfig'.clangd.setup{}
 
 local servers = {
   clangd = {},
-  -- matlab_ls ={},
   -- gopls = {},
   pyright = {},
-  -- perlnavigator = {},
-  -- intelephense = {},
+  perlnavigator = {},
   -- r_language_server = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  -- ts_ls = {},
-  -- cssls = {},
+  html = { filetypes = { 'html', 'twig', 'hbs'} },
+  ts_ls = {},
+  cssls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -74,8 +72,11 @@ local servers = {
   },
 }
 
+-- Switching to the more modern lazydev
 -- Setup neovim lua configuration
-require('neodev').setup()
+-- require('neodev').setup()
+-- Setup lazydev
+require('lazydev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -103,6 +104,7 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+local lspkind = require('lspkind')
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
@@ -115,6 +117,21 @@ cmp.setup {
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
+  formatting = {
+    format = function(entry, vim_item)
+      -- Add icons based on the completion source
+      vim_item.kind = lspkind.presets.default[vim_item.kind] .. ' ' .. vim_item.kind
+      -- Optionally add source name
+      vim_item.menu = ({
+        nvim_lsp = '[LSP]',
+        luasnip = '[Snippet]',
+        path = '[Path]',
+        buffer = '[Buffer]',
+        terminal = '[Terminal]',
+      })[entry.source.name] or ''
+      return vim_item
+    end,
+  },
   mapping = cmp.mapping.preset.insert {
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -125,6 +142,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
+    ['<C-x>'] = cmp.mapping.abort(),
     ['<C-j>'] = cmp.mapping(function(fallback)
       if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
@@ -150,12 +168,10 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-<<<<<<< HEAD
-=======
     -- { name = 'supermaiven' },
->>>>>>> 6f60d52095e129be40a03e99317a5aae0f8a7cc0
     { name = 'path' },
     { name = 'buffer' },
+    { name = 'terminal' },
   },
   experimental = {
     ghost_text = true,
