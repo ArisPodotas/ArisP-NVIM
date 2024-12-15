@@ -48,8 +48,10 @@ require('lazy').setup({
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim', opts = {} },
 
+      -- Switching to the more modern version of this
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      -- 'folke/neodev.nvim',
+      "folke/lazydev.nvim",
     },
   },
 
@@ -82,7 +84,9 @@ require('lazy').setup({
 
   { 'navarasu/onedark.nvim', priority = 1000, },
 
-  { 'nvim-lualine/lualine.nvim' },
+  { 'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim' },
@@ -127,7 +131,6 @@ require('lazy').setup({
     -- See `:help ibl`
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
-    opts = {},
   },
 
   -- didnt uninstall still here if i want to enalbe lt
