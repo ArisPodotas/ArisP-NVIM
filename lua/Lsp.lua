@@ -39,7 +39,7 @@ end
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup({ensure_installed = {'pyright', 'matlab_ls', 'lua_ls', 'clangd', 'html', 'ts_ls', 'cssls'}})
+require('mason-lspconfig').setup({ensure_installed = {'pyright', 'lua_ls', 'clangd', 'html', 'ts_ls', 'cssls'}})
 
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
@@ -54,7 +54,7 @@ local servers = {
   -- gopls = {},
   pyright = {},
   perlnavigator = {},
-  intelephense =  {},
+  -- intelephense =  {},
   powershell_es = {},
   -- r_language_server = {},
   -- rust_analyzer = {},

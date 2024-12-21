@@ -17,6 +17,12 @@ which.setup(
             spacing = 3, -- Spacing between columns
             align = "center", -- Align columns left, center, or right
         },
+        keys = {
+            scroll_down = '<C-d>',
+            scroll_up = '<C-u>',
+        },
+        -- sort = 'group',
+        expand = 3,
         -- Keybinding timeout settings
         timeoutlen = 300, -- Time to wait for a key sequence (in ms)
         preset = 'modern',
