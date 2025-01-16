@@ -22,7 +22,7 @@ which.setup(
             scroll_up = '<C-u>',
         },
         -- sort = 'group',
-        expand = 3,
+        -- expand = 3, -- didnt like this
         -- Keybinding timeout settings
         timeoutlen = 300, -- Time to wait for a key sequence (in ms)
         preset = 'modern',
