@@ -115,6 +115,8 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  { 'nvim-treesitter/nvim-treesitter-context' },
+
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
@@ -140,6 +142,16 @@ require('lazy').setup({
   },
 
   { 'echasnovski/mini.nvim', version = false },
+
+  { "ray-x/lsp_signature.nvim",
+  event = "InsertEnter",
+  opts = {
+      bind = true,
+      handler_opts = {
+        border = "rounded",
+      },
+    },
+  },
 
 }, {})
 

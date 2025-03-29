@@ -197,6 +197,7 @@ vim.keymap.set("n", '<leader>gps', ":Git push ", { desc = 'Git [P]ush' })
 vim.keymap.set("n", '<leader>gpl', ":Git pull ", { desc = 'Git [P]ull' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
+vim.keymap.set("n", '<leader>gd', ":Git diff --stat<CR>", { desc = 'Git [D]ifferences' })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', 'gjd', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
