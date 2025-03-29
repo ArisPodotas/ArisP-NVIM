@@ -61,6 +61,9 @@ vim.keymap.set("n", "<leader>o", function()
   end
 end, { desc = 'Changes direct[O]ry to current view' })
 
+-- source file
+vim.keymap.set('n', '<C-s>', ':source %<CR>', { desc = '[S]ource file' })
+
 -- Tab section
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
 vim.keymap.set("n", "<A-t>", ":tabn<CR>", { desc = 'Will change [T]ab' })
