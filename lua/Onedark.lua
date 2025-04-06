@@ -48,3 +48,11 @@ require('onedark').setup(
 
 require('onedark').load()
 
+-- Just line numbers
+-- vim.cmd [[
+--   highlight LineNr guifg=#848484 gui=italic
+--   highlight LineNrAbove guifg=#848484 gui=italic
+--   highlight LineNrBelow guifg=#848484 gui=italic
+--   highlight CursorLineNr guifg=#eeeeee gui=bold,italic
+-- ]]
+--

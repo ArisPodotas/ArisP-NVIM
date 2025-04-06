@@ -104,3 +104,5 @@ vim.opt.splitbelow = true
 -- Allow cursor on all positons of screen
 vim.opt.cursorline = true
 
+vim.opt.spell = false
+

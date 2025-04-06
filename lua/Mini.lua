@@ -24,7 +24,7 @@ require('mini.icons').setup({
       default   = { glyph = '󰟢', hl = 'MiniIconsGrey'   },
       directory = { glyph = '󰉋', hl = 'MiniIconsAzure'  },
       extension = { glyph = '󰈔', hl = 'MiniIconsGrey'   },
-      file = { glyph = '󰈤', hl = 'MiniIconsGrey' },
+      file      = { glyph = '󰈤', hl = 'MiniIconsGrey'   },
       filetype  = { glyph = '󰈔', hl = 'MiniIconsGrey'   },
       lsp       = { glyph = '󰞋', hl = 'MiniIconsRed'    },
       os        = { glyph = '󰟀', hl = 'MiniIconsPurple' },

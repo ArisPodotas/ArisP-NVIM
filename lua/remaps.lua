@@ -215,10 +215,8 @@ function ToggleDiagnostics()
     diagnostics_active = not diagnostics_active
     if diagnostics_active then
         vim.diagnostic.enable()
-        print("Diagnostics enabled")
     else
         vim.diagnostic.enable(false)
-        print("Diagnostics disabled")
     end
 end
 
