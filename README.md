@@ -8,10 +8,10 @@ I guess you can fork this repo but for what purpose?
 
 # Todo
 
-- [ ] Remove the firendly snippets already builting to the kickstart.nvim files and write your own snippets from here on (move them to ftplugins)
+- [ ] Remove the firendly snippets already builtin to the kickstart.nvim files and write your own snippets from here on (move them to ftplugins)
 - [ ] Find how to do advanced treesitter text objects and things like go to next ""
-- [ x ] Make a file sourcing keybing setup
-
+- [ x ] Make a file sourcing keybind setup
+- [ x ] Split files into separate folders and sub files for all the config
 # Stats
 
 This sections is to have a few tracking changes of startup time
