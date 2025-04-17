@@ -14,7 +14,6 @@ local on_attach = function(_, bufnr)
     nmap('<leader>dd', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-    -- See `:help K` for why this keymap -- Switched to H left the comment in case i need to change it back and a good reason exists
     nmap('H', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
     -- Lesser used LSP functionality
@@ -33,23 +32,31 @@ end
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
 require('mason').setup()
-require('mason-lspconfig').setup({ensure_installed = {'pyright', 'lua_ls', 'clangd', 'html', 'ts_ls', 'cssls'}})
 
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --
+
 require'lspconfig'.clangd.setup{}
 
 local servers = {
     clangd = {},
     matlab_ls ={},
     -- gopls = {},
-    pyright = {},
-    perlnavigator = {},
+    pyright = {
+        python = {
+            analysis = {
+                diagnosticMode = "workspace",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+            }
+        }
+    },
+    -- perlnavigator = {},
     -- intelephense =  {},
-    powershell_es = {},
+    -- powershell_es = {},
     -- r_language_server = {},
     -- rust_analyzer = {},
     -- tsserver = {},
@@ -58,7 +65,7 @@ local servers = {
     cssls = {},
     lua_ls = {
         Lua = {
-            workspace = { checkThirdParty = false },
+            workspace = { checkThirdParty = true },
             telemetry = { enable = false },
             diagnostics = {
                 globals = {'love'}
@@ -76,8 +83,7 @@ local servers = {
 require('lazydev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
@@ -164,9 +170,10 @@ cmp.setup {
     },
     sources = {
         { name = 'luasnip', priority = 500},
-        { name = 'nvim_lsp', priority = 200},
-        { name = 'path', priority = 300},
         { name = 'buffer', priority = 400},
+        { name = 'path', priority = 300},
+        -- { name = 'supermanven', priority = 250},
+        { name = 'nvim_lsp', priority = 200},
         { name = 'terminal', priority = 100},
     },
     window = {
@@ -203,12 +210,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         signs = true,
         underline = true,
         severity_sort = true,
-    }
-)
-
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-    vim.lsp.handlers.hover, {
-        border = "rounded",
     }
 )
 
