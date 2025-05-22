@@ -18,4 +18,3 @@ end
 
 vim.keymap.set('n', '<leader>dt', ':lua ToggleDiagnostics()<CR>', { desc = "[T]oggle [D]iagnostics" })
 
-

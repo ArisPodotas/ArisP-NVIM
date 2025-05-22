@@ -6,12 +6,15 @@
 vim.o.hlsearch = false
 
 -- Decrease update time
-vim.o.updatetime = 100
+vim.o.updatetime = 50
 vim.o.timeoutlen = 3000
 vim.opt.timeout = false
 
 -- nerd font
 vim.g.have_nerd_font = true
+
+-- Don't show the mode, since it's already in the status line
+vim.o.showmode = false
 
 -- Make line numbers default
 vim.wo.number = true
@@ -64,7 +67,7 @@ vim.opt.shiftround = true
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.listchars = { eol = '↲', tab = '│ ', space = '·', lead = ' ' }
+vim.opt.listchars = { eol = '↲', tab = '│ ', space = '·', lead = ' ', nbsp = '␣'}
 vim.opt.list = true
 
 -- Something about line number printing position
@@ -84,14 +87,12 @@ vim.g.netrw_indent = 3
 vim.g.netrw_sort_by = "extention"
 vim.g.netrw_liststyle = 5
 
--- Update me
-vim.opt.updatetime = 50
-
 -- Highlight searched word for the whole file after search input
 vim.opt.hlsearch = true
 
 -- Highlight searched contents incrumentally while typing into the register
 vim.opt.incsearch = true
+vim.opt.inccommand = 'split'
 
 -- Vertical splits happen to the right of nvim
 vim.opt.splitright = true
@@ -105,4 +106,9 @@ vim.opt.splitbelow = true
 vim.opt.cursorline = true
 
 vim.opt.spell = false
+
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.o.confirm = true
 

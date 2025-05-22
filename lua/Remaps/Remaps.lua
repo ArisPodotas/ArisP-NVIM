@@ -39,3 +39,6 @@ vim.keymap.set("x", "<leader>P", "\"_dP", { desc = '[P]aste over highlighted wit
 -- Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
+-- Clear highlight
+vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>')
+

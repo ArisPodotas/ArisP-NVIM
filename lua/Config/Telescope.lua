@@ -20,7 +20,6 @@ local function find_git_root()
         -- Extract the directory from the current file's path
         current_dir = vim.fn.fnamemodify(current_file, ':h')
     end
-
     -- Find the Git root directory from the current file's path
     local git_root = vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
     if vim.v.shell_error ~= 0 then

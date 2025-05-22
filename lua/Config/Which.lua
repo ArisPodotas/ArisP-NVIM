@@ -3,7 +3,19 @@ local which = require('which-key')
 
 which.setup(
     {
-        opts = { triggers = { { "<auto>", mode = "nxso" }, {"<A>", mode = "nxso"} } }, -- Alt still wont work but at leas now the other binds are not broken
+        opts = {
+            triggers = {
+                {
+                    "<auto>",
+                    mode = "nxso" 
+                },
+
+                {
+                    "<A>",
+                    mode = "nxso"
+                }
+            }
+        }, -- Alt still wont work but at leas now the other binds are not broken
         plugins = {
             spelling = {
                 enabled = true, -- Enable spelling suggestions
@@ -72,10 +84,7 @@ which.add (
             {'gk', desc = 'Go to Previous Start'},
             {'gK', desc = 'Go to Previous End'},
             {'ZZ', desc = 'Saves and quits'},
-
-            {'ZZ', desc = 'Saves and quits'},
-            {'<A-t>', desc = 'Alternate tab'},
-            {'<A-1>', desc = 'First harpoon listing item'},
+            {'<leader>p', desc = 'Debug'},
             -- register which-key VISUAL mode
             -- required for visual <leader>hs (hunk stage) to work
             {'<leader>h', desc = 'Git [H]unk' },

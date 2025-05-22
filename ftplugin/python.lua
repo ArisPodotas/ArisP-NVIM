@@ -32,7 +32,7 @@ local function copy(args)
 end
 
 local function def()
-    return fmt('def {}({}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n',
+    return fmt('def {}({}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
         {
             i(1, 'fname'),
             i(2, 'arg'),
@@ -46,7 +46,7 @@ local function def()
 end
 
 local function meth()
-    return fmt('def {}(self, {}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n',
+    return fmt('def {}(self, {}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
         {
             i(1, 'fname'),
             i(2, 'arg'),
@@ -54,6 +54,36 @@ local function meth()
             i(4, 'None'),
             i(5, 'Documentation'),
             i(6, '# body'),
+            i(0, 'None')
+        }
+    )
+end
+
+local function wrappedFn()
+    return fmt('@{}\ndef {}({}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+        {
+            i(1, 'wrapper'),
+            i(2, 'fname'),
+            i(3, 'arg'),
+            i(4, 'type'),
+            i(5, 'None'),
+            i(6, 'Documentation'),
+            i(7, '# body'),
+            i(0, 'None')
+        }
+    )
+end
+
+local function wrappedMethod()
+    return fmt('@{}\ndef {}(self, {}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+        {
+            i(1, 'wrapper'),
+            i(2, 'fname'),
+            i(3, 'arg'),
+            i(4, 'type'),
+            i(5, 'None'),
+            i(6, 'Documentation'),
+            i(7, '# body'),
             i(0, 'None')
         }
     )
@@ -70,6 +100,10 @@ ls.add_snippets(
         s('mthd', meth()),
         s('mth', meth()),
         s('meth', meth()),
+        s('wfn', wrappedFn()),
+        s('wrp', wrappedFn()),
+        s('wmth', wrappedMethod()),
+        s('wmeth', wrappedMethod()),
     }
 )
 

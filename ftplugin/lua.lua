@@ -50,7 +50,7 @@ local function copy(args)
 end
 
 local function docFunc()
-    return fmt("-- {}\n--- @param {} {} {}\n--- @return {} {} {}\nlocal function {}({})\n\t{}\n\treturn {}\nend\n",
+    return fmt("-- {}\n--- @param {} {} {}\n--- @return {} {} {}\nlocal function {}({})\n\t{}\n\treturn {}\nend\n\n",
         {
             i(4, 'Notes'),
             f(copy, 2),
@@ -68,7 +68,7 @@ local function docFunc()
 end
 
 local function defaultFunc()
-    return fmt("local function {}({})\n\t{}\n\treturn {}\nend\n",
+    return fmt("local function {}({})\n\t{}\n\treturn {}\nend\n\n",
         {
             i(1, 'fname'),
             i(2, 'arg'),
