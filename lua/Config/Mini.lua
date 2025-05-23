@@ -29,8 +29,11 @@ require('mini.icons').setup(
             filetype  = { glyph = '󰈔', hl = 'MiniIconsGrey'   },
             lsp       = { glyph = '󰞋', hl = 'MiniIconsRed'    },
             os        = { glyph = '󰟀', hl = 'MiniIconsPurple' },
-            snippet       = { glyph = 'k', hl = 'MiniIconsGreen'  },
+            snippets   = { glyph = '', hl = 'MiniIconsGreen'  },
         },
+        lsp = {
+            snippet   = { glyph = '', hl = 'MiniIconsGreen'  },
+        }
     }
 )
 

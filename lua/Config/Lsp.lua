@@ -5,6 +5,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			mode = mode or "n"
 			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
+        map("H", vim.lsp.buf.hover, "[H]over Documentation")
 		map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 		map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 		map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
@@ -53,16 +54,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				end,
 			})
 		end
-		-- The following code creates a keymap to toggle inlay hints in your
-		if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
-			map("<leader>th", function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-			end, "[T]oggle Inlay [H]ints")
-		end
+		-- -- The following code creates a keymap to toggle inlay hints in your
+		-- if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+		-- 	map("<leader>th", function()
+		-- 		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+		-- 	end, "[T]oggle Inlay [H]ints")
+		-- end
 	end,
 })
-
-vim.keymap.set("n", "H", vim.lsp.buf.hover, { desc = "Hover Documentation" })
 
 require("mason").setup()
 
@@ -114,13 +113,16 @@ vim.list_extend(ensure_installed, {
 	"stylua", -- Used to format Lua code
 })
 
-mason_lspconfig.setup({
-	ensure_installed = vim.tbl_keys(servers),
-	handlers = {
-		function(server_name)
-			local server = servers[server_name] or {}
-			server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-			require("lspconfig")[server_name].setup(server)
-		end,
-	},
-})
+mason_lspconfig.setup(
+    {
+        ensure_installed = vim.tbl_keys(servers),
+        handlers = {
+            function(server_name)
+                local server = servers[server_name] or {}
+                server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+                require("lspconfig")[server_name].setup(server)
+            end,
+        },
+    }
+)
+

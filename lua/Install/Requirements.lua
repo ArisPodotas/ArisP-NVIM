@@ -42,21 +42,22 @@ require("lazy").setup({
 	-- Detect tabstop and shiftwidth automatically
 	-- 'NMAC427/guess-indent.nvim',
 
-    {
-        "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
-        opts = {
-            library = {
-                -- See the configuration section for more details
-                -- Load luvit types when the `vim.uv` word is found
-                {
-                    path = "${3rd}/luv/library", words = {
-                        "vim%.uv"
-                    }
-                },
-            },
-        },
-    },
+	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{
+					path = "${3rd}/luv/library",
+					words = {
+						"vim%.uv",
+					},
+				},
+			},
+		},
+	},
 
 	{
 		-- LSP Configuration & Plugins
@@ -65,11 +66,11 @@ require("lazy").setup({
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			{ "j-hui/fidget.nvim", opts = {} },
-            'saghen/blink.cmp',
+			"saghen/blink.cmp",
 			"folke/lazydev.nvim",
 		},
 	},
-	
+
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim" },
 
@@ -111,7 +112,7 @@ require("lazy").setup({
 	},
 
 	{
-        -- indentation guide
+		-- indentation guide
 		-- See `:help ibl`
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
@@ -124,10 +125,10 @@ require("lazy").setup({
 	},
 
 	{ "echasnovski/mini.nvim", version = false },
-    -- AI
+	-- AI
 	-- { "supermaven-inc/supermaven-nvim" },
 
-    -- Debugger
+	-- Debugger
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
@@ -149,62 +150,59 @@ require("lazy").setup({
 		config = true,
 	},
 
-    { -- Autocompletion
-        'saghen/blink.cmp',
-        event = 'VimEnter',
-        version = '1.*',
-        dependencies = {
-            -- Snippet Engine
-            {
-                'L3MON4D3/LuaSnip',
-                version = '2.*',
-                build = (function()
-                    -- Build Step is needed for regex support in snippets.
-                    -- This step is not supported in many windows environments.
-                    -- Remove the below condition to re-enable on windows.
-                    if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-                        return
-                    end
-                    return 'make install_jsregexp'
-                end)(),
-                dependencies = {
-                    {
-                        'rafamadriz/friendly-snippets',
-                        config = function()
-                            require('luasnip.loaders.from_vscode').lazy_load()
-                        end,
-                    },
-                },
-                opts = {},
-            },
-            'folke/lazydev.nvim',
-        },
-    },
+	{ -- Autocompletion
+		"saghen/blink.cmp",
+		event = "VimEnter",
+		version = "1.*",
+		dependencies = {
+			-- Snippet Engine
+			{
+				"L3MON4D3/LuaSnip",
+				version = "2.*",
+				build = (function()
+					-- Build Step is needed for regex support in snippets.
+					-- This step is not supported in many windows environments.
+					-- Remove the below condition to re-enable on windows.
+					if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
+						return
+					end
+					return "make install_jsregexp"
+				end)(),
+				dependencies = {
+					{
+						"rafamadriz/friendly-snippets",
+						config = function()
+							require("luasnip.loaders.from_vscode").lazy_load()
+						end,
+					},
+				},
+				opts = {},
+			},
+			"folke/lazydev.nvim",
+		},
+	},
 
-    { -- Autoformat
-        'stevearc/conform.nvim',
-        event = { 'BufWritePre' },
-        cmd = { 'ConformInfo' },
-    },
-},
-    {
-        ui = {
-            icons = vim.g.have_nerd_font and {} or {
-                cmd = "⌘",
-                config = "🛠",
-                event = "📅",
-                ft = "📂",
-                init = "⚙",
-                keys = "🗝",
-                plugin = "🔌",
-                runtime = "💻",
-                require = "🌙",
-                source = "📄",
-                start = "🚀",
-                task = "📌",
-                lazy = "💤 ",
-            },
-        },
-    }
-)
-
+	-- { -- Autoformat
+	--     'stevearc/conform.nvim',
+	--     event = { 'BufWritePre' },
+	--     cmd = { 'ConformInfo' },
+	-- },
+}, {
+	ui = {
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
+	},
+})

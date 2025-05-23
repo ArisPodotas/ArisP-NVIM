@@ -1,14 +1,4 @@
 require("conform").setup({
-	keys = {
-		{
-			"<leader>fo",
-			function()
-				require("conform").format({ async = true, lsp_format = "fallback" })
-			end,
-			mode = "",
-			desc = "[F]ormat buffer",
-		},
-	},
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially

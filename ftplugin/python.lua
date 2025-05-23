@@ -32,59 +32,75 @@ local function copy(args)
 end
 
 local function def()
-    return fmt('def {}({}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+    return fmt('def {}(\n\t{}: {},\n) -> {}:\n\t"""\n\t{}\n\n\tArguments:\n\t\t{}: {}\n\n\tReturns:\n\t\toutput: {}\n\t"""\n\t{}\n\toutput: {} = None\n\treturn {}\n\n',
         {
             i(1, 'fname'),
             i(2, 'arg'),
             i(3, 'type'),
             i(4, 'None'),
-            i(5, 'Documentation'),
-            i(6, '# body'),
-            i(0, 'None')
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(5, '# body'),
+            f(copy, 4),
+            i(6, 'output')
         }
     )
 end
 
 local function meth()
-    return fmt('def {}(self, {}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+    return fmt('def {}(\n\tself,\n\t{}: {},\n) -> {}:\n\t"""\n\t{}\n\n\tArguments:\n\t\t{}: {}\n\n\tReturns:\n\t\toutput: {}\n\t"""\n\t{}\n\toutput: {} = None\n\treturn {}\n\n',
         {
             i(1, 'fname'),
             i(2, 'arg'),
             i(3, 'type'),
             i(4, 'None'),
-            i(5, 'Documentation'),
-            i(6, '# body'),
-            i(0, 'None')
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(5, '# body'),
+            f(copy, 4),
+            i(6, 'output')
         }
     )
 end
 
 local function wrappedFn()
-    return fmt('@{}\ndef {}({}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+    return fmt('@{}\ndef {}(\n\t{}: {},\n) -> {}:\n\t"""\n\t{}\n\n\tArguments:\n\t\t{}: {}\n\n\tReturns:\n\t\toutput: {}\n\t"""\n\t{}\n\toutput: {} = None\n\treturn {}\n\n',
         {
             i(1, 'wrapper'),
             i(2, 'fname'),
             i(3, 'arg'),
             i(4, 'type'),
             i(5, 'None'),
-            i(6, 'Documentation'),
-            i(7, '# body'),
-            i(0, 'None')
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(6, '# body'),
+            f(copy, 4),
+            i(7, 'output')
         }
     )
 end
 
 local function wrappedMethod()
-    return fmt('@{}\ndef {}(self, {}: {}) -> {}:\n\t"""{}"""\n\t{}\n\treturn {}\n\n',
+    return fmt('@{}\ndef {}(\n\tself,\n\t{}: {},\n) -> {}:\n\t"""\n\t{}\n\n\tArguments:\n\t\t{}: {}\n\n\tReturns:\n\t\toutput: {}\n\t"""\n\t{}\n\toutput: {} = None\n\treturn {}\n\n',
         {
             i(1, 'wrapper'),
             i(2, 'fname'),
             i(3, 'arg'),
             i(4, 'type'),
             i(5, 'None'),
-            i(6, 'Documentation'),
-            i(7, '# body'),
-            i(0, 'None')
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(6, '# body'),
+            f(copy, 4),
+            i(7, 'output')
         }
     )
 end
