@@ -85,6 +85,7 @@ which.add (
             {'gK', desc = 'Go to Previous End'},
             {'ZZ', desc = 'Saves and quits'},
             {'<leader>p', desc = 'Debug'},
+            {'<leader>m', desc = 'Document Map'},
             -- register which-key VISUAL mode
             -- required for visual <leader>hs (hunk stage) to work
             {'<leader>h', desc = 'Git [H]unk' },

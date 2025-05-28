@@ -65,7 +65,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 require("mason").setup()
 
-require("lspconfig").clangd.setup({})
+-- require("lspconfig").clangd.setup(
+--     {
+--         -- cmd = { 'clangd', '--compile-commands-dir=C:/Users/aPodo/' }
+
+--     }
+-- )
 
 local servers = {
 	clangd = {},

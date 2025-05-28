@@ -1,23 +1,3 @@
-require("netrw").setup({use_devicons = true})
-
--- require('mini.ai').setup({
---    mappings = {
---     -- Main textobject prefixes
---     around = 'a',
---     inside = 'i',
---
---     -- Next/last variants
---     around_next = 'aN',
---     inside_next = 'iN',
---     around_last = 'aL',
---     inside_last = 'iL',
---
---     -- Move cursor to corresponding edge of `a` textobject
---     goto_left = 'g[',
---     goto_right = 'g]',
---   },
--- })
-
 require('mini.icons').setup(
     {
         default = {
@@ -36,6 +16,4 @@ require('mini.icons').setup(
         }
     }
 )
-
--- require('mini.surround').setup()
 
