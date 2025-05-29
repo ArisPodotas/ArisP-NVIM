@@ -56,3 +56,33 @@ dap.configurations.lua = {
     },
 }
 
+vim.keymap.set("n", "<leader>pt", function() dap.toggle_breakpoint() end, { desc = '[T]oggle [B]reak point' })
+vim.keymap.set('n', '<Leader>pb', function() dap.set_breakpoint() end, { desc = '[S]et [B]reak point' })
+vim.keymap.set('n', '<Leader>ps', function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = '[S]et [B]reak point (with message)' })
+
+vim.keymap.set("n", "<leader>pc", function() dap.continue() end, { desc = '[C]ontinue' })
+vim.keymap.set("n", "<leader>pov", function() dap.step_over() end, { desc = 'Step [Ov]er' })
+vim.keymap.set('n', '<leader>pot', function() dap.step_out() end, { desc = 'Step [O]ut' })
+vim.keymap.set("n", "<leader>pi", function() dap.step_into() end, { desc = 'Step [I]nto' })
+
+vim.keymap.set("n", "<leader>pr", function() dap.repl.open() end, { desc = 'Inspect state' })
+vim.keymap.set("n", "<leader>pe", function() 
+    dap.terminate()
+    require('dapui').close() 
+end, { desc = '[E]nd session' })
+
+    -- vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+    -- vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+    --   require('dap.ui.widgets').hover()
+    -- end)
+    -- vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+    --   require('dap.ui.widgets').preview()
+    -- end)
+    -- vim.keymap.set('n', '<Leader>df', function()
+    --   local widgets = require('dap.ui.widgets')
+    --   widgets.centered_float(widgets.frames)
+    -- end)
+    -- vim.keymap.set('n', '<Leader>ds', function()
+    --   local widgets = require('dap.ui.widgets')
+    --   widgets.centered_float(widgets.scopes)
+    -- end)

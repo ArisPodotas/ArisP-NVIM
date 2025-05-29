@@ -9,7 +9,6 @@ which.setup(
                     "<auto>",
                     mode = "nxso" 
                 },
-
                 {
                     "<A>",
                     mode = "nxso"
@@ -24,7 +23,7 @@ which.setup(
             registers = true,
         },
         layout = {
-            height = { min = 5, max = 10 }, -- Min and max number of rows
+            height = { min = 1, max = 20 }, -- Min and max number of rows
             width = { min = 12, max = 30}, -- Min and max number of columns
             spacing = 3, -- Spacing between columns
             align = "center", -- Align columns left, center, or right
@@ -36,7 +35,7 @@ which.setup(
         -- sort = 'group',
         -- expand = 3, -- didnt like this
         -- Keybinding timeout settings
-        timeoutlen = 300, -- Time to wait for a key sequence (in ms)
+        timeoutlen = nil, -- Time to wait for a key sequence (in ms)
         preset = 'modern',
         win = {
             -- don't allow the popup to overlap with the cursor
