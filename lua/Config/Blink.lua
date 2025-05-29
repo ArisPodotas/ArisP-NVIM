@@ -59,6 +59,12 @@ require('blink.cmp').setup(
             nerd_font_variant = 'mono'
         },
         completion = {
+            list = {
+                selection = {
+                    preselect = true,
+                    auto_insert = false,
+                },
+            },
             documentation = {
                 auto_show = true,
                 window = {
@@ -103,9 +109,7 @@ require('blink.cmp').setup(
                     }
                 },
             },
-            ghost_text = {
-                enabled = true,
-            },
+            ghost_text = { enabled = false, },
         },
         snippets = { preset = 'luasnip' },
         fuzzy = { implementation = 'prefer_rust_with_warning' },
@@ -141,8 +145,8 @@ require('blink.cmp').setup(
                         auto_insert = false,
                     },
                 },
-                menu = { auto_show = true},
-                ghost_text = { enabled = true }
+                menu = { auto_show = true },
+                ghost_text = { enabled = false }
             }
         },
         cmdline = {
@@ -160,7 +164,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = true }
+                ghost_text = { enabled = false }
             },
         },
     }

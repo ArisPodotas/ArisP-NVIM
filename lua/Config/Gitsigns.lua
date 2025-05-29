@@ -10,13 +10,11 @@ require('gitsigns').setup(
         -- },
         on_attach = function(bufnr)
             local gs = package.loaded.gitsigns
-
             local function map(mode, l, r, opts)
                 opts = opts or {}
                 opts.buffer = bufnr
                 vim.keymap.set(mode, l, r, opts)
             end
-
             -- Navigation
             map({ 'n', 'v' }, '<leader>hj', function()
                 if vim.wo.diff then
@@ -27,7 +25,6 @@ require('gitsigns').setup(
                 end)
                 return '<Ignore>'
             end, { expr = true, desc = 'Jump to next hunk' })
-
             map({ 'n', 'v' }, '<leader>hk', function()
                 if vim.wo.diff then
                     return '[c'
@@ -37,7 +34,6 @@ require('gitsigns').setup(
                 end)
                 return '<Ignore>'
             end, { expr = true, desc = 'Jump to previous hunk' })
-
             -- visual mode
             map('v', '<leader>hs', function()
                 gs.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
@@ -59,11 +55,9 @@ require('gitsigns').setup(
             map('n', '<leader>hD', function()
                 gs.diffthis '~'
             end, { desc = 'git diff against last commit' })
-
             -- Toggles
             map('n', '<leader>gB', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
             map('n', '<leader>gd', gs.toggle_deleted, { desc = 'toggle git show deleted' })
-
             -- Text object
             map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
         end,

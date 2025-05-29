@@ -147,11 +147,11 @@ require("lazy").setup({
 	},
 
 	-- Close my brackets automatically
-	-- {
-	-- 	"windwp/nvim-autopairs",
-	-- 	event = "InsertEnter",
-	-- 	config = true,
-	-- },
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+	},
 
 	{ -- Autocompletion
 		"saghen/blink.cmp",
