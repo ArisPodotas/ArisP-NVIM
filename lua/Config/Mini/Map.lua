@@ -36,9 +36,26 @@ map.setup(
 )
 
 -- I commented these because I dont want to waste keybinds considering the other two are toggles
--- Should do this for the debugger too
 -- vim.keymap.set('n', '<leader>mo', function() map.open({}) end, { desc = '[O]pens the [M]ini [M]ap' })
 -- vim.keymap.set('n', '<leader>mc', function() map.close({}) end, { desc = '[C]loses the [M]ini [M]ap' })
-vim.keymap.set('n', '<leader>mt', function() map.toggle({}) end, { desc = '[T]oggles the [M]ini [M]ap' })
-vim.keymap.set('n', '<leader>mf', function() map.toggle_focus({}) end, { desc = '[F]ocuses the [M]ini [M]ap' })
+-- vim.keymap.set('n', '<leader>mt', function() map.toggle({}) end, { desc = '[T]oggles the [M]ini [M]ap' })
+-- vim.keymap.set('n', '<leader>mf', function() map.toggle_focus({}) end, { desc = '[F]ocuses the [M]ini [M]ap' })
+
+local state = false
+
+-- I wanted to do the above with one bind
+-- Consider it done :)
+vim.keymap.set(
+    'n', '<leader>mo', function()
+        if state == false then
+            map.open({})
+            map.toggle_focus({})
+            state = true
+        else
+            map.close({})
+            state = false
+        end
+    end,
+    { desc = '[O]pens the [M]ini [M]ap' }
+)
 

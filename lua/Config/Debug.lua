@@ -77,10 +77,12 @@ end, {desc = '[W]idget [H]over'})
 vim.keymap.set({'n', 'v'}, '<Leader>pwp', function()
     require('dap.ui.widgets').preview()
 end, {desc = '[W]idget [P]review'})
+
 vim.keymap.set('n', '<Leader>pwc', function()
     local widgets = require('dap.ui.widgets')
     widgets.centered_float(widgets.frames)
 end, {desc = '[W]idget [F]loat'})
+
 vim.keymap.set('n', '<Leader>pws', function()
     local widgets = require('dap.ui.widgets')
     widgets.centered_float(widgets.scopes)

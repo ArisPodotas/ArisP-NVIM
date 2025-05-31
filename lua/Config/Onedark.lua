@@ -68,7 +68,7 @@ require('onedark').setup(
         diagnostics = {
             darker = true,
             undercurl = true,
-            background = true,
+            background = false,
         },
     }
 )

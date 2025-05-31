@@ -68,13 +68,6 @@ vim.api.nvim_create_autocmd(
 
 require("mason").setup()
 
--- require("lspconfig").clangd.setup(
---     {
---         -- cmd = { 'clangd', '--compile-commands-dir=C:/Users/aPodo/' }
-
---     }
--- )
-
 local servers = {
 	clangd = {},
 	-- matlab_ls = {},
@@ -117,9 +110,11 @@ local capabilities = require("blink.cmp").get_lsp_capabilities()
 local mason_lspconfig = require("mason-lspconfig")
 
 local ensure_installed = vim.tbl_keys(servers or {})
-vim.list_extend(ensure_installed, {
-	"stylua", -- Used to format Lua code
-})
+vim.list_extend(
+    ensure_installed, {
+        "stylua", -- Used to format Lua code
+    }
+)
 
 mason_lspconfig.setup(
     {
@@ -133,4 +128,9 @@ mason_lspconfig.setup(
         },
     }
 )
+
+-- Set highlight for the hover window content
+-- vim.api.nvim_set_hl(0, 'NormalFloat', { fg = '#ffffff', bg = '#2e2e2e' }) -- White text, dark gray background
+-- Set highlight for the hover window border
+-- vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#569cd6', bg = '#2e2e2e' }) -- Blue border, same background
 

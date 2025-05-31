@@ -12,6 +12,14 @@ I guess you can fork this repo but for what purpose?
 - [ ] Find how to do advanced treesitter text objects and things like go to next ""
 - [ x ] Make a file sourcing keybind setup
 - [ x ] Split files into separate folders and sub files for all the config
+- [ x ] Autopairs and keymaps for disabling with context
+- [ x ] Blink update
+- [ x ] Mini map
+- [ x ] Replacing redundant things with mini
+- [ x ] 2d jumper
+- [ x ] Debugger
+- [ x ] ftplugins
+
 # Stats
 
 This sections is to have a few tracking changes of startup time

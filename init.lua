@@ -2,10 +2,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require("Options.Options")
-require("Options.Netrw")
+require("Options")
+require("Netrw")
 
-require("Install.Requirements")
+require("Requirements")
+
 require("Config.Onedark")
 require("Config.Lualine")
 require("Config.Telescope")
@@ -29,6 +30,8 @@ require('Config.Mini.Leap')
 -- require("Config.Mini.Starter")
 -- require("Config.Mini.Around")
 
+require('Config.Snak')
+
 -- require("Config.AI")
 -- require('Config.Conform')
 
@@ -40,4 +43,7 @@ require("Remaps.Splits")
 require("Remaps.Tabs")
 require("Remaps.Telescope")
 require("Remaps.Terminals")
+
+require('Plugins.FloatingTerm')
+require('Plugins.FloatingNotes')
 

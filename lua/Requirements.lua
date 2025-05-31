@@ -69,7 +69,7 @@ require("lazy").setup({
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
+			-- { "j-hui/fidget.nvim", opts = {} },
 			"saghen/blink.cmp",
 			"folke/lazydev.nvim",
 		},
@@ -83,7 +83,9 @@ require("lazy").setup({
 
 	{ "navarasu/onedark.nvim", priority = 1000 },
 
-	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	{ "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" }
+    },
 
 	-- "gc" to comment visual regions/lines
 	-- { "numToStr/Comment.nvim" },
@@ -126,7 +128,32 @@ require("lazy").setup({
 		opts = {},
 	},
 
+    -- A conglomerate
 	{ "echasnovski/mini.nvim", version = false },
+
+    -- A conglomerate
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        -- opts = {
+        --     -- On's
+        --     dim = { enabled = true },
+        --     -- Off's
+        --     bigfile = { enabled = false },
+        --     dashboard = { enabled = false },
+        --     explorer = { enabled = false },
+        --     indent = { enabled = false },
+        --     input = { enabled = false },
+        --     picker = { enabled = false },
+        --     notifier = { enabled = false },
+        --     quickfile = { enabled = false },
+        --     scope = { enabled = false },
+        --     scroll = { enabled = false },
+        --     statuscolumn = { enabled = false },
+        --     words = { enabled = false },
+        -- },
+    },
 
 	-- AI
 	-- { "supermaven-inc/supermaven-nvim" },
