@@ -5,7 +5,7 @@ require('mini.jump2d').setup(
         -- If `nil` (default) - use |MiniJump2d.default_spotter|
         spotter = nil,
         -- Characters used for labels of jump spots (in supplied order)
-        labels = 'asdfghjkl;urvnmceityowqpz10298347',
+        labels = 'abcdhiopqrefgjklmns;tuvwxyz1234567890',
         -- Options for visual effects
         view = {
             -- Whether to dim lines with at least one jump spot

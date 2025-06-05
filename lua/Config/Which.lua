@@ -9,10 +9,6 @@ which.setup(
                     "<auto>",
                     mode = "nxso" 
                 },
-                {
-                    "<A>",
-                    mode = "nxso"
-                }
             }
         }, -- Alt still wont work but at leas now the other binds are not broken
         plugins = {
@@ -32,16 +28,16 @@ which.setup(
             scroll_down = '<C-d>',
             scroll_up = '<C-u>',
         },
-        -- sort = 'group',
+        -- sort = 'alphanum',
         -- expand = 3, -- didnt like this
         -- Keybinding timeout settings
         timeoutlen = nil, -- Time to wait for a key sequence (in ms)
         preset = 'modern',
         win = {
             -- don't allow the popup to overlap with the cursor
-            no_overlap = true,
+            no_overlap = false,
             -- width = 1,
-            -- height = { min = 4, max = 25 },
+            height = { min = 4, max = 30 },
             -- col = 0,
             -- row = math.huge,
             -- border = "none",
@@ -57,6 +53,13 @@ which.setup(
         },
     }
 )
+
+-- which.show(
+--     {
+--         keys = '<c-w>',
+--         loop = true,
+--     }
+-- )
 
 -- document existing key chains
 which.add (
