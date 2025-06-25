@@ -1,11 +1,16 @@
 -- Important I just found out that %s works because % is the current file, '<,'>s is the equivalent for only the highlight Note no %s just s.
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Spelling
+
+vim.keymap.set('n', 'zz', 'z=', {desc = 'Fix spelling'})
+vim.keymap.set('n', 'S', ']s', {desc = 'Goto prev spelling error'})
+vim.keymap.set('n', 'C', '[s', {desc = 'Goto next spelling error'})
+
+-- Keymaps that will most likely remain uncahnged forever
 -- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
-
--- Keymaps that will most likely remain uncahnged forever
 
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
@@ -42,3 +47,4 @@ vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter pars
 -- Clear highlight
 vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>')
 
+-- Control section

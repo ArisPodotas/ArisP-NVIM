@@ -185,6 +185,7 @@ require("lazy").setup({
 		event = "VimEnter",
 		version = "1.*",
 		dependencies = {
+            -- 'Kaiser-Yang/blink-cmp-avante',
 			-- Snippet Engine
 			{
 				"L3MON4D3/LuaSnip",
@@ -212,11 +213,25 @@ require("lazy").setup({
 		},
 	},
 
-	-- { -- Autoformat
+    -- Autoformat
+	-- {
 	--     'stevearc/conform.nvim',
 	--     event = { 'BufWritePre' },
 	--     cmd = { 'ConformInfo' },
 	-- },
+
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    },
+
+    -- require('Config.Avant')
+
 },
     {
         ui = {

@@ -1,21 +1,6 @@
 -- Opitons
 vim.opt_local.shiftwidth = 4
 
--- Snippets
--- snip.parser.parse_snippet(<text>, <vscode style>)
--- $1 is the first jump $2 ... $0 is the last
--- Add your own newlines
--- Watch TJ for a better way to do this using lua instead of the pre made functions
--- https://www.youtube.com/watch?v=Dn800rlPIho&t=589s
--- Use "source %" for recompiling this file and using the snippets within the local nvim instance
--- template
-        -- s('',
-        --     fmt('',
-        --         {
-        --         }
-        --     )
-        -- ),
-
 local ls = require("luasnip")
 local s = ls.snippet
 -- local sn = ls.snippet_node

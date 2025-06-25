@@ -1,4 +1,7 @@
-require('gitsigns').setup(
+local gs = require('gitsigns')
+local maps = {}
+
+gs.setup(
     {
         -- See `:help gitsigns.txt`
         -- signs = {
@@ -9,7 +12,7 @@ require('gitsigns').setup(
         --     changedelete = { text = '|' },
         -- },
         on_attach = function(bufnr)
-            local gs = package.loaded.gitsigns
+            -- local gs = package.loaded.gitsigns
             local function map(mode, l, r, opts)
                 opts = opts or {}
                 opts.buffer = bufnr

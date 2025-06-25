@@ -7,13 +7,13 @@ require('mini.surround').setup(
         highlight_duration = 500,
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-            add = 'csa', -- Add surrounding in Normal and Visual modes
-            delete = 'csd', -- Delete surrounding
-            find = 'csf', -- Find surrounding (to the right)
-            find_left = 'csF', -- Find surrounding (to the left)
-            highlight = 'csh', -- Highlight surrounding
-            replace = 'csr', -- Replace surrounding
-            update_n_lines = 'csn', -- Update `n_lines`
+            add = 'Za', -- Add surrounding in Normal and Visual modes
+            delete = 'Zd', -- Delete surrounding
+            find = 'Zf', -- Find surrounding (to the right)
+            find_left = 'ZF', -- Find surrounding (to the left)
+            highlight = 'Zh', -- Highlight surrounding
+            replace = 'Zr', -- Replace surrounding
+            update_n_lines = 'Zn', -- Update `n_lines`
             suffix_last = 'l', -- Suffix to search with "prev" method
             suffix_next = 'n', -- Suffix to search with "next" method
         },

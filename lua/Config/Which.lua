@@ -66,13 +66,14 @@ which.add (
     {
         {
             {'<leader>c', desc = 'Code'},
+            {'c', desc = 'Change'},
             {'<leader>b', desc = 'Buffer'},
             {'<leader>f', desc = 'Find'},
             {'<leader>d', desc = 'Document, Diagnostics'},
             {'<leader>g', desc = '[G]it'},
             {'<leader>gr', desc = '[G]it [R]emote'},
-            {'<leader>gp', desc = 'Git Pull, Push'},
-            {'<leader>h', desc = 'Git Hunk'},
+            {'<leader>gp', desc = '[G]it [P]ull, [P]ush'},
+            {'<leader>h', desc = 'Git [H]unk'},
             {'<leader>r', desc = 'Rename'},
             {'<leader>s', desc = 'Search'},
             {'<leader>t', desc = 'Terminal'},

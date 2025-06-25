@@ -18,7 +18,7 @@ require('lualine').setup(
             lualine_b = {
                 'branch', 'diff', {
                     'diagnostics', symbols = {
-                        error = ' ',
+                        error = '󰅚 ',
                         warn = ' ',
                         info = ' ',
                         hint = ' ',

@@ -54,7 +54,7 @@ dap.configurations.lua = {
     },
 }
 
-vim.fn.sign_define('DapBreakpoint', { text = '󰨰', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
 
 vim.keymap.set("n", "<leader>pt", function() dap.toggle_breakpoint() end, { desc = '[T]oggle [B]reak point' })
 vim.keymap.set('n', '<Leader>pb', function() dap.set_breakpoint() end, { desc = '[S]et [B]reak point' })

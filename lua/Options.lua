@@ -111,3 +111,6 @@ vim.opt.spell = false
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+ -- views can only be fully collapsed with the global statusline -- Avante
+vim.opt.laststatus = 3
+

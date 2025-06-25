@@ -45,10 +45,14 @@ require('onedark').setup(
                 bg = '#555555',
                 fmt = 'underline,bold,italic'
             },
-            Search = {
+            Search = { 
                 fg = '#ffffff',
                 bg = '#9c06c9',
                 fmt = 'underline,italic'
+            },
+            -- Actually its good that this writes over the other objects
+            SpellBad = {
+                bg = '#353535',
             },
             ['@comment'] = {
                 fg = '#848484'
@@ -56,19 +60,11 @@ require('onedark').setup(
             ['@lsp.type.comment'] = {
                 fg = '#819696'
             },
-            -- Cursor = {fmt = "reverse"},
-            -- vCursor = {fmt = "reverse"},
-            -- iCursor = {fmt = "reverse"},
-            -- lCursor = {fmt = "reverse"},
-            -- CursorIM = {fmt = "reverse"},
-            -- CursorLine = {bg = '#555555'},
-            -- ColorColumn = {bg = '#555555'},
-            -- CursorLineNr = {fg = '#555555'},
         },
         diagnostics = {
             darker = true,
-            undercurl = true,
-            background = false,
+            undercurl = false,
+            background = true,
         },
     }
 )

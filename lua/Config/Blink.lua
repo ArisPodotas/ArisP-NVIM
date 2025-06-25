@@ -5,26 +5,54 @@ vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202"
 local provide = {
     snippets = {
         name = 'Snippet',
-        score_offset = 6,
-        -- max_items = 5,
+        score_offset = 70,
+        max_items = 5,
     },
     lsp = {
         name = 'LSP',
-        score_offset = 0,
+        score_offset = 30,
+        max_items = 10,
     },
     path = {
         name = 'Path',
-        score_offset = 4,
+        score_offset = 80,
+        max_items = 20,
     },
     buffer = {
         name = 'Buffer',
-        score_offset = 3,
+        score_offset = 65,
+        max_items = 20,
     },
     lazydev = {
         name = 'Lazy',
         module = 'lazydev.integrations.blink',
-        score_offset = 100
+        score_offset = 20,
+        max_items = 10,
     },
+    -- avante = {
+    --     module = 'blink-cmp-avante',
+    --     name = 'Avante',
+    --     score_offset = 5,
+    --     opts = {
+    --         -- add avante here
+    --         avante = {
+    --             command = {
+    --                 get_kind_name = function(_)
+    --                     return "AvanteCmd"
+    --                 end,
+    --             },
+    --             mention = {
+    --                 get_kind_name = function(_)
+    --                     return "AvanteMention"
+    --                 end,
+    --             },
+    --         },
+    --         kind_icons = {
+    --             AvanteCmd = '',
+    --             AvanteMention = '',
+    --         },
+    --     },
+    -- },
 }
 
 local maps = {
@@ -112,7 +140,10 @@ require('blink.cmp').setup(
             ghost_text = { enabled = false, },
         },
         snippets = { preset = 'luasnip' },
-        fuzzy = { implementation = 'prefer_rust_with_warning' },
+        fuzzy = {
+            implementation = 'prefer_rust_with_warning',
+            -- max_items = 50,
+        },
         signature = {
             enabled = true,
             window = {
@@ -123,6 +154,7 @@ require('blink.cmp').setup(
         },
         sources = {
             default = {
+                -- 'avante',
                 'lsp',
                 'path',
                 'snippets',
@@ -130,7 +162,6 @@ require('blink.cmp').setup(
             },
             providers = provide,
         },
-
         term = {
             enabled = true,
             keymap = maps,
