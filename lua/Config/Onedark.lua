@@ -1,4 +1,7 @@
-require('onedark').setup(
+-- You use the cool pallet for 99% of the time
+local onedark = require('onedark')
+
+onedark.setup(
     {
         transparent = true,
         style = 'deep',
@@ -54,11 +57,17 @@ require('onedark').setup(
             SpellBad = {
                 bg = '#353535',
             },
-            ['@comment'] = {
-                fg = '#848484'
-            },
-            ['@lsp.type.comment'] = {
-                fg = '#819696'
+            -- ['@comment'] = {
+            --     fg = '#848484'
+            -- },
+            -- ['@lsp.type.comment'] = {
+            --     fg = '#819696'
+            -- },
+            -- ["@lsp.type.parameter"] = { fg = "#ffb86c" }, -- orange
+            -- ["@lsp.type.variable"] = { fg = "#8be9fd" },  -- blue
+            ["@lsp.type.namespace"] = {
+                fg = '#93a4c3',
+                fmt = 'bold,italic'
             },
         },
         diagnostics = {
@@ -69,8 +78,13 @@ require('onedark').setup(
     }
 )
 
-require('onedark').load()
+onedark.load()
 
+-- Customize semantic token highlights
+vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
+vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
+
+-- vim.api.nvim_set_hl(0, "@variable.python", { link = "Identifier" })
 -- Just line numbers
 -- vim.cmd [[
 --   highlight LineNr guifg=#848484 gui=italic
