@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("Options")
-require("Netrw")
 
 require("Requirements")
 
