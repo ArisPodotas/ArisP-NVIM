@@ -23,7 +23,7 @@ require("Config.Which")
 require('Config.Pair') -- Just better
 
 require("Config.Mini.Icons")
--- require('Config.Mini.Map')
+require('Config.Mini.Map')
 require('Config.Mini.Surround')
 require('Config.Mini.Comment')
 require('Config.Mini.Leap')

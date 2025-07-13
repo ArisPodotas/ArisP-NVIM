@@ -5,29 +5,29 @@ vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202"
 local provide = {
     snippets = {
         name = 'Snippet',
-        score_offset = 70,
-        max_items = 3,
+        -- score_offset = 70,
+        -- max_items = 3,
     },
     lsp = {
         name = 'LSP',
-        score_offset = 30,
-        max_items = 5,
+        -- score_offset = 30,
+        -- max_items = 5,
     },
     path = {
         name = 'Path',
-        score_offset = 80,
-        max_items = 5,
+        -- score_offset = 80,
+        -- max_items = 5,
     },
     buffer = {
         name = 'Buffer',
-        score_offset = 65,
-        max_items = 8,
+        -- score_offset = 65,
+        -- max_items = 8,
     },
     lazydev = {
         name = 'Lazy',
         module = 'lazydev.integrations.blink',
-        score_offset = 20,
-        max_items = 10,
+        -- score_offset = 20,
+        -- max_items = 10,
     },
     -- avante = {
     --     module = 'blink-cmp-avante',
@@ -142,7 +142,7 @@ require('blink.cmp').setup(
         snippets = { preset = 'luasnip' },
         fuzzy = {
             implementation = 'prefer_rust_with_warning',
-            -- max_items = 50,
+            max_items = 100,
         },
         signature = {
             enabled = true,
