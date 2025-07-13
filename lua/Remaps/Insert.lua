@@ -21,5 +21,4 @@ vim.keymap.set('i', '<A-d><A-d>', '<C-o>dd', { desc = '[D]elete current line'})
 
 vim.keymap.set('i', '<A-v>', '<C-o>v', { desc = 'Engages [V]isual mode'})
 vim.keymap.set('i', '<A-v><A-v>', '<C-o>V', { desc = 'Engages [V]isual line mode'})
-vim.keymap.set('i', '<C-v>', '<C-o><C-v>', { desc = 'Engages [V]isual block mode'})
 

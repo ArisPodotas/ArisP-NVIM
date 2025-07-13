@@ -1,3 +1,32 @@
+local colorPalette = {
+    black = "#151820",
+    bg0 = "#242b38",
+    bg1 = "#2d3343",
+    bg2 = "#343e4f",
+    bg3 = "#363c51",
+    bg_d = "#1e242e",
+    bg_blue = "#6db9f7",
+    bg_yellow = "#f0d197",
+    fg = "#a5b0c5",
+    purple = "#ca72e4",
+    green = "#97ca72",
+    orange = "#d99a5e",
+    blue = "#5ab0f6",
+    yellow = "#ebc275",
+    cyan = "#4dbdcb",
+    red = "#ef5f6b",
+    grey = "#546178",
+    light_grey = "#7d899f",
+    dark_cyan = "#25747d",
+    dark_red = "#a13131",
+    dark_yellow = "#9a6b16",
+    dark_purple = "#8f36a9",
+    diff_add = "#303d27",
+    diff_delete = "#3c2729",
+    diff_change = "#18344c",
+    diff_text = "#265478",
+}
+
 -- You use the cool pallet for 99% of the time
 local onedark = require('onedark')
 
@@ -5,8 +34,7 @@ onedark.setup(
     {
         transparent = true,
         style = 'deep',
-        -- toggle theme style ---
-        toggle_style_key = '<A-c>', -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+        toggle_style_key = '<A-c>',
         toggle_style_list = {
             'dark',
             'darker',
@@ -15,10 +43,9 @@ onedark.setup(
             'warm',
             'warmer',
             'light'
-        }, -- List of styles to toggle between
+        },
         -- Change code style ---
         -- Options are italic, bold, underline, none
-        -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
         code_style = {
             comments = 'italic',
             keywords = 'bold,italic',
@@ -53,18 +80,9 @@ onedark.setup(
                 bg = '#9c06c9',
                 fmt = 'underline,italic'
             },
-            -- Actually its good that this writes over the other objects
             SpellBad = {
                 bg = '#353535',
             },
-            -- ['@comment'] = {
-            --     fg = '#848484'
-            -- },
-            -- ['@lsp.type.comment'] = {
-            --     fg = '#819696'
-            -- },
-            -- ["@lsp.type.parameter"] = { fg = "#ffb86c" }, -- orange
-            -- ["@lsp.type.variable"] = { fg = "#8be9fd" },  -- blue
             ["@lsp.type.namespace"] = {
                 fg = '#93a4c3',
                 fmt = 'bold,italic'
@@ -84,7 +102,6 @@ onedark.load()
 vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
 vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 
--- vim.api.nvim_set_hl(0, "@variable.python", { link = "Identifier" })
 -- Just line numbers
 -- vim.cmd [[
 --   highlight LineNr guifg=#848484 gui=italic
@@ -96,7 +113,18 @@ vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 -- The cursor
 -- Set cursor color
 -- vim.api.nvim_set_hl(0, "Cursor", { fg = "#020202", bg = "#87b268", blend = 30})
---
--- -- Optionally set cursorline background (if cursorline is enabled)
 -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#659056", blend = 70 })
+
+ -- Override the default hover handler to customize the popup
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = "rounded"
+    opts.title = ' Docs '
+    vim.api.nvim_set_hl(0, "NormalFloat", {})
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = colorPalette.red })
+    -- Call the original function with modified options
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+end
 

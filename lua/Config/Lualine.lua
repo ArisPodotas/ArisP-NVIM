@@ -1,15 +1,15 @@
+
 require('lualine').setup(
     {
         options = {
             icons_enabled = true,
             theme = 'onedark',
             -- component_separators = { left = '', right = '' },
-            -- component_separators = { left = '|', right = '|' },
-            component_separators = { left = '/', right = '/' },
-            -- component_separators = { left = '', right = '' },
-            section_separators = { left = '', right = '' },
             -- section_separators = { left = '', right = '' },
+            component_separators = { left = '/', right = '/' },
+            section_separators = { left = '', right = '' },
             -- section_separators = { left = '', right = '' },
+            -- component_separators = { left = '', right = '' }
         },
         sections = {
             lualine_a = {
@@ -42,7 +42,8 @@ require('lualine').setup(
             },
             lualine_z = {
                 'location',
-                'searchcount', --function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
+                'searchcount',
+                --function() local handle = io.popen("wmic path Win32_Battery get EstimatedChargeRemaining")
                 --   if handle then
                 --     local result = handle:read("*a")
                 --     handle:close()
@@ -60,4 +61,7 @@ require('lualine').setup(
         },
     }
 )
+
+vim.api.nvim_set_hl(0, 'StatusLine', {})
+vim.api.nvim_set_hl(0, 'StatusLineNC', {})
 
