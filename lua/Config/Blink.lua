@@ -56,8 +56,7 @@ local provide = {
 }
 
 local maps = {
-    ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
-    ['<C-e>'] = { 'hide', 'fallback' },
+    ['<C-e>'] = { 'show', 'show_documentation', 'hide', 'hide_documentation', 'fallback' },
     ['<Tab>'] = { 'select_and_accept', 'fallback' },
     ['<Up>'] = { 'select_prev', 'fallback' },
     ['<Down>'] = { 'select_next', 'fallback' },
@@ -87,7 +86,9 @@ require('blink.cmp').setup(
             nerd_font_variant = 'mono'
         },
         completion = {
+            keyword = {range = 'full'},
             list = {
+                max_items = 100,
                 selection = {
                     preselect = true,
                     auto_insert = false,
@@ -95,10 +96,11 @@ require('blink.cmp').setup(
             },
             documentation = {
                 auto_show = true,
+                auto_show_delay_ms = 100,
                 window = {
                     border = "single",
-                    max_width = 50,
-                    max_height = 10,
+                    max_width = 500,
+                    max_height = 18,
                 },
             },
             menu = {
@@ -107,37 +109,71 @@ require('blink.cmp').setup(
                     treesitter = { 'lsp' },
                     padding = { 1, 1 },
                     components = {
+                        item_idx = {
+                            text = function(ctx) return ctx.idx == 10 and '0' or ctx.idx >= 10 and tostring(ctx.idx) or tostring(ctx.idx) end,
+                        },
                         kind_icon = {
                             text = function(ctx)
                                 local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind) .. '  '
                                 return kind_icon
                             end,
-                            -- (optional) use highlights from mini.icons
                             highlight = function(ctx)
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
                             end,
                         },
                         kind = {
-                            -- (optional) use highlights from mini.icons
                             highlight = function(ctx)
                                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                                 return hl
                             end,
-                        }
+                        },
+                        label = {
+                            width = { fill = true, max = 25},
+                            text = function(ctx) return ctx.label .. ctx.label_detail end,
+                            highlight = function(ctx)
+                                local highlights = {
+                                    { 0, #ctx.label, group = ctx.deprecated and 'BlinkCmpLabelDeprecated' or 'BlinkCmpLabel' },
+                                }
+                                if ctx.label_detail then
+                                    table.insert(highlights, { #ctx.label, #ctx.label + #ctx.label_detail, group = 'BlinkCmpLabelDetail' })
+                                end
+                                for _, idx in ipairs(ctx.label_matched_indices) do
+                                    table.insert(highlights, { idx, idx + 1, group = 'BlinkCmpLabelMatch' })
+                                end
+                                return highlights
+                            end,
+                        },
+                        label_description = {
+                            width = { max = 15, fill = true},
+                            text = function(ctx) return ctx.label_description end,
+                            highlight = 'BlinkCmpLabelDescription',
+                        },
                     },
-                    -- cursorline_priority = 0,
                     columns = {
+                        {
+                            'item_idx',
+                        },
                         {
                             "label", "label_description", gap = 1
                         },
                         {
                             "kind_icon", "kind"
                         },
-                    }
+                    },
                 },
             },
-            ghost_text = { enabled = false, },
+            ghost_text = {
+                enabled = true,
+                -- Show the ghost text when an item has been selected
+                show_with_selection = true,
+                -- Show the ghost text when no item has been selected, defaulting to the first item
+                show_without_selection = true,
+                -- Show the ghost text when the menu is open
+                show_with_menu = false,
+                -- Show the ghost text when the menu is closed
+                show_without_menu = true,
+            },
         },
         snippets = { preset = 'luasnip' },
         fuzzy = {
@@ -177,7 +213,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = false }
+                ghost_text = { enabled = true, show_with_menu = false },
             }
         },
         cmdline = {
@@ -195,7 +231,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = false }
+                ghost_text = { enabled = true, show_with_menu = false },
             },
         },
     }
