@@ -56,7 +56,7 @@ vim.api.nvim_create_autocmd(
                     end,
                 })
             end
-            -- -- The following code creates a keymap to toggle inlay hints in your
+            -- The following code creates a keymap to toggle inlay hints in your
             if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             	map("<leader>th", function()
             		vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
@@ -70,30 +70,23 @@ require("mason").setup()
 
 local servers = {
 	clangd = {},
-	-- matlab_ls = {},
 	-- gopls = {},
-    basedpyright = { },
-    -- pyright = {
-    --     settings = {
-    --         python = {
-    --             analysis = {
-    --                 typeCheckingMode = "basic", -- or "strict" for stricter checks
-    --                 autoImportCompletions = true,
-    --             }
-    --         }
-    --     },
-    -- },
-    --
-	-- perlnavigator = {},
-	-- intelephense =  {},
-	-- powershell_es = {},
+    basedpyright = {
+        settings = {
+            basedpyright = { 
+                analysis = {
+                    typeCheckingMode = "basic",
+                    autoImportCompletions = true,
+                }
+            },
+        }
+    },
 	-- r_language_server = {},
 	-- rust_analyzer = {},
 	-- tsserver = {},
     texlab = { filetypes = {'tex', 'plaintex'} },
 	html = { filetypes = { "html", "twig", "hbs" } },
 	ts_ls = {},
-    -- prettier = {},
 	cssls = {},
 	lua_ls = {
 		Lua = {
@@ -114,18 +107,19 @@ local capabilities = require("blink.cmp").get_lsp_capabilities()
 -- Ensure the servers above are installed
 local mason_lspconfig = require("mason-lspconfig")
 
--- local ensure_installed = vim.tbl_keys(servers or {})
--- vim.list_extend(
---     ensure_installed, {
---         "stylua", -- Used to format Lua code
---     }
--- )
-
 mason_lspconfig.setup(
     {
+        ensure_installed = {
+            "clangd",
+            "basedpyright",
+            "texlab",
+            "html",
+            "ts_ls",
+            "cssls",
+            "lua_ls",
+        },
         handlers = {
             function(server_name)
-
                 local server = servers[server_name] or {}
                 server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
                 require("lspconfig")[server_name].setup(server)
@@ -133,10 +127,4 @@ mason_lspconfig.setup(
         },
     }
 )
-
--- Set highlight for the hover window content
--- vim.api.nvim_set_hl(0, 'NormalFloat', { fg = '#ffffff', bg = '#2e2e2e' }) -- White text, dark gray background
--- Set highlight for the hover window border
--- vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#569cd6', bg = '#2e2e2e' }) -- Blue border, same background
--- Define highlight groups for semantic tokens
 

@@ -112,7 +112,8 @@ vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 
 -- The cursor
 -- Set cursor color
--- vim.api.nvim_set_hl(0, "Cursor", { fg = "#020202", bg = "#87b268", blend = 30})
+vim.api.nvim_set_hl(0, "Cursor", {  bg = colorPalette.red })
+-- vim.api.nvim_set_hl(0, "TermCursor", { bg = colorPalette.red})
 -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#659056", blend = 70 })
 
  -- Override the default hover handler to customize the popup
