@@ -54,13 +54,6 @@ which.setup(
     }
 )
 
--- which.show(
---     {
---         keys = '<c-w>',
---         loop = true,
---     }
--- )
-
 -- document existing key chains
 which.add (
     {

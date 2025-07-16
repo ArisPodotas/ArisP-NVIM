@@ -112,7 +112,7 @@ vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 
 -- The cursor
 -- Set cursor color
-vim.api.nvim_set_hl(0, "Cursor", {  bg = colorPalette.red })
+-- vim.api.nvim_set_hl(0, "Cursor", {  bg = colorPalette.red })
 -- vim.api.nvim_set_hl(0, "TermCursor", { bg = colorPalette.red})
 -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#659056", blend = 70 })
 
