@@ -116,6 +116,9 @@ vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 -- vim.api.nvim_set_hl(0, "TermCursor", { bg = colorPalette.red})
 -- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#659056", blend = 70 })
 
+vim.api.nvim_set_hl(0, "NormalFloat", {})
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = colorPalette.red })
+
  -- Override the default hover handler to customize the popup
 local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 
@@ -123,9 +126,17 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     opts = opts or {}
     opts.border = "rounded"
     opts.title = ' Docs '
-    vim.api.nvim_set_hl(0, "NormalFloat", {})
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = colorPalette.red })
     -- Call the original function with modified options
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+-- Override nvim_open_win to apply default styling
+-- local orig_open_win = vim.api.nvim_open_win
+
+-- function vim.api.nvim_open_win(buffer, enter, config, ...)
+--   config = config or {}
+--   config.border = config.border or "rounded" -- Default to rounded border
+
+--   return orig_open_win(buffer, enter, config, ...)
+-- end
 
