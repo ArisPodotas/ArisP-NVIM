@@ -178,7 +178,7 @@ require('blink.cmp').setup(
         snippets = { preset = 'luasnip' },
         fuzzy = {
             implementation = 'prefer_rust_with_warning',
-            max_items = 100,
+            -- max_items = 100,
         },
         signature = {
             enabled = true,
@@ -213,7 +213,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = true, show_with_menu = false },
+                ghost_text = { enabled = true },
             }
         },
         cmdline = {
@@ -231,7 +231,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = true, show_with_menu = false },
+                ghost_text = { enabled = true },
             },
         },
     }

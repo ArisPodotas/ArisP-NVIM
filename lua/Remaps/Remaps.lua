@@ -10,6 +10,21 @@ vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
 
+-- Change directory
+vim.keymap.set("n", "<leader>o", function()
+  if pcall(function()
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+  end) ~= 0 then vim.cmd.pwd()
+  elseif vim.api.nvim_buf_get_name(0) then
+    print('you identified being in the file proeperly')
+  else
+    vim.cmd.cd("%")
+    vim.cmd.cd(".")
+    vim.cmd.pwd()
+  end
+end, { desc = 'Changes direct[O]ry to current view' })
+
 -- vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
 vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at cursor position' })
 vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })

@@ -5,13 +5,13 @@ require('mini.jump2d').setup(
         -- If `nil` (default) - use |MiniJump2d.default_spotter|
         spotter = nil,
         -- Characters used for labels of jump spots (in supplied order)
-        labels = 'abcdhiopqrefgjklmns;tuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        labels = 'abcdhiopqrefgjklmns;tuvwxyz1234567890',
         -- Options for visual effects
         view = {
             -- Whether to dim lines with at least one jump spot
             dim = true,
             -- How many steps ahead to show. Set to big number to show all steps.
-            n_steps_ahead = 0,
+            n_steps_ahead = 5,
         },
         -- Which lines are used for computing spots
         allowed_lines = {

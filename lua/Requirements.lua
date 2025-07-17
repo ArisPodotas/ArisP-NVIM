@@ -64,7 +64,6 @@ require("lazy").setup({
 	},
 
 	{
-		-- LSP Configuration & Plugins
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -232,6 +231,46 @@ require("lazy").setup({
 
     -- require('Config.Avant')
 
+    -- This section is for the plugins I like but have not tried
+
+    -- Html tag completion
+    {
+        'windwp/nvim-ts-autotag',
+    },
+
+    -- Smooth scrolling
+    -- {
+        -- karb94/neoscroll.nvim
+    -- },
+
+    -- Jupyter notebooks
+    -- {
+        -- kiyoon/jupynium.nvim
+    -- },
+
+    -- {
+        -- meznaric/key-analyzer.nvim
+    -- },
+
+    -- Navigate functions and scopes
+    --{
+        -- stevearc/aerial.nvim
+    --},
+
+    --Pwetty
+    {
+        'rcarriga/nvim-notify',
+        opts = {},
+    },
+
+    -- {
+        -- sQVe/sort.nvim
+    -- },
+
+    {
+        'norcalli/nvim-colorizer.lua',
+        opts = {},
+    },
 },
     {
         ui = {
