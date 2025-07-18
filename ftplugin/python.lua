@@ -173,6 +173,25 @@ def {}(
     )
 end
 
+local function docstring()
+    return fmt([["""
+    {}
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Arguments:
+        {}: {}
+    ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+    Returns:
+        output: {}
+    """]],
+        {
+            i(1, 'Documentation'),
+            i(2, 'arg'),
+            i(3, 'type'),
+            i(0, 'None'),
+        }
+    )
+end
+
 ls.add_snippets(
     'python', {
         -- General function format
@@ -188,6 +207,8 @@ ls.add_snippets(
         s('wrp', wrappedFn()),
         s('wmth', wrappedMethod()),
         s('wmeth', wrappedMethod()),
+        s('doc', docstring()),
+        s('dc', docstring()),
     }
 )
 

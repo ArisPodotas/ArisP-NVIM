@@ -80,7 +80,7 @@ vim.opt.relativenumber = true
 
 -- netrw
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
-vim.g.netrw_indent = 3
+vim.g.netrw_indent = 4
 
 -- File manager sorts files by type
 vim.g.netrw_sort_by = "extention"
@@ -91,7 +91,8 @@ vim.opt.hlsearch = true
 
 -- Highlight searched contents incrumentally while typing into the register
 vim.opt.incsearch = true
-vim.opt.inccommand = 'split'
+-- preview substitution
+vim.opt.inccommand = 'nosplit'
 
 -- Vertical splits happen to the right of nvim
 vim.opt.splitright = true
@@ -101,8 +102,9 @@ vim.opt.splitbelow = true
 
 -- aris
 
--- Allow cursor on all positons of screen
+-- highlight the line of the cursor
 vim.opt.cursorline = true
+-- vim.opt.cursorlineopt = {'line', 'number'}
 
 vim.opt.spell = false
 

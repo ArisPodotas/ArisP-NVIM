@@ -25,6 +25,7 @@ local colorPalette = {
     diff_delete = "#3c2729",
     diff_change = "#18344c",
     diff_text = "#265478",
+    extra1 = "#5E81AC"
 }
 
 -- You use the cool pallet for 99% of the time
@@ -87,6 +88,7 @@ onedark.setup(
                 fg = '#93a4c3',
                 fmt = 'bold,italic'
             },
+            WinSeparator = {fg = colorPalette.dark_cyan}
         },
         diagnostics = {
             darker = true,
@@ -130,6 +132,7 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
+-- You dont need this since the above was made to work keep for legacy
 -- Override nvim_open_win to apply default styling
 -- local orig_open_win = vim.api.nvim_open_win
 
@@ -140,3 +143,8 @@ end
 --   return orig_open_win(buffer, enter, config, ...)
 -- end
 
+-- Set custom highlight groups for Telescope borders
+vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colorPalette.red, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colorPalette.blue, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = colorPalette.green, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = colorPalette.red, bg = "none" })

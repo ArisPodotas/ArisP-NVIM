@@ -23,12 +23,12 @@ local provide = {
         -- score_offset = 65,
         -- max_items = 8,
     },
-    lazydev = {
-        name = 'Lazy',
-        module = 'lazydev.integrations.blink',
-        -- score_offset = 20,
-        -- max_items = 10,
-    },
+    -- lazydev = {
+    --     name = 'Lazy',
+    --     module = 'lazydev.integrations.blink',
+    --     -- score_offset = 20,
+    --     -- max_items = 10,
+    -- },
     -- avante = {
     --     module = 'blink-cmp-avante',
     --     name = 'Avante',

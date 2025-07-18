@@ -46,22 +46,22 @@ require("lazy").setup({
 	-- Detect tabstop and shiftwidth automatically
 	-- 'NMAC427/guess-indent.nvim',
 
-	{
-		"folke/lazydev.nvim",
-		ft = "lua", -- only load on lua files
-		opts = {
-			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{
-					path = "${3rd}/luv/library",
-					words = {
-						"vim%.uv",
-					},
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"folke/lazydev.nvim",
+	-- 	ft = "lua", -- only load on lua files
+	-- 	opts = {
+	-- 		library = {
+	-- 			-- See the configuration section for more details
+	-- 			-- Load luvit types when the `vim.uv` word is found
+	-- 			{
+	-- 				path = "${3rd}/luv/library",
+	-- 				words = {
+	-- 					"vim%.uv",
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 
 	{
 		"neovim/nvim-lspconfig",
@@ -70,7 +70,7 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			-- { "j-hui/fidget.nvim", opts = {} },
 			"saghen/blink.cmp",
-			"folke/lazydev.nvim",
+			-- "folke/lazydev.nvim",
 		},
 	},
 
@@ -80,6 +80,7 @@ require("lazy").setup({
 	-- Adds git related signs to the gutter, as well as utilities for managing changes
 	{ "lewis6991/gitsigns.nvim" },
 
+    -- colorscheme
 	{ "navarasu/onedark.nvim", priority = 1000 },
 
 	{ "nvim-lualine/lualine.nvim",
@@ -88,6 +89,7 @@ require("lazy").setup({
 
 	-- "gc" to comment visual regions/lines
 	-- { "numToStr/Comment.nvim" },
+    -- Mini does his just fine
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -208,7 +210,7 @@ require("lazy").setup({
 				},
 				opts = {},
 			},
-			"folke/lazydev.nvim",
+			-- "folke/lazydev.nvim",
 		},
 	},
 
@@ -253,9 +255,15 @@ require("lazy").setup({
     -- },
 
     -- Navigate functions and scopes
-    --{
-        -- stevearc/aerial.nvim
-    --},
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+    },
 
     --Pwetty
     {

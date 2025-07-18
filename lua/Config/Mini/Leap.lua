@@ -11,7 +11,7 @@ require('mini.jump2d').setup(
             -- Whether to dim lines with at least one jump spot
             dim = true,
             -- How many steps ahead to show. Set to big number to show all steps.
-            n_steps_ahead = 5,
+            n_steps_ahead = 0,
         },
         -- Which lines are used for computing spots
         allowed_lines = {
