@@ -28,9 +28,3 @@ ntf('You are using neovim by the way')
 --     }
 -- )
 
-require('windows').setup(
-    {
-
-    }
-)
-

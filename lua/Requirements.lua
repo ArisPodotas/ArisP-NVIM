@@ -218,6 +218,7 @@ require("lazy").setup({
     },
 
     -- cool jump animation
+    -- not working
     -- {
     --     'edluffy/specs.nvim',
     --     opts = {}
@@ -237,25 +238,8 @@ require("lazy").setup({
        end
     },
 
-	-- Detect tabstop and shiftwidth automatically
-	-- {'NMAC427/guess-indent.nvim'},
-
-    -- Autoformat
-	-- {
-	--     'stevearc/conform.nvim',
-	--     event = { 'BufWritePre' },
-	--     cmd = { 'ConformInfo' },
-	-- },
-
-    -- {
-    --     'MeanderingProgrammer/render-markdown.nvim',
-    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    --     ---@module 'render-markdown'
-    --     ---@type render.md.UserConfig
-    --     opts = {},
-    -- },
+    -- Change the color of matching pairs of delimiters
+    -- { HiPhish/rainbow-delimiters.nvim },
 
 	-- AI
 	-- { "supermaven-inc/supermaven-nvim" },
@@ -285,15 +269,6 @@ require("lazy").setup({
     --     config = true,
     --     -- Uncomment next line if you want to follow only stable versions
     --     -- version = "*" 
-    -- },
-
-    -- Highlight todo comments
-    -- not working
-    --
-    -- {
-    --     "folke/todo-comments.nvim",
-    --     dependencies = { "nvim-lua/plenary.nvim" },
-    --     opts = { }
     -- },
 
 },
