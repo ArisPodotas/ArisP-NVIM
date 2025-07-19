@@ -6,6 +6,29 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
 
+-- Terminal exit
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
+vim.keymap.set("t", "<C-[>", "<C-\\><C-n>", { desc = 'Makes control [ return to normal mode in the terminal' })
+
+-- Makes the terminal a little more vimy
+vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+
+vim.keymap.set("n", "<leader>te", "iexit<CR>", { desc = '[E]xit [T]erminal' })
+
+-- Tabs
+vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { desc = 'Opens a new vim [T]ab' })
+vim.keymap.set("n", "<A-t>", ":tabn<CR>", { desc = 'Will change [T]ab' })
+
+vim.keymap.set("n", "<leader>tt", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("powershell")
+end, { desc = 'Opens the powershell [T]erminal in a new tab' })
+
+vim.keymap.set("n", "<leader>tu", function()
+  vim.cmd.tabnew()
+  vim.fn.termopen("ubuntu")
+end, { desc = 'Opens the [U]buntu [T]erminal in a new tab' })
+
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move highlighted lines up' })
@@ -26,8 +49,7 @@ vim.keymap.set("n", "<leader>o", function()
 end, { desc = 'Changes direct[O]ry to current view' })
 
 -- vim.keymap.set("n", "<CR>", "i<CR>", { desc = 'Adds a newline where the cursor is to write' })
-vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at cursor position' })
-vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
+vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at behind the cursor' })
 
 -- Remapping page jumps to center screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = 'Center screen after half page jump' })

@@ -1,4 +1,7 @@
 
+-- Paste clipboard in insert mode
+vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
+
 vim.keymap.set('i', '<C-j>', '<C-o>j', { desc = 'Moves the cursor down one line'})
 vim.keymap.set('i', '<C-k>', '<C-o>k', { desc = 'Moves the cursor up one line'})
 vim.keymap.set('i', '<C-l>', '<C-o>l', { desc = 'Moves the cursor left one space'})

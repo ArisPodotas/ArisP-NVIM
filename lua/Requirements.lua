@@ -43,25 +43,6 @@ require("lazy").setup({
 	-- Git related plugins
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
-	-- Detect tabstop and shiftwidth automatically
-	-- 'NMAC427/guess-indent.nvim',
-
-	-- {
-	-- 	"folke/lazydev.nvim",
-	-- 	ft = "lua", -- only load on lua files
-	-- 	opts = {
-	-- 		library = {
-	-- 			-- See the configuration section for more details
-	-- 			-- Load luvit types when the `vim.uv` word is found
-	-- 			{
-	-- 				path = "${3rd}/luv/library",
-	-- 				words = {
-	-- 					"vim%.uv",
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	},
-	-- },
 
 	{
 		"neovim/nvim-lspconfig",
@@ -86,10 +67,6 @@ require("lazy").setup({
 	{ "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" }
     },
-
-	-- "gc" to comment visual regions/lines
-	-- { "numToStr/Comment.nvim" },
-    -- Mini does his just fine
 
 	{
 		"nvim-telescope/telescope.nvim",
@@ -123,7 +100,7 @@ require("lazy").setup({
 		main = "ibl",
 	},
 
-	-- didnt uninstall still here if i want to enalbe lt
+    -- netrw icons
 	{
 		"prichrd/netrw.nvim",
 		opts = {},
@@ -155,9 +132,6 @@ require("lazy").setup({
         --     words = { enabled = false },
         -- },
     },
-
-	-- AI
-	-- { "supermaven-inc/supermaven-nvim" },
 
 	-- Debugger
 	{
@@ -214,45 +188,12 @@ require("lazy").setup({
 		},
 	},
 
-    -- Autoformat
-	-- {
-	--     'stevearc/conform.nvim',
-	--     event = { 'BufWritePre' },
-	--     cmd = { 'ConformInfo' },
-	-- },
-
-    -- {
-    --     'MeanderingProgrammer/render-markdown.nvim',
-    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-    --     ---@module 'render-markdown'
-    --     ---@type render.md.UserConfig
-    --     opts = {},
-    -- },
-
-    -- require('Config.Avant')
-
     -- This section is for the plugins I like but have not tried
 
     -- Html tag completion
     {
         'windwp/nvim-ts-autotag',
     },
-
-    -- Smooth scrolling
-    -- {
-        -- karb94/neoscroll.nvim
-    -- },
-
-    -- Jupyter notebooks
-    -- {
-        -- kiyoon/jupynium.nvim
-    -- },
-
-    -- {
-        -- meznaric/key-analyzer.nvim
-    -- },
 
     -- Navigate functions and scopes
     {
@@ -271,14 +212,90 @@ require("lazy").setup({
         opts = {},
     },
 
-    -- {
-        -- sQVe/sort.nvim
-    -- },
-
     {
         'norcalli/nvim-colorizer.lua',
         opts = {},
     },
+
+    -- cool jump animation
+    -- {
+    --     'edluffy/specs.nvim',
+    --     opts = {}
+    -- },
+
+    -- Cool resize windon on jump
+    { "anuvyklack/windows.nvim",
+       dependencies = {
+          "anuvyklack/middleclass",
+          "anuvyklack/animation.nvim"
+       },
+       config = function()
+          vim.o.winwidth = 10
+          vim.o.winminwidth = 10
+          vim.o.equalalways = false
+          require('windows').setup()
+       end
+    },
+
+	-- Detect tabstop and shiftwidth automatically
+	-- {'NMAC427/guess-indent.nvim'},
+
+    -- Autoformat
+	-- {
+	--     'stevearc/conform.nvim',
+	--     event = { 'BufWritePre' },
+	--     cmd = { 'ConformInfo' },
+	-- },
+
+    -- {
+    --     'MeanderingProgrammer/render-markdown.nvim',
+    --     dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+    --     -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    --     ---@module 'render-markdown'
+    --     ---@type render.md.UserConfig
+    --     opts = {},
+    -- },
+
+	-- AI
+	-- { "supermaven-inc/supermaven-nvim" },
+    -- require('Config.Avant')
+
+    -- Smooth scrolling
+    -- {
+        -- karb94/neoscroll.nvim
+    -- },
+
+    -- Jupyter notebooks
+    -- {
+        -- kiyoon/jupynium.nvim
+    -- },
+
+    -- {
+        -- meznaric/key-analyzer.nvim
+    -- },
+
+    -- {
+        -- sQVe/sort.nvim
+    -- },
+
+    -- Generate docs automatically
+    -- { 
+    --     "danymat/neogen", 
+    --     config = true,
+    --     -- Uncomment next line if you want to follow only stable versions
+    --     -- version = "*" 
+    -- },
+
+    -- Highlight todo comments
+    -- not working
+    --
+    -- {
+    --     "folke/todo-comments.nvim",
+    --     dependencies = { "nvim-lua/plenary.nvim" },
+    --     opts = { }
+    -- },
+
 },
     {
         ui = {

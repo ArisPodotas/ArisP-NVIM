@@ -6,35 +6,27 @@ require("Options")
 
 require("Requirements")
 
-require("Config.QOL.Onedark")
-require("Config.QOL.Lualine")
-require("Config.QOL.Telescope")
+require("Config.Onedark") -- keep in mind this has alot more than just one dark
+require("Config.Lualine")
+require("Config.Telescope")
 require("Config.LSP.Treesitter")
 require("Config.LSP.Lsp")
 require("Config.LSP.Blink")
 require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
-require('Config.QOL.Aerials')
-require('Config.QOL.Colorizer')
-require('Config.QOL.Notify')
-require("Config.QOL.Git")
-require("Config.QOL.Harpoon")
-require("Config.QOL.Ibl")
 require("Config.LSP.Debug")
-require("Config.QOL.Which")
-require('Config.QOL.Pair') -- Just better
+require('Config.LSP.Pair') -- Just better
+require('Config.Animations')
+require('Config.Aerials')
+require("Config.Git")
+require("Config.Harpoon")
+require("Config.Ibl")
+require("Config.Which")
 
-require("Config.Mini.Icons")
-require('Config.Mini.Map')
-require('Config.Mini.Surround')
-require('Config.Mini.Comment')
-require('Config.Mini.Leap')
-
-require('Config.QOL.Snak')
+require('Config.Mini') -- contains comment, map, surround, leap, icons
+require('Config.Snak') -- contains dashboard, dim
 
 require("Remaps.Remaps")
 require("Remaps.Insert")
 require("Remaps.Splits")
-require("Remaps.Tabs")
-require("Remaps.Terminals")
 

@@ -132,19 +132,11 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
--- You dont need this since the above was made to work keep for legacy
--- Override nvim_open_win to apply default styling
--- local orig_open_win = vim.api.nvim_open_win
-
--- function vim.api.nvim_open_win(buffer, enter, config, ...)
---   config = config or {}
---   config.border = config.border or "rounded" -- Default to rounded border
-
---   return orig_open_win(buffer, enter, config, ...)
--- end
-
 -- Set custom highlight groups for Telescope borders
 vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colorPalette.red, bg = "none" })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colorPalette.blue, bg = "none" })
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = colorPalette.green, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colorPalette.cyan, bg = "none" })
+vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = colorPalette.purple, bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = colorPalette.red, bg = "none" })
+
+require('colorizer').setup()
+
