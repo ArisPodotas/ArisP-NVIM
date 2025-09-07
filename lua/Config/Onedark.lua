@@ -17,6 +17,7 @@ local colorPalette = {
     red = "#ef5f6b",
     grey = "#546178",
     light_grey = "#7d899f",
+    intermediate_cyan = "#49a9b9",
     dark_cyan = "#25747d",
     dark_red = "#a13131",
     dark_yellow = "#9a6b16",
@@ -103,6 +104,7 @@ onedark.load()
 -- Customize semantic token highlights
 vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
 vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
+vim.api.nvim_set_hl(0, '@lsp.mod.documentation.lua', {fg = colorPalette.cyan})
 
 -- Just line numbers
 -- vim.cmd [[

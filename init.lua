@@ -16,7 +16,7 @@ require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
 require('Config.LSP.Pair') -- Just better
-require('Config.Animations')
+-- require('Config.Animations')
 require('Config.Aerials')
 require("Config.Git")
 require("Config.Harpoon")

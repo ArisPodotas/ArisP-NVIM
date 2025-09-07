@@ -207,10 +207,10 @@ require("lazy").setup({
     },
 
     --Pwetty
-    {
-        'rcarriga/nvim-notify',
-        opts = {},
-    },
+    -- {
+    --     'rcarriga/nvim-notify',
+    --     opts = {},
+    -- },
 
     {
         'norcalli/nvim-colorizer.lua',

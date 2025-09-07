@@ -1,11 +1,11 @@
-local ntf = require('notify')
-ntf.setup(
-    {
-        background_colour = "#000000",
-    }
-)
+-- local ntf = require('notify')
+-- ntf.setup(
+--     {
+--         background_colour = "#000000",
+--     }
+-- )
 
-ntf('You are using neovim by the way')
+-- ntf('You are using neovim by the way')
 
 -- You need to add this to the keymaps
 -- require('specs').setup(

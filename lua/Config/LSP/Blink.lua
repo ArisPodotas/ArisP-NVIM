@@ -5,7 +5,7 @@ vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202"
 local provide = {
     snippets = {
         name = 'Snippet',
-        -- score_offset = 70,
+        score_offset = 2,
         -- max_items = 3,
     },
     lsp = {
@@ -20,8 +20,8 @@ local provide = {
     },
     buffer = {
         name = 'Buffer',
-        -- score_offset = 65,
-        -- max_items = 8,
+        score_offset = -2,
+        max_items = 5,
     },
     -- lazydev = {
     --     name = 'Lazy',

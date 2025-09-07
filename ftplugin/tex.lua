@@ -1,3 +1,4 @@
+vim.cmd("set filetype=tex")
 
 vim.opt_local.spell = true
 
