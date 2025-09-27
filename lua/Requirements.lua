@@ -207,10 +207,10 @@ require("lazy").setup({
     },
 
     --Pwetty
-    {
-        'rcarriga/nvim-notify',
-        opts = {},
-    },
+    -- {
+    --     'rcarriga/nvim-notify',
+    --     opts = {},
+    -- },
 
     {
         'norcalli/nvim-colorizer.lua',
@@ -225,18 +225,18 @@ require("lazy").setup({
     -- },
 
     -- Cool resize windon on jump
-    { "anuvyklack/windows.nvim",
-       dependencies = {
-          "anuvyklack/middleclass",
-          "anuvyklack/animation.nvim"
-       },
-       config = function()
-          vim.o.winwidth = 10
-          vim.o.winminwidth = 10
-          vim.o.equalalways = false
-          require('windows').setup()
-       end
-    },
+    -- { "anuvyklack/windows.nvim",
+    --    dependencies = {
+    --       "anuvyklack/middleclass",
+    --       "anuvyklack/animation.nvim"
+    --    },
+    --    config = function()
+    --       vim.o.winwidth = 10
+    --       vim.o.winminwidth = 10
+    --       vim.o.equalalways = false
+    --       require('windows').setup()
+    --    end
+    -- },
 
     -- Change the color of matching pairs of delimiters
     -- { HiPhish/rainbow-delimiters.nvim },
