@@ -36,16 +36,16 @@ onedark.setup(
     {
         transparent = true,
         style = 'deep',
-        toggle_style_key = '<A-c>',
-        toggle_style_list = {
-            'dark',
-            'darker',
-            'cool',
-            'deep',
-            'warm',
-            'warmer',
-            'light'
-        },
+        -- toggle_style_key = '<A-c>',
+        -- toggle_style_list = {
+        --     'dark',
+        --     'darker',
+        --     'cool',
+        --     'deep',
+        --     'warm',
+        --     'warmer',
+        --     'light'
+        -- },
         -- Change code style ---
         -- Options are italic, bold, underline, none
         code_style = {
@@ -142,3 +142,11 @@ vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = colorPalette.red, bg = "
 
 require('colorizer').setup()
 
+if vim.g.neovide then
+    vim.g.neovide_fullscreen = true
+    vim.g.neovide_background_color = colorPalette.bg_blue  -- Optional: Set a base color (hex code)
+    -- vim.g.neovide_scroll_animation_length = 0 -- Disable animation
+    vim.g.neovide_window_blurred = true  -- Enables window-level blur (Acrylic effect)
+    vim.g.neovide_opacity = 0.65  -- Window opacity (0.0 fully transparent, 1.0 opaque); adjust for blur intensity
+    vim.g.neovide_normal_opacity = 0.65  -- Keeps the editor content opaque while blurring the background
+end

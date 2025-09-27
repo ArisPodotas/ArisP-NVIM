@@ -104,6 +104,7 @@ vim.opt.splitbelow = true
 
 -- highlight the line of the cursor
 vim.opt.cursorline = true
+
 -- vim.opt.cursorlineopt = {'line', 'number'}
 
 vim.opt.spell = false
