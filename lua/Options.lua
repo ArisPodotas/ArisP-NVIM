@@ -1,0 +1,126 @@
+-- [[ Setting options ]]
+-- See `:help vim.o`
+-- NOTE: You can change these options as you wish!
+
+-- Set highlight on search
+vim.o.hlsearch = false
+
+-- Decrease update time
+vim.opt.timeout = false
+vim.opt.ttimeout = false
+
+-- nerd font
+vim.g.have_nerd_font = true
+
+-- Don't show the mode, since it's already in the status line
+vim.o.showmode = false
+
+-- Make line numbers default
+vim.wo.number = true
+
+-- Make line numbers relative
+vim.wo.relativenumber = true
+
+-- Enable mouse mode
+vim.o.mouse = 'a'
+
+-- Sync clipboard between OS and Neovim.
+vim.o.clipboard = 'unnamed'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Save undo history
+-- Could this have to do with the shada file issue
+vim.o.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect,preview,noinsert,popup'
+
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
+
+-- Aris Settin custom setups
+
+-- Attemtpting to turn on line wrap on my own
+vim.opt.wrap = true
+vim.opt.breakindent = true -- Wrapped line indents the same
+vim.opt.showbreak = "󰘍" -- Icon for the wrapped line
+vim.opt.linebreak = true -- No idea
+
+-- Never have less than 12 lines above or below cursor
+vim.opt.scrolloff = 12
+
+-- Tabs indent at 4 spaces
+vim.opt.tabstop = 4
+vim.opt.softtabstop = -1
+vim.opt.shiftwidth = 0
+vim.opt.shiftround = true
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.listchars = { eol = '↲', tab = '│ ', space = '·', lead = ' ', nbsp = '␣'}
+vim.opt.list = true
+
+-- Something about line number printing position
+vim.opt.nu = true
+
+-- Making the cursor to take any positon on the screen instead of just text like the terminal
+vim.opt.virtualedit = "all"
+
+-- Relative line numbers
+vim.opt.relativenumber = true
+
+-- netrw
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_indent = 4
+
+-- File manager sorts files by type
+vim.g.netrw_sort_by = "extention"
+vim.g.netrw_liststyle = 5
+
+-- Highlight searched word for the whole file after search input
+vim.opt.hlsearch = true
+
+-- Highlight searched contents incrumentally while typing into the register
+vim.opt.incsearch = true
+-- preview substitution
+vim.opt.inccommand = 'nosplit'
+
+-- Vertical splits happen to the right of nvim
+vim.opt.splitright = true
+
+-- Horizontal splits appear on the bottom
+vim.opt.splitbelow = true
+
+-- aris
+
+-- highlight the line of the cursor
+vim.opt.cursorline = true
+
+-- vim.opt.cursorlineopt = {'line', 'number'}
+
+vim.opt.spell = false
+
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.o.confirm = true
+
+ -- views can only be fully collapsed with the global statusline -- Avante
+vim.opt.laststatus = 3
+
+vim.o.syntax = 'on'
+
+-- Changing the prgram used for opening files with x
+-- Lua for Windows
+
+vim.g.netrw_browsex_viewer = "opera"
+

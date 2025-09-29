@@ -1,0 +1,10 @@
+{
+    "workspace.library": [
+        "C:\\Users\\aPodo\\AppData\\Local\\nvim-data\\lazy\\neodev.nvim\\types\\nightly",
+        "C:\\Users\\aPodo\\scoop\\apps\\neovim\\0.10.0\\share\\nvim\\runtime\\lua",
+        "C:\\Users\\aPodo\\AppData\\Local\\nvim-data\\lazy\\neodev.nvim\\types\\nightly",
+        "C:\\Users\\aPodo\\scoop\\apps\\neovim\\0.10.0\\share\\nvim\\runtime\\lua",
+        "C:/Users/aPodo/AppData/Local/nvim/lua",
+        "C:/Users/aPodo/AppData/Local/nvim/lua"
+    ]
+}
