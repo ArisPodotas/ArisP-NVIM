@@ -4,7 +4,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Keymaps that will most likely remain uncahnged forever
 -- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
-vim.keymap.set("n", "<leader>H", ':cd C:/Users/aPodo/<CR>', { desc = 'Returns to [H]ome directory' })
+vim.keymap.set("n", "<leader>H", ':cd ~<CR>', { desc = 'Returns to [H]ome directory' })
 
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
@@ -21,13 +21,8 @@ vim.keymap.set("n", "<A-t>", ":tabn<CR>", { desc = 'Will change [T]ab' })
 
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.tabnew()
-  vim.fn.termopen("powershell")
-end, { desc = 'Opens the powershell [T]erminal in a new tab' })
-
-vim.keymap.set("n", "<leader>tu", function()
-  vim.cmd.tabnew()
-  vim.fn.termopen("ubuntu")
-end, { desc = 'Opens the [U]buntu [T]erminal in a new tab' })
+  vim.cmd.terminal()
+end, { desc = 'Opens the [T]erminal in a new tab' })
 
 -- Thanks prime
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move highlighted lines down' })

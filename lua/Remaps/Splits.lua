@@ -8,13 +8,8 @@ end, { desc = 'Opens vert[I]cal split' })
 
 vim.keymap.set("n", "<leader>it", function()
   vim.cmd.vs()
-  vim.cmd.terminal("powershell")
+  vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal in a [V]ertical split' })
-
-vim.keymap.set("n", "<leader>iu", function()
-  vim.cmd.vs()
-  vim.cmd.terminal("ubuntu")
-end, { desc = 'Opens [U]buntu in a [V]ertical split' })
 
 -- Under section
 vim.keymap.set("n", "<leader>uu", function()
@@ -23,13 +18,8 @@ end, { desc = 'Opens [S]plit' })
 
 vim.keymap.set("n", "<leader>ut", function()
   vim.cmd.sp()
-  vim.cmd.terminal("powershell")
+  vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal [S]plit' })
-
-vim.keymap.set("n", "<leader>ub", function()
-  vim.cmd.sp()
-  vim.cmd.terminal("ubuntu")
-end, { desc = 'Opens u[B]untu [S]plit' })
 
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
 vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
