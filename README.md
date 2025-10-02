@@ -1,7 +1,10 @@
 # Introduction
 
-This repository contains my local neovim config. I'm on a windows 11 laptop (now also on a linux laptop that you can check that branch for) and I made all the config off of kickstart.nvim (), building slowly while my preferences change (you wont find too many traces of kickstart here anymore).
+This repository contains my local neovim config. I'm on a windows 11 laptop (now also on a GNU/Linux laptop that you can check that branch for) and I made all the config off of kickstart.nvim (), building slowly while my preferences change (you wont find too many traces of kickstart here anymore).
 
+# Philosophy
+
+A set of keybinds using a specific plugin should be in the same file as the plugin itself and a set of visual changes using a plugin should be in the plugin file so onedark changes are in the onedark file and animatins are in the file.
 # Contributing? 
 
 I guess you can fork this repo but for what purpose?
@@ -27,6 +30,7 @@ This sections is to have a few tracking changes of startup time
 Pre ftplugin snippet moving (I moved all the snippets of ftplugins to not source on init)
 
 348.445  000.003: --- NVIM STARTED ---
+This was on windows right now on GNU/Linux it's like 86ms
 
 # Note
 

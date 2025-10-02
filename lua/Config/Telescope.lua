@@ -7,32 +7,32 @@ require('telescope').setup({
         layout_strategy = 'horizontal',
         layout_config = {
             horizontal = {
-                height = 0.9,
-                preview_cutoff = 1,
-                prompt_position = "top",
-                width = 0.9
+                height = 0.98,
+                preview_cutoff = 0,
+                prompt_position = "bottom",
+                width = 0.98
             },
             cursor = { -- I don't like this one
-                height = 0.9,
+                height = 0.98,
                 preview_cutoff = 1,
-                width = 0.9
+                width = 0.98
             },
             bottom_pane = {
-                height = 25,
+                height = 0.98,
                 preview_cutoff = 1,
                 prompt_position = "top"
             },
             vertical = {
-                height = 0.9,
+                height = 0.98,
                 preview_cutoff = 1,
                 prompt_position = "bottom",
-                width = 0.9
+                width = 0.98
             },
             center = {
-                height = 0.9,
+                height = 0.98,
                 preview_cutoff = 1,
                 prompt_position = "top",
-                width = 0.9
+                width = 0.98
             },
         },
         mappings = {
@@ -68,7 +68,6 @@ local tl = require("telescope.builtin")
 
 -- vim.keymap.set('n', '<A-q>', function() require('telescope.actions.layout').cycle_layout_next() end, {desc = '[C]ycle telescope layout'})
 
--- Telescope live_grep in git root
 -- Function to find the git root directory based on the current buffer's path
 local function find_git_root()
     -- Use the current buffer's path as the starting point for the git search
@@ -112,51 +111,6 @@ end
 
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
-
-
--- vim.keymap.set("n", "<leader>br", function()
---     tl.oldfiles(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[?] Find recently opened files" })
-
--- vim.keymap.set("n", "<leader>bb", function()
---     tl.buffers(require('telescope.themes').get_dropdown({theme='dropdown'}))
--- end, { desc = "[ ] Find existing buffers" })
-
--- vim.keymap.set("n", "<leader>bf", function()
--- 	tl.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
--- 		theme = "dropdown",
--- 	}))
--- end, { desc = "[/] Fuzzily search in current buffer" })
-
--- vim.keymap.set("n", "<leader>ss", function()
---     tl.builtin(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[S]earch [S]elect Telescope" })
-
--- vim.keymap.set("n", "<A-g>", function()
---     tl.git_files(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "Search [G]it [F]iles" })
-
--- vim.keymap.set("n", "<A-f>", function()
---     tl.find_files(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[F]ind [F]iles" })
-
--- vim.keymap.set("n", "<leader>sh", function()
---     tl.help_tags(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[S]earch [H]elp" })
-
--- vim.keymap.set("n", "<leader>sg", function()
---     tl.live_grep(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[S]earch by [G]rep" })
-
--- vim.keymap.set("n", "<leader>sd", function()
---     tl.diagnostics(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[S]earch [D]iagnostics" })
-
--- vim.keymap.set("n", "<leader>sr", function()
---     tl.resume(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
--- end, { desc = "[S]earch [R]esume" })
-
--- Different theme
 
 vim.keymap.set("n", "<leader>br", function()
     tl.oldfiles()

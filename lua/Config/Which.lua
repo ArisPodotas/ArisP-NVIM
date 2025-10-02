@@ -58,18 +58,17 @@ which.setup(
 which.add (
     {
         {
-            {'<leader>c', desc = 'Code'},
+            {'<leader>a', desc = '[A]erial, [A]utopair'},
             {'c', desc = 'Change'},
-            {'<leader>b', desc = '[B]uffer'},
-            {'<leader>f', desc = '[F]ind'},
-            {'<leader>d', desc = '[D]ocument, [D]iagnostics'},
-            {'<leader>g', desc = '[G]it'},
-            {'<leader>gr', desc = '[G]it [R]emote'},
-            {'<leader>gp', desc = '[G]it [P]ull, [P]ush'},
-            {'<leader>h', desc = 'Git [H]unk'},
-            {'<leader>r', desc = '[R]ename'},
-            {'<leader>s', desc = '[S]earch'},
-            {'<leader>t', desc = '[T]erminal'},
+            {'<leader>b', desc = 'Buffer'},
+            {'<leader>f', desc = 'Find'},
+            {'<leader>d', desc = 'Document, Diagnostics'},
+            {'<leader>g', desc = 'Git'},
+            {'<leader>gr', desc = 'Git [R]emote'},
+            {'<leader>gp', desc = 'Git [P]ull, [P]ush'},
+            {'<leader>r', desc = 'Rename'},
+            {'<leader>s', desc = 'Search'},
+            {'<leader>t', desc = 'Terminal'},
             {'<leader>w', desc = 'Workspace'},
             {'<leader>i', desc = 'Vertical spl[I]ts'},
             {'<leader>u', desc = 'Horizontal splits'},
@@ -79,13 +78,14 @@ which.add (
             {'gJ', desc = 'Go to Next End'},
             {'gk', desc = 'Go to Previous Start'},
             {'gK', desc = 'Go to Previous End'},
+            {'gs', desc = 'Select'},
             {'ZZ', desc = 'Saves and quits'},
             {'<leader>p', desc = 'Debug'},
             {'<leader>m', desc = 'Document Map'},
             -- register which-key VISUAL mode
             -- required for visual <leader>hs (hunk stage) to work
             {'<leader>h', desc = 'Git [H]unk' },
-            {'g', desc = 'Go to'},
+            -- {'g', desc = 'Go to'},
         }, { mode = 'v' },
     }
 )
