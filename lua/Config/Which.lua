@@ -61,7 +61,6 @@ which.add (
             {'<leader>a', desc = '[A]erial, [A]utopair'},
             {'c', desc = 'Change'},
             {'<leader>b', desc = 'Buffer'},
-            {'<leader>f', desc = 'Find'},
             {'<leader>d', desc = 'Document, Diagnostics'},
             {'<leader>g', desc = 'Git'},
             {'<leader>gr', desc = 'Git [R]emote'},
@@ -84,7 +83,6 @@ which.add (
             {'<leader>m', desc = 'Document Map'},
             -- register which-key VISUAL mode
             -- required for visual <leader>hs (hunk stage) to work
-            {'<leader>h', desc = 'Git [H]unk' },
             -- {'g', desc = 'Go to'},
         }, { mode = 'v' },
     }
