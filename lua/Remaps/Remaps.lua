@@ -4,6 +4,7 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Keymaps that will most likely remain uncahnged forever
 -- Terminal
 vim.keymap.set("n", "<leader>x", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
+vim.keymap.set("n", "-", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
 vim.keymap.set("n", "<leader>H", ':cd ~<CR>', { desc = 'Returns to [H]ome directory' })
 
 -- Terminal exit
