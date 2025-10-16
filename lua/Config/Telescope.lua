@@ -3,6 +3,7 @@
 
 require('telescope').setup({
     defaults = {
+        path_display = {'smart', shorten = 4},
         cycle_layout_list = {'horizontal', 'vertical', 'center', 'bottom_pane'},
         layout_strategy = 'horizontal',
         layout_config = {
