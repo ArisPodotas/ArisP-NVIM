@@ -126,9 +126,9 @@ def {}(
             i(4, 'type'),
             i(5, 'None'),
             i(0, 'Documentation'),
-            f(copy, 2),
             f(copy, 3),
             f(copy, 4),
+            f(copy, 5),
             i(6, '# body'),
             f(copy, 4),
             i(7, 'output')
@@ -163,9 +163,9 @@ def {}(
             i(4, 'type'),
             i(5, 'None'),
             i(0, 'Documentation'),
-            f(copy, 2),
             f(copy, 3),
             f(copy, 4),
+            f(copy, 5),
             i(6, '# body'),
             f(copy, 4),
             i(7, 'output')
@@ -219,6 +219,77 @@ local function classes()
     )
 end
 
+local function staticMethod()
+    return fmt([[@staticmethod
+def {}(
+    {}: {},
+) -> {}:
+    """
+    {}
+    ----------
+    Arguments:
+        {}: {}
+    ----------
+    Returns:
+        output: {}
+    """
+    {}
+    output: {} = None
+    return {}
+
+]],
+        {
+            i(1, 'fname'),
+            i(2, 'arg'),
+            i(3, 'type'),
+            i(4, 'None'),
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(5, '# body'),
+            f(copy, 3),
+            i(6, 'output')
+        }
+    )
+end
+
+local function classMethod()
+    return fmt([[@classmethod
+def {}(
+    cls,
+    {}: {},
+) -> {}:
+    """
+    {}
+    ----------
+    Arguments:
+        {}: {}
+    ----------
+    Returns:
+        output: {}
+    """
+    {}
+    output: {} = None
+    return {}
+
+]],
+        {
+            i(1, 'fname'),
+            i(2, 'arg'),
+            i(3, 'type'),
+            i(4, 'None'),
+            i(0, 'Documentation'),
+            f(copy, 2),
+            f(copy, 3),
+            f(copy, 4),
+            i(5, '# body'),
+            f(copy, 3),
+            i(6, 'output')
+        }
+    )
+end
+
 ls.add_snippets(
     'python', {
         -- General function format
@@ -232,10 +303,19 @@ ls.add_snippets(
         s('meth', meth()),
         s('wfn', wrappedFn()),
         s('wrp', wrappedFn()),
+        s('waf', wrappedFn()),
         s('wmth', wrappedMethod()),
         s('wmeth', wrappedMethod()),
+        s('wam', wrappedMethod()),
         s('doc', docstring()),
         s('dc', docstring()),
+        s('stm', staticMethod()),
+        s('stat', staticMethod()),
+        s('static', staticMethod()),
+        s('staticmethod', staticMethod()),
+        s('cls', classMethod()),
+        s('clsm', classMethod()),
+        s('classmethod', classMethod()),
     }
 )
 

@@ -7,4 +7,3 @@ vim.keymap.set("n", "<C-r>", '<C-r>:w<CR>', { desc = 'Autosaves on [R]edo' })
 vim.keymap.set("n", "p", 'p:w<CR>', { desc = 'Autosaves on [P]aste' })
 vim.keymap.set("n", "dd", 'dd:w<CR>', { desc = 'Autosaves on [D]elete line' })
 vim.keymap.set("n", "D", 'D:w<CR>', { desc = 'Autosaves on [D]elete till end of line' })
-

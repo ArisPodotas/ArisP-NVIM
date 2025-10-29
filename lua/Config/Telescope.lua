@@ -49,7 +49,7 @@ require('telescope').setup({
                 -- Set the width of the first two columns (the second
                 -- is relevant only when show_columns is set to 'both')
                 col1_width = 4,
-                col2_width = 30,
+                col2_width = 10,
                 -- How to format the symbols
                 format_symbol = function(symbol_path, filetype)
                     if filetype == "json" or filetype == "yaml" then
@@ -64,6 +64,9 @@ require('telescope').setup({
         },
     }
 })
+
+-- How to format the symbols
+require("telescope").load_extension("aerial")
 
 local tl = require("telescope.builtin")
 
@@ -112,6 +115,8 @@ end
 
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+
+vim.keymap.set("n", "<leader>am", "<cmd>Telescope aerial<CR>")
 
 vim.keymap.set("n", "<leader>br", function()
     tl.oldfiles()

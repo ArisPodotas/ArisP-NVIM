@@ -3,22 +3,22 @@ vim.keymap.set("n", "<C-w>e", ":wincmd K<CR>", { desc = 'Will make the [W]indow 
 
 -- Vertical section
 vim.keymap.set("n", "<leader>ii", function()
-  vim.cmd.vs()
+    vim.cmd.vs()
 end, { desc = 'Opens vert[I]cal split' })
 
 vim.keymap.set("n", "<leader>it", function()
-  vim.cmd.vs()
-  vim.cmd.terminal()
+    vim.cmd.vs()
+    vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal in a [V]ertical split' })
 
 -- Under section
 vim.keymap.set("n", "<leader>uu", function()
-  vim.cmd.sp()
+    vim.cmd.sp()
 end, { desc = 'Opens [S]plit' })
 
 vim.keymap.set("n", "<leader>ut", function()
-  vim.cmd.sp()
-  vim.cmd.terminal()
+    vim.cmd.sp()
+    vim.cmd.terminal()
 end, { desc = 'Opens [T]erminal [S]plit' })
 
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
