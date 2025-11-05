@@ -238,6 +238,22 @@ require("lazy").setup({
        end
     },
 
+    -- {
+    --     "folke/noice.nvim",
+    --     opts = {
+    --         messages = {
+    --             view_search = "virtualtext",  -- this enables showing the search count as virtual text
+    --         },
+    --     },
+    --     dependencies = {
+    --         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    --         "MunifTanjim/nui.nvim",
+    --         -- OPTIONAL:
+    --         --   `nvim-notify` is only needed, if you want to use the notification view.
+    --         --   If not available, we use `mini` as the fallback
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- },
     -- Change the color of matching pairs of delimiters
     -- { HiPhish/rainbow-delimiters.nvim },
 
