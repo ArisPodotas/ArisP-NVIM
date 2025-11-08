@@ -225,18 +225,18 @@ require("lazy").setup({
     -- },
 
     -- Cool resize windon on jump
-    { "anuvyklack/windows.nvim",
-       dependencies = {
-          "anuvyklack/middleclass",
-          "anuvyklack/animation.nvim"
-       },
-       config = function()
-          vim.o.winwidth = 10
-          vim.o.winminwidth = 10
-          vim.o.equalalways = false
-          require('windows').setup()
-       end
-    },
+    -- { "anuvyklack/windows.nvim",
+    --    dependencies = {
+    --       "anuvyklack/middleclass",
+    --       "anuvyklack/animation.nvim"
+    --    },
+    --    config = function()
+    --       vim.o.winwidth = 10
+    --       vim.o.winminwidth = 10
+    --       vim.o.equalalways = false
+    --       require('windows').setup()
+    --    end
+    -- },
 
     -- {
     --     "folke/noice.nvim",
