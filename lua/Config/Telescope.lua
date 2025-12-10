@@ -3,7 +3,7 @@
 
 require('telescope').setup({
     defaults = {
-        path_display = {'smart', shorten = 4},
+        path_display = {'truncate', truncate = 4},
         cycle_layout_list = {'horizontal', 'vertical', 'center', 'bottom_pane'},
         layout_strategy = 'horizontal',
         layout_config = {
@@ -114,11 +114,11 @@ local function telescope_live_grep_open_files()
 end
 
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
-vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+vim.keymap.set('n', '<leader>sg', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 
 vim.keymap.set("n", "<leader>am", "<cmd>Telescope aerial<CR>")
 
-vim.keymap.set("n", "<leader>br", function()
+vim.keymap.set("n", "<A-b>", function()
     tl.oldfiles()
 end, { desc = "[?] Find recently opened files" })
 
@@ -146,7 +146,7 @@ vim.keymap.set("n", "<leader>sh", function()
     tl.help_tags()
 end, { desc = "[S]earch [H]elp" })
 
-vim.keymap.set("n", "<leader>sg", function()
+vim.keymap.set("n", "<A-s>", function()
     tl.live_grep()
 end, { desc = "[S]earch by [G]rep" })
 

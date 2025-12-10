@@ -29,7 +29,7 @@ end
 -- List edits
 vim.keymap.set("n", "<A-a>", function() harpoon:list():add() end, { desc = '[A]ppends the file to the harpoon list' })
 vim.keymap.set("n", "<A-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = 'Opens the harpoon m[E]nu' })
-vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
+-- vim.keymap.set("n", "<A-s>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window in telescope [S]earch" })
 -- Jumps
 vim.keymap.set("n", "<A-0>", function() harpoon:list():select(0) end, { desc = "Opens 0th(?) harpoon listing file" })
 vim.keymap.set("n", "<A-1>", function() harpoon:list():select(1) end, { desc = "Opens first harpoon listing file" })

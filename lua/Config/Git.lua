@@ -1,5 +1,4 @@
 local gs = require('gitsigns')
-local maps = {}
 
 gs.setup(
     {
@@ -68,7 +67,8 @@ gs.setup(
 
 --Git
 vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
-vim.keymap.set("n", '<leader>gf', ":Git add .<CR>:Git commit<CR>", { desc = 'Add and Commit' })
+vim.keymap.set("n", '<leader>gm', ":Git add .<CR>:Git commit<CR>", { desc = 'Add and Commit' })
+vim.keymap.set("n", '<leader>gf', ":Git fetch ", { desc = 'Add and Commit' })
 vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
 vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative --all<CR>", { desc = 'Git [L]og [T]ree Full' })
 vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git [S]tatus' })
