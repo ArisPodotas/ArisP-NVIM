@@ -29,4 +29,4 @@ require('Config.Snak') -- contains dashboard, dim
 require("Remaps.Remaps")
 require("Remaps.Insert")
 require("Remaps.Splits")
-
+require("Remaps.Autosave")
