@@ -113,7 +113,7 @@ require("lazy").setup({
     {
         "folke/snacks.nvim",
         priority = 1000,
-        lazy = false,
+        lazy = true,
         -- opts = {
         --     -- On's
         --     dim = { enabled = true },
@@ -157,13 +157,14 @@ require("lazy").setup({
 
 	{ -- Autocompletion
 		"saghen/blink.cmp",
-		event = "VimEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
 		version = "1.*",
 		dependencies = {
             -- 'Kaiser-Yang/blink-cmp-avante',
 			-- Snippet Engine
 			{
 				"L3MON4D3/LuaSnip",
+                event = "InsertEnter",
 				version = "2.*",
 				build = (function()
 					-- Build Step is needed for regex support in snippets.

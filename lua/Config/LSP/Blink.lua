@@ -1,6 +1,8 @@
 -- change the color of the currently selected item in the completion list
 vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202" , force = true, blend = 90, sp = '#ffffff'})
 
+local minies = require('mini.icons')
+
 -- This will make sense later
 local provide = {
     snippets = {
@@ -56,7 +58,8 @@ local provide = {
 }
 
 local maps = {
-    ['<C-e>'] = { 'show', 'show_documentation', 'hide', 'hide_documentation', 'fallback' },
+    ['<C-e>'] = { 'show_documentation', 'hide_documentation', 'fallback' },
+    ['<C-x>'] = { 'show', 'hide', 'fallback' },
     ['<Tab>'] = { 'select_and_accept', 'fallback' },
     ['<Up>'] = { 'select_prev', 'fallback' },
     ['<Down>'] = { 'select_next', 'fallback' },
@@ -95,7 +98,7 @@ require('blink.cmp').setup(
                 },
             },
             documentation = {
-                auto_show = true,
+                auto_show = false,
                 auto_show_delay_ms = 100,
                 window = {
                     border = "single",
@@ -114,17 +117,17 @@ require('blink.cmp').setup(
                         },
                         kind_icon = {
                             text = function(ctx)
-                                local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind) .. '  '
+                                local kind_icon, _, _ = minies.get('lsp', ctx.kind) .. '  '
                                 return kind_icon
                             end,
                             highlight = function(ctx)
-                                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                                local _, hl, _ = minies.get('lsp', ctx.kind)
                                 return hl
                             end,
                         },
                         kind = {
                             highlight = function(ctx)
-                                local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
+                                local _, hl, _ = minies.get('lsp', ctx.kind)
                                 return hl
                             end,
                         },
@@ -164,7 +167,7 @@ require('blink.cmp').setup(
                 },
             },
             ghost_text = {
-                enabled = true,
+                enabled = false,
                 -- Show the ghost text when an item has been selected
                 show_with_selection = true,
                 -- Show the ghost text when no item has been selected, defaulting to the first item
@@ -213,7 +216,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = true },
+                ghost_text = { enabled = false },
             }
         },
         cmdline = {
@@ -231,7 +234,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = true },
+                ghost_text = { enabled = false },
             },
         },
     }

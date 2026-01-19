@@ -36,14 +36,14 @@ require('telescope').setup({
                 width = 0.98
             },
         },
-        mappings = {
-            i = { -- Insert mode mappings
-                ["<A-t>"] = require('telescope.actions.layout').cycle_layout_next,
-            },
-            n = { -- Normal mode mappings (inside Telescope)
-                ["<A-t>"] = require('telescope.actions.layout').cycle_layout_next,
-            },
-        },
+        -- mappings = {
+        --     i = { -- Insert mode mappings
+        --         ["<A-t>"] = require('telescope.actions.layout').cycle_layout_next,
+        --     },
+        --     n = { -- Normal mode mappings (inside Telescope)
+        --         ["<A-t>"] = require('telescope.actions.layout').cycle_layout_next,
+        --     },
+        -- },
         extensions = {
             aerial = {
                 -- Set the width of the first two columns (the second

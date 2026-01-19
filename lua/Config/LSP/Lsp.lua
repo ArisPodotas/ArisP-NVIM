@@ -73,7 +73,7 @@ local servers = {
 	-- gopls = {},
     basedpyright = {
         settings = {
-            basedpyright = { 
+            basedpyright = {
                 analysis = {
                     typeCheckingMode = "basic",
                     autoImportCompletions = true,
@@ -83,11 +83,12 @@ local servers = {
     },
 	-- r_language_server = {},
 	-- rust_analyzer = {},
-	-- tsserver = {},
+    -- eslint = {},
     texlab = { filetypes = {'tex', 'plaintex'} },
 	html = { filetypes = { "html", "twig", "hbs" } },
-	ts_ls = {},
 	cssls = {},
+    denols = {},
+	-- ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = true },
@@ -113,9 +114,13 @@ mason_lspconfig.setup(
             "clangd",
             "basedpyright",
             "texlab",
-            -- "html",
+            "jdtls",
+            "html",
+            "htmx",
             -- "ts_ls",
-            -- "cssls",
+            "denols",
+            -- "eslint",
+            "cssls",
             "lua_ls",
         },
         handlers = {
