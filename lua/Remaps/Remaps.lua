@@ -62,3 +62,75 @@ vim.keymap.set('n', '<C-s>', ':source %<CR>', { desc = '[S]ource file' })
 
 -- Sec Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
+
+-- Sec buffers
+--
+-- Simple MRU buffer history
+local history = {}
+local pos = 0
+
+local function push_history(buf)
+    if history[pos] == buf then return end
+    -- remove if exists
+    for i, b in ipairs(history) do
+        if b == buf then table.remove(history, i) break end
+    end
+    table.insert(history, buf)
+    pos = #history
+end
+
+-- track when user enters a buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function(ev)
+        local buf = ev.buf
+        if vim.bo[buf].buflisted then
+            push_history(buf)
+        end
+    end,
+})
+
+-- go backward in history
+local function history_back()
+    if pos > 1 then
+        pos = pos - 1
+        vim.api.nvim_set_current_buf(history[pos])
+    end
+end
+
+-- go forward in history
+local function history_forward()
+    if pos < #history then
+        pos = pos + 1
+        vim.api.nvim_set_current_buf(history[pos])
+    end
+end
+
+vim.keymap.set("n", "<M-p>", function()
+    local ok, err = pcall(history_back)
+    if not ok then
+        print("Already at the start of history.")
+    end
+end, {desc = 'Cycle history back'})
+
+vim.keymap.set("n", "<M-n>", function()
+    local ok, err = pcall(history_forward)
+    if not ok then
+        print("Already at the end in history.")
+    end
+end, {desc = 'Cycle histry forward'})
+
+vim.keymap.set("n", "<A-o>", function()
+    local ok, err = pcall(
+        function()
+            local holder = "Buffer history: \n"
+            for i, buf in ipairs(history) do
+                local name = vim.api.nvim_buf_get_name(buf)
+                holder  = holder .. '    ' .. i .. ": " .. name .. '\n'
+            end
+            print(holder)
+        end
+    )
+    if not ok then
+        print("Too few files to list history")
+    end
+end, {desc = 'Print History'})

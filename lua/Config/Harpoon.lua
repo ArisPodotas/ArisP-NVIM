@@ -41,7 +41,5 @@ vim.keymap.set("n", "<A-6>", function() harpoon:list():select(6) end, { desc = "
 vim.keymap.set("n", "<A-7>", function() harpoon:list():select(7) end, { desc = "Opens seventh harpoon listing file" })
 vim.keymap.set("n", "<A-8>", function() harpoon:list():select(8) end, { desc = "Opens eighth harpoon listing file" })
 vim.keymap.set("n", "<A-9>", function() harpoon:list():select(9) end, { desc = "Opens ninth harpoon listing file" })
--- And the best ones
-vim.keymap.set("n", "<A-n>", function() harpoon:list():next() end, {desc = "[N]ext harpoon listing" })
-vim.keymap.set("n", "<A-p>", function() harpoon:list():prev() end, {desc = "[P]revious harpoon listing" })
-
+-- vim.keymap.set("n", "<A-n>", function() harpoon:list():next() end, {desc = "[N]ext harpoon listing" })
+-- vim.keymap.set("n", "<A-p>", function() harpoon:list():prev() end, {desc = "[P]revious harpoon listing" })

@@ -87,7 +87,8 @@ local servers = {
     texlab = { filetypes = {'tex', 'plaintex'} },
 	html = { filetypes = { "html", "twig", "hbs" } },
 	cssls = {},
-    denols = {},
+    -- biome = {},
+    -- denols = {},
 	-- ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
 	lua_ls = {
 		Lua = {
@@ -118,7 +119,7 @@ mason_lspconfig.setup(
             "html",
             "htmx",
             -- "ts_ls",
-            "denols",
+            -- "denols",
             -- "eslint",
             "cssls",
             "lua_ls",
