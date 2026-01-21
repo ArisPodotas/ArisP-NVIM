@@ -102,6 +102,8 @@ local function history_forward()
     if pos < #history then
         pos = pos + 1
         vim.api.nvim_set_current_buf(history[pos])
+    else
+        error('')
     end
 end
 
@@ -117,15 +119,20 @@ vim.keymap.set("n", "<M-n>", function()
     if not ok then
         print("Already at the end in history.")
     end
-end, {desc = 'Cycle histry forward'})
+end, {desc = 'Cycle history forward'})
 
 vim.keymap.set("n", "<A-o>", function()
     local ok, err = pcall(
         function()
             local holder = "Buffer history: \n"
             for i, buf in ipairs(history) do
-                local name = vim.api.nvim_buf_get_name(buf)
-                holder  = holder .. '    ' .. i .. ": " .. name .. '\n'
+                local other, err2 = pcall(vim.api.nvim_buf_get_name, buf)
+                if not other then
+                    holder = holder ..'    ' .. i .. ' Problem in this buffer\n'
+                else
+                    local name = err2
+                    holder  = holder .. '    ' .. i .. ": " .. name .. '\n'
+                end
             end
             print(holder)
         end
