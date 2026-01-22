@@ -89,7 +89,7 @@ local servers = {
 	cssls = {},
     -- biome = {},
     -- denols = {},
-	-- ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
+	ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
 	lua_ls = {
 		Lua = {
 			workspace = { checkThirdParty = true },
@@ -118,7 +118,7 @@ mason_lspconfig.setup(
             "jdtls",
             "html",
             "htmx",
-            -- "ts_ls",
+            "ts_ls",
             -- "denols",
             -- "eslint",
             "cssls",

@@ -8,21 +8,21 @@ local provide = {
     snippets = {
         name = 'Snippet',
         score_offset = 2,
-        -- max_items = 3,
+        max_items = 3,
     },
     lsp = {
         name = 'LSP',
         -- score_offset = 30,
-        -- max_items = 5,
+        max_items = 5,
     },
     path = {
         name = 'Path',
         -- score_offset = 80,
-        -- max_items = 5,
+        max_items = 5,
     },
     buffer = {
         name = 'Buffer',
-        score_offset = -2,
+        score_offset = -1,
         max_items = 5,
     },
     -- lazydev = {
@@ -89,7 +89,7 @@ require('blink.cmp').setup(
             nerd_font_variant = 'mono'
         },
         completion = {
-            keyword = {range = 'full'},
+            keyword = { range = 'full' },
             list = {
                 max_items = 100,
                 selection = {
@@ -167,13 +167,13 @@ require('blink.cmp').setup(
                 },
             },
             ghost_text = {
-                enabled = false,
+                enabled = true,
                 -- Show the ghost text when an item has been selected
                 show_with_selection = true,
                 -- Show the ghost text when no item has been selected, defaulting to the first item
                 show_without_selection = true,
                 -- Show the ghost text when the menu is open
-                show_with_menu = false,
+                show_with_menu = true,
                 -- Show the ghost text when the menu is closed
                 show_without_menu = true,
             },
@@ -216,7 +216,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = false },
+                ghost_text = { enabled = true},
             }
         },
         cmdline = {
@@ -234,7 +234,7 @@ require('blink.cmp').setup(
                     },
                 },
                 menu = { auto_show = true },
-                ghost_text = { enabled = false },
+                ghost_text = { enabled = true},
             },
         },
     }
