@@ -1,8 +1,6 @@
 -- change the color of the currently selected item in the completion list
 vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202" , force = true, blend = 90, sp = '#ffffff'})
-
 local minies = require('mini.icons')
-
 -- This will make sense later
 local provide = {
     snippets = {
@@ -89,17 +87,18 @@ require('blink.cmp').setup(
             nerd_font_variant = 'mono'
         },
         completion = {
+            trigger = {show_on_insert = true},
             keyword = { range = 'full' },
             list = {
-                max_items = 100,
+                max_items = 25,
                 selection = {
                     preselect = true,
                     auto_insert = false,
                 },
             },
             documentation = {
-                auto_show = false,
-                auto_show_delay_ms = 100,
+                auto_show = true,
+                auto_show_delay_ms = 10,
                 window = {
                     border = "single",
                     max_width = 500,
@@ -188,7 +187,7 @@ require('blink.cmp').setup(
             window = {
                 border = "single",
                 scrollbar = false,
-                max_height = 35,
+                max_height = 45,
             },
         },
         sources = {
