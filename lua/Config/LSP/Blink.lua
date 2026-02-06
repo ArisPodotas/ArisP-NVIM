@@ -1,11 +1,10 @@
 -- change the color of the currently selected item in the completion list
-vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#98c379", fg = "#020202" , force = true, blend = 90, sp = '#ffffff'})
 local minies = require('mini.icons')
 -- This will make sense later
 local provide = {
     snippets = {
         name = 'Snippet',
-        score_offset = 2,
+        score_offset = 4,
         max_items = 3,
     },
     lsp = {

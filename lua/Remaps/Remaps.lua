@@ -3,6 +3,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 vim.keymap.set('n', '<Esc>', ':nohlsearch<CR>')
 vim.keymap.set("n", "<leader><CR>", "i<CR><C-c>", { desc = 'Adds a newline at behind the cursor' })
+vim.keymap.set("n", "<BS>", "hx", { desc = 'Works like backspace' })
+
 
 -- Keymaps that will most likely remain uncahnged forever
 vim.keymap.set("n", "-", vim.cmd.Ex, { desc = 'Return to [Ex]plorer' })
@@ -11,8 +13,14 @@ vim.keymap.set("n", "<leader>H", ':cd ~<CR>', { desc = 'Returns to [H]ome direct
 -- Sec Terminal
 -- Terminal exit
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = 'Makes escape return to normal mode in the terminal' })
+
 -- Makes the terminal a little more vimy
-vim.keymap.set("n", ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+-- vim.keymap.set({"n", "v"}, ":", ":<C-f>i", { desc = 'Always opens the terminal in vim mode' })
+vim.keymap.set("c", "<C-j>", "<Down>", {desc = "Prev command"})
+vim.keymap.set("c", "<C-k>", "<Up>", {desc = "Next command"})
+vim.keymap.set("c", "<C-h>", "<Left>", {desc = "Move left in command"})
+vim.keymap.set("c", "<C-l>", "<Right>", {desc = "Move right in command"})
+
 vim.keymap.set("n", "<leader>te", "iexit<CR>", { desc = '[E]xit [T]erminal' })
 vim.keymap.set("n", "<leader>tt", function()
   vim.cmd.tabnew()

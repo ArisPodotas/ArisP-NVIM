@@ -1,5 +1,5 @@
 -- Simple custom tabline: tab number + buffer name (filename only)
-function _G.SimpleTabLine()
+function SimpleTabLine()
     local tabline = ""
     local total_tabs = vim.fn.tabpagenr('$')
     for i = 1, total_tabs do
@@ -16,11 +16,11 @@ function _G.SimpleTabLine()
         local bufname = vim.fn.bufname(buflist[winnr])
         local label
         if bufname == "" then
-        label = "[No Name]"
+            label = "[No Name]"
         else
-        label = vim.fn.fnamemodify(bufname, ":t")
+            label = vim.fn.fnamemodify(bufname, ":t")
         end
-        tabline = tabline .. label .. "  "
+        tabline = tabline .. label .. " "
     end
     -- Fill the rest of the line
     tabline = tabline .. "%#TabLineFill#%T"

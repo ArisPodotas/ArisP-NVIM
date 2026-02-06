@@ -26,7 +26,11 @@ local colorPalette = {
     diff_delete = "#3c2729",
     diff_change = "#18344c",
     diff_text = "#265478",
-    extra1 = "#5E81AC"
+    extra1 = "#5E81AC",
+    dark_blue_addon = '#5f87af',
+    light_red_addon =  '#faaaaa',
+    blink_bg = "#98c379",
+    blink_fg = "#020202",
 }
 
 -- You use the cool pallet for 99% of the time
@@ -77,7 +81,7 @@ onedark.setup(
                 bg = '#555555',
                 fmt = 'underline,bold,italic'
             },
-            Search = { 
+            Search = {
                 fg = '#ffffff',
                 bg = '#9c06c9',
                 fmt = 'underline,italic'
@@ -94,13 +98,15 @@ onedark.setup(
         diagnostics = {
             darker = true,
             undercurl = false,
-            background = true,
+            background = false,
         },
     }
 )
 
 onedark.load()
-
+-- vim.api.nvim_set_hl(0, 'TabLine', { fg = colorPalette.bg0, bg = colorPalette.extra1})
+-- vim.api.nvim_set_hl(0, 'TabLineFill',     { fg = colorPalette.bg0, bg = colorPalette.blue})
+vim.api.nvim_set_hl(0, 'TabLineSel',  { fg = colorPalette.blink_fg, bg = colorPalette.green, bold = true })
 -- Customize semantic token highlights
 vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
 vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
@@ -135,6 +141,8 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
     -- Call the original function with modified options
     return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
+
+vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = colorPalette.blink_bg, fg = colorPalette.blink_fg, force = true, blend = 90, sp = '#ffffff'})
 
 -- Set custom highlight groups for Telescope borders
 vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colorPalette.red, bg = "none" })
