@@ -8,7 +8,7 @@ require("Options")
 
 require("Requirements")
 
-require("Config.Onedark") -- Needs to be up here
+require("Config.Onedark") -- NOTE Needs to be up here
 require("Config.Colors")
 require("Config.Lualine")
 
@@ -20,19 +20,22 @@ require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
 require('Config.LSP.Pair') -- Just better
+
 -- require('Config.Animations')
+--
 require('Config.Aerials')
 require("Config.Git")
 require("Config.Harpoon")
 require("Config.Ibl")
 require("Config.Which")
 
-require('Config.Mini') -- contains comment, map, surround, leap, icons
-require('Config.Snak') -- contains dashboard, dim
+require('Config.Mini') -- NOTE contains comment, map, surround, leap, icons
+require('Config.Snak') -- NOTE contains dashboard, dim
 
 require("Remaps.Remaps")
 require("Remaps.Insert")
 require("Remaps.Splits")
+
 -- require("Remaps.Autosave")
 
 -- Plugins

@@ -218,6 +218,40 @@ require("lazy").setup({
         opts = {},
     },
 
+    -- Never start from blank kinda invalidates snack screen
+    {
+        "folke/persistence.nvim",
+        event = "BufReadPre", -- this will only start session saving when an actual file was opened
+        opts = {
+            -- add any custom options here
+        }
+    },
+
+    -- Makes inline ghost text
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {
+            search = {
+                command = "rg",
+                args = {
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                },
+                -- regex that will be used to match keywords.
+                -- don't replace the (KEYWORDS) placeholder
+                -- pattern = [[\b(KEYWORDS):]], -- ripgrep regex
+                pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+            },
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    },
+
     -- cool jump animation
     -- not working
     -- {

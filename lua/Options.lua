@@ -74,6 +74,7 @@ vim.opt.nu = true
 
 -- Making the cursor to take any positon on the screen instead of just text like the terminal
 vim.opt.virtualedit = "all"
+vim.diagnostic.config( { virtual_text = true })
 
 -- Relative line numbers
 vim.opt.relativenumber = true
