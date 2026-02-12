@@ -175,14 +175,14 @@ end
 
 local function docstring()
     return fmt([["""
-    {}
-    ----------
-    Arguments:
-        {}: {}
-    ----------
-    Returns:
-        output: {}
-    """]],
+{}
+----------
+Arguments:
+    {}: {}
+----------
+Returns:
+    output: {}
+"""]],
         {
             i(1, 'Documentation'),
             i(2, 'arg'),

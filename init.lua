@@ -1,4 +1,6 @@
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+--
+-- 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -30,3 +32,6 @@ require("Remaps.Remaps")
 require("Remaps.Insert")
 require("Remaps.Splits")
 -- require("Remaps.Autosave")
+
+-- Plugins
+require('plugins.tabcus')
