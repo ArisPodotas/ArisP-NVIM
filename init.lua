@@ -8,8 +8,10 @@ require("Options")
 
 require("Requirements")
 
-require("Config.Onedark") -- keep in mind this has alot more than just one dark
+require("Config.Onedark") -- Needs to be up here
+require("Config.Colors")
 require("Config.Lualine")
+
 require("Config.Telescope")
 require("Config.LSP.Treesitter")
 require("Config.LSP.Lsp")
