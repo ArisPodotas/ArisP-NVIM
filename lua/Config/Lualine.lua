@@ -1,9 +1,8 @@
-
 require('lualine').setup(
     {
         options = {
             icons_enabled = true,
-            theme = 'onedark',
+            theme = 'auto',
             -- component_separators = { left = '', right = '' },
             -- section_separators = { left = '', right = '' },
             component_separators = { left = '/', right = '/' },
@@ -64,4 +63,3 @@ require('lualine').setup(
 
 vim.api.nvim_set_hl(0, 'StatusLine', {})
 vim.api.nvim_set_hl(0, 'StatusLineNC', {})
-
