@@ -61,6 +61,15 @@ vim.keymap.set("n", "}", "}zz", { desc = 'Center screen after code block jump' }
 vim.keymap.set("n", "n", "nzzzv", { desc = 'Center screen after [n]ext jump' })
 vim.keymap.set("n", "N", "Nzzzv", { desc = 'Center screen after [N]ext jump' })
 
+local kopts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set("n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set("n", "*", [[* <Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set("n", "#", [[# <Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set("n", "g*", [[g* <Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set("n", "g#", [[g# <Cmd>lua require('hlslens').start()<CR>]], kopts)
+
 -- Sec Makes me do less strokes
 vim.keymap.set("n", "zj", vim.cmd.w, { desc = '[S]ave' })
 vim.keymap.set("n", "zk", vim.cmd.q, { desc = '[Q]uits' })

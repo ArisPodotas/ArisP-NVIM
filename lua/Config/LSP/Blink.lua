@@ -86,7 +86,7 @@ require('blink.cmp').setup(
             nerd_font_variant = 'mono'
         },
         completion = {
-            trigger = {show_on_insert = true},
+            trigger = { show_on_insert = false},
             keyword = { range = 'full' },
             list = {
                 max_items = 25,

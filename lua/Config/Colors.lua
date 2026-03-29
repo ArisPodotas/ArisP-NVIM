@@ -31,6 +31,7 @@ local colorPalette = {
     light_red_addon =  '#faaaaa',
     blink_bg = "#98c379",
     blink_fg = "#020202",
+    gooey_green = "#80ca72",
 }
 
 -- vim.api.nvim_set_hl(0, 'TabLine', { fg = colorPalette.bg0, bg = colorPalette.extra1})
@@ -89,3 +90,6 @@ if vim.g.neovide then
     vim.g.neovide_opacity = 0.65  -- Window opacity (0.0 fully transparent, 1.0 opaque); adjust for blur intensity
     vim.g.neovide_normal_opacity = 0.65  -- Keeps the editor content opaque while blurring the background
 end
+
+vim.api.nvim_set_hl(0, "HlSearchLensNear", { fg = colorPalette.gooey_green, bold = true })
+vim.api.nvim_set_hl(0, "HlSearchLens",     { fg = colorPalette.dark_purple})
