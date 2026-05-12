@@ -93,6 +93,7 @@ vim.pack.add({
     -- Inline annotation / bookmarks
     "https://github.com/TheNoeTrevino/haunt.nvim",
 })
+
 require("Config.Onedark") -- Needs to be up here
 require("Config.Colors")
 require("Config.Lualine")
