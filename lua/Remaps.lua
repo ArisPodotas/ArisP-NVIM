@@ -28,6 +28,36 @@ vim.keymap.set("n", "<leader>tt", function()
 end, { desc = 'Opens the [T]erminal in a new tab' })
 
 -- Sec Tabs
+vim.keymap.set("n", "<C-w>c", ":wincmd H<CR>", { desc = 'Will make the [W]indow from horizontal to vertical' })
+vim.keymap.set("n", "<C-w>e", ":wincmd K<CR>", { desc = 'Will make the [W]indow from vertical to horizontal' })
+
+-- Vertical section
+vim.keymap.set("n", "<leader>ii", function()
+    vim.cmd.vs()
+end, { desc = 'Opens vert[I]cal split' })
+
+vim.keymap.set("n", "<leader>it", function()
+    vim.cmd.vs()
+    vim.cmd.terminal()
+end, { desc = 'Opens [T]erminal in a [V]ertical split' })
+
+-- Under section
+vim.keymap.set("n", "<leader>uu", function()
+    vim.cmd.sp()
+end, { desc = 'Opens [S]plit' })
+
+vim.keymap.set("n", "<leader>ut", function()
+    vim.cmd.sp()
+    vim.cmd.terminal()
+end, { desc = 'Opens [T]erminal [S]plit' })
+
+-- Making a way faster way of doing what the animated windows would
+vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
+vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = 'Go to Top split in view' })
+vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = 'Go to Bottom split in view' })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
+vim.keymap.set("n", "+", "<C-w>3>", { desc = 'Increase width of split by 3' })
+vim.keymap.set("n", "_", "<C-w>3<", { desc = 'Decrease width of split by 3' })
 vim.keymap.set("n", "<A-t>", function()
     vim.cmd('tab split')
     vim.cmd.Ex()
@@ -81,7 +111,6 @@ vim.keymap.set('n', '<C-s>', ':source %<CR>', { desc = '[S]ource file' })
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
 -- Sec buffers
---
 -- Simple MRU buffer history
 local history = {}
 local pos = 0
@@ -158,3 +187,39 @@ vim.keymap.set("n", "<A-o>", function()
         print("Too few files to list history")
     end
 end, {desc = 'Print History'})
+
+-- Paste clipboard in insert mode
+-- sec Insert mode
+vim.keymap.set("i", "<C-v>", "<C-c>p", { desc = 'pastest clipboard in insert mode' })
+
+vim.keymap.set('i', '<C-j>', '<C-o>j', { desc = 'Moves the cursor down one line'})
+vim.keymap.set('i', '<C-k>', '<C-o>k', { desc = 'Moves the cursor up one line'})
+vim.keymap.set('i', '<C-l>', '<C-o>l', { desc = 'Moves the cursor left one space'})
+vim.keymap.set('i', '<C-h>', '<C-o>h', { desc = 'Moves the cursor right one space'})
+vim.keymap.set('i', '<C-w>', '<C-o>w', { desc = 'Moves the cursor one word'})
+vim.keymap.set('i', '<C-b>', '<C-o>b', { desc = 'Moves the cursor back one word'})
+
+vim.keymap.set('i', '<C-u>', '<C-o>u', { desc = '[U]ndoes the last change'})
+vim.keymap.set('i', '<C-r>', '<C-o><C-r>', { desc = '[R]edoes last change'})
+
+vim.keymap.set('i', '<A-w>', '<C-o>dw', { desc = 'deletes one word'})
+vim.keymap.set('i', '<A-b>', '<C-o>db', { desc = 'deletes one word backwards'})
+vim.keymap.set('i', '<A-i>', '<C-o>diw', { desc = 'deletes word you are inside of'})
+
+vim.keymap.set('i', '<A-y>', '<C-o>y', { desc = 'Engages [Y]anks mode'})
+vim.keymap.set('i', '<A-y><A-y>', '<C-o>yy', { desc = '[Y]anks current line'})
+
+vim.keymap.set('i', '<A-d>', '<C-o>d', { desc = 'Engages [D]elete mode'})
+vim.keymap.set('i', '<A-d><A-d>', '<C-o>dd', { desc = '[D]elete current line'})
+
+vim.keymap.set('i', '<A-v>', '<C-o>v', { desc = 'Engages [V]isual mode'})
+vim.keymap.set('i', '<A-v><A-v>', '<C-o>V', { desc = 'Engages [V]isual line mode'})
+
+-- sec Autosave
+-- vim.keymap.set("i", "<Esc>", '<Esc>:w<CR>', { desc = 'Autosaves on [E]xit' })
+-- vim.keymap.set("n", "x", 'x:w<CR>', { desc = 'Autosaves on [X]' })
+-- vim.keymap.set("n", "u", 'u:w<CR>', { desc = 'Autosaves on [U]ndo' })
+-- vim.keymap.set("n", "<C-r>", '<C-r>:w<CR>', { desc = 'Autosaves on [R]edo' })
+-- vim.keymap.set("n", "p", 'p:w<CR>', { desc = 'Autosaves on [P]aste' })
+-- vim.keymap.set("n", "dd", 'dd:w<CR>', { desc = 'Autosaves on [D]elete line' })
+-- vim.keymap.set("n", "D", 'D:w<CR>', { desc = 'Autosaves on [D]elete till end of line' })
