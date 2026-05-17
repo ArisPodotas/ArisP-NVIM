@@ -35,7 +35,71 @@ vim.api.nvim_create_autocmd(
     }
 )
 
+local colorscheme_map = {
+    ["OldJobobo/miasma.nvim"]                     = "miasma",
+    ["loctvl842/monokai-pro.nvim"]                = "monokai-pro",
+    ["catppuccin/nvim"]                           = "catppuccin",
+    ["folke/tokyonight.nvim"]                     = "tokyonight",
+    ["navarasu/onedark.nvim"]                     = "onedark",
+    ["bjarneo/ash.nvim"]                          = "ash",
+    ["bjarneo/aether.nvim"]                       = "aether",
+    ["bjarneo/ethereal.nvim"]                     = "ethereal",
+    ["neanias/everforest-nvim"]                   = "everforest",
+    ["ellisonleao/gruvbox.nvim"]                  = "gruvbox",
+    ["bjarneo/hackerman.nvim"]                    = "hackerman",
+    ["rebelot/kanagawa.nvim"]                     = "kanagawa",
+    ["~/.config/omarchy/themes/frost/frost.nvim"] = 'onedark',
+    ['nil']                                       = 'onedark',
+    ["omacom-io/lumon.nvim"]                      = "lumon",
+    ["tahayvr/matteblack.nvim"]                   = "matteblack",
+    ["EdenEast/nightfox.nvim"]                    = "nordfox",
+    ["ribru17/bamboo.nvim"]                       = "bamboo",
+    ["OldJobobo/retro-82.nvim"]                   = "retro-82",
+    ["gthelding/monokai-pro.nvim"]                = "monokai-pro",
+    ["bjarneo/vantablack.nvim"]                   = "vantablack",
+    ["bjarneo/white.nvim"]                        = "white",
+    ["rose-pine/neovim"]                          = "rose-pine-dawn",
+    ["kepano/flexoki-neovim"]                     = "flexoki-light",
+    ["LazyVim/LazyVim"]                           = "onedark",
+}
+
+local function getTheme()
+    local themePath = vim.fn.expand("~/.config/omarchy/current/theme/neovim.lua")
+    local theme_spec = dofile(themePath)
+    -- The theme plugin is ALWAYS the first item
+    local plugin_spec = theme_spec[1]
+    local plugin_name = plugin_spec[1]
+    return plugin_spec, plugin_name
+end
+
+local theme_plugin, plugin_name = getTheme()
+_G.OS_THEME = colorscheme_map[plugin_name]
+
 require("lazy").setup({
+    -- theme_plugin, -- My colorscheme
+    {"OldJobobo/miasma.nvim"},
+    {"loctvl842/monokai-pro.nvim"},
+    {"catppuccin/nvim"},
+    {"folke/tokyonight.nvim"},
+    {"navarasu/onedark.nvim"},
+    {"bjarneo/ash.nvim"},
+    {"bjarneo/aether.nvim"},
+    {"bjarneo/ethereal.nvim"},
+    {"neanias/everforest-nvim"},
+    {"ellisonleao/gruvbox.nvim"},
+    {"bjarneo/hackerman.nvim"},
+    {"rebelot/kanagawa.nvim"},
+    {"omacom-io/lumon.nvim"},
+    {"tahayvr/matteblack.nvim"},
+    {"EdenEast/nightfox.nvim"},
+    {"ribru17/bamboo.nvim"},
+    {"OldJobobo/retro-82.nvim"},
+    {"gthelding/monokai-pro.nvim"},
+    {"bjarneo/vantablack.nvim"},
+    {"bjarneo/white.nvim"},
+    {"rose-pine/neovim"},
+    {"kepano/flexoki-neovim"},
+
 	-- Git related plugins
 	"tpope/vim-fugitive",
 	"tpope/vim-rhubarb",
@@ -66,14 +130,14 @@ require("lazy").setup({
 
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		-- branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"BurntSushi/ripgrep",
 		},
 	},
 
-	{ "nvim-treesitter/nvim-treesitter-textobjects" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", branch = 'main' },
 
 	-- For sticky intellisense at the top for scope operations
 	{ "nvim-treesitter/nvim-treesitter-context" },
@@ -430,3 +494,48 @@ require("lazy").setup({
         },
     }
 )
+
+_G.DARK_THEME = "onedark"   -- fallback or preferred alt-theme
+
+-- Apply the colorscheme
+if _G.OS_THEME and _G.OS_THEME ~= 'onedark' then
+    vim.cmd("colorscheme " .. _G.OS_THEME)
+-- Your special case
+elseif _G.OS_THEME == "onedark" or _G.OS_THEME == nil then
+    require("Config.Onedark")
+else
+    require("Config.Onedark")
+end
+
+-- Optional setup for themes that support it
+pcall(function()
+    require(_G.OS_THEME).setup({})
+end)
+
+local function apply_theme(name)
+    if name == 'onedark' or name == nil then
+        vim.cmd("colorscheme " .. name) -- Required to set the vim.g.colors_name
+        require("Config.Onedark")
+    else
+        vim.cmd("colorscheme " .. name)
+        -- theme-specific setup (safe)
+        -- pcall(function()
+        --     require(name).setup({})
+        -- end)
+    end
+    -- print("Theme switched to: " .. name)
+end
+
+-- Toggle function to switch between OS theme and the fallback dark theme
+local function toggle_theme()
+    local current = vim.g.colors_name
+    if current == _G.OS_THEME then
+        apply_theme(_G.DARK_THEME)
+    else
+        apply_theme(_G.OS_THEME)
+    end
+end
+
+vim.keymap.set("n", "<leader>c", toggle_theme, { desc = "Toggle colorscheme" })
+
+require('colorizer').setup()

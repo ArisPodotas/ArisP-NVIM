@@ -1,11 +1,8 @@
-vim.api.nvim_set_hl(0, "Whiteness", { fg = "#383838" })
-vim.api.nvim_set_hl(0, "ScopeWhite", { fg = "#6f6f6f" })
-
 require("ibl").setup(
     {
-        indent = { char = "│", tab_char = '│', highlight = { "Whiteness" } },
+        -- indent = { char = "│", tab_char = '│', highlight = { "Whiteness" } },
         -- whitespace = { remove_blankline_trail = true },
-        scope = { enabled = true, highlight = { "ScopeWhite" } }
+        scope = {enabled = false}
     }
 )
 

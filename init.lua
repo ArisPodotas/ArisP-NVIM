@@ -8,18 +8,17 @@ require("Options")
 
 require('Requirements')
 
-require("Config.Onedark") -- Needs to be up here
-require("Config.Colors")
+require('Styles')
 require("Config.Lualine")
 
 require("Config.Telescope")
-require("Config.LSP.Treesitter")
-require("Config.LSP.Lsp")
-require("Config.LSP.Blink")
-require("Config.LSP.Diagnostics")
-require('Config.LSP.Autotag')
-require("Config.LSP.Debug")
-require('Config.LSP.Pair') -- Just better
+require("Config.Treesitter")
+require("Config.Lsp")
+require("Config.Blink")
+require("Config.Diagnostics")
+require('Config.Autotag')
+require("Config.Debug")
+require('Config.Pair') -- Just better
 -- require('Config.Animations')
 require('Config.Aerials')
 require("Config.Git")
@@ -33,4 +32,4 @@ require('Config.Snak') -- contains dashboard, dim
 require("Remaps")
 
 -- Plugins
-require('plugins.tabcus')
+require('Tabline')
