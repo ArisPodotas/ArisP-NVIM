@@ -63,17 +63,17 @@ local colorscheme_map = {
     ["LazyVim/LazyVim"]                           = "onedark",
 }
 
-local function getTheme()
-    local themePath = vim.fn.expand("~/.config/omarchy/current/theme/neovim.lua")
-    local theme_spec = dofile(themePath)
-    -- The theme plugin is ALWAYS the first item
-    local plugin_spec = theme_spec[1]
-    local plugin_name = plugin_spec[1]
-    return plugin_spec, plugin_name
-end
+-- local function getTheme()
+--     local themePath = vim.fn.expand("~/.config/omarchy/current/theme/neovim.lua")
+--     local theme_spec = dofile(themePath)
+--     -- The theme plugin is ALWAYS the first item
+--     local plugin_spec = theme_spec[1]
+--     local plugin_name = plugin_spec[1]
+--     return plugin_spec, plugin_name
+-- end
 
-local theme_plugin, plugin_name = getTheme()
-_G.OS_THEME = colorscheme_map[plugin_name]
+-- local theme_plugin, plugin_name = getTheme()
+-- _G.OS_THEME = colorscheme_map[plugin_name]
 
 require("lazy").setup({
     -- theme_plugin, -- My colorscheme
@@ -495,47 +495,48 @@ require("lazy").setup({
     }
 )
 
-_G.DARK_THEME = "onedark"   -- fallback or preferred alt-theme
+-- _G.DARK_THEME = "onedark"   -- fallback or preferred alt-theme
 
--- Apply the colorscheme
-if _G.OS_THEME and _G.OS_THEME ~= 'onedark' then
-    vim.cmd("colorscheme " .. _G.OS_THEME)
--- Your special case
-elseif _G.OS_THEME == "onedark" or _G.OS_THEME == nil then
-    require("Config.Onedark")
-else
-    require("Config.Onedark")
-end
+-- -- Apply the colorscheme
+-- if _G.OS_THEME and _G.OS_THEME ~= 'onedark' then
+--     vim.cmd("colorscheme " .. _G.OS_THEME)
+-- -- Your special case
+-- elseif _G.OS_THEME == "onedark" or _G.OS_THEME == nil then
+--     require("Config.Onedark")
+-- else
+--     require("Config.Onedark")
+-- end
 
--- Optional setup for themes that support it
-pcall(function()
-    require(_G.OS_THEME).setup({})
-end)
+-- -- Optional setup for themes that support it
+-- pcall(function()
+--     require(_G.OS_THEME).setup({})
+-- end)
 
-local function apply_theme(name)
-    if name == 'onedark' or name == nil then
-        vim.cmd("colorscheme " .. name) -- Required to set the vim.g.colors_name
-        require("Config.Onedark")
-    else
-        vim.cmd("colorscheme " .. name)
-        -- theme-specific setup (safe)
-        -- pcall(function()
-        --     require(name).setup({})
-        -- end)
-    end
-    -- print("Theme switched to: " .. name)
-end
+-- local function apply_theme(name)
+--     if name == 'onedark' or name == nil then
+--         vim.cmd("colorscheme " .. name) -- Required to set the vim.g.colors_name
+--         require("Config.Onedark")
+--     else
+--         vim.cmd("colorscheme " .. name)
+--         -- theme-specific setup (safe)
+--         -- pcall(function()
+--         --     require(name).setup({})
+--         -- end)
+--     end
+--     -- print("Theme switched to: " .. name)
+-- end
 
--- Toggle function to switch between OS theme and the fallback dark theme
-local function toggle_theme()
-    local current = vim.g.colors_name
-    if current == _G.OS_THEME then
-        apply_theme(_G.DARK_THEME)
-    else
-        apply_theme(_G.OS_THEME)
-    end
-end
+-- -- Toggle function to switch between OS theme and the fallback dark theme
+-- local function toggle_theme()
+--     local current = vim.g.colors_name
+--     if current == _G.OS_THEME then
+--         apply_theme(_G.DARK_THEME)
+--     else
+--         apply_theme(_G.OS_THEME)
+--     end
+-- end
 
-vim.keymap.set("n", "<leader>c", toggle_theme, { desc = "Toggle colorscheme" })
+-- vim.keymap.set("n", "<leader>c", toggle_theme, { desc = "Toggle colorscheme" })
 
+require("Config.Onedark")
 require('colorizer').setup()
