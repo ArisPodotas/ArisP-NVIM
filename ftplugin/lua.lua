@@ -35,7 +35,7 @@ local function copy(args)
 end
 
 local function docFunc()
-    return fmt("-- {}\n--- @param {} {} {}\n--- @return {} {} {}\nlocal function {}({})\n\t{}\n\treturn {}\nend\n\n",
+    return fmt("--  {}\n--- @param {} {} {}\n--- @return {} {} {}\nlocal function {}({})\n\t{}\n\treturn {}\nend\n\n",
         {
             i(4, 'Notes'),
             f(copy, 2),
