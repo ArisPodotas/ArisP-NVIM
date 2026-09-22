@@ -23,74 +23,79 @@ vim.pack.add({
     -- Git
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/tpope/vim-rhubarb",
-    "https://github.com/lewis6991/gitsigns.nvim",           -- fix: ewis6991 → lewis6991
+    "https://github.com/lewis6991/gitsigns.nvim",
+
     -- LSP
     "https://github.com/neovim/nvim-lspconfig",
+
     -- Keybinding hints
     "https://github.com/folke/which-key.nvim",
+
     -- Theme & UI
-    "https://github.com/navarasu/onedark.nvim",             -- fix: avarasu → navarasu
-    "https://github.com/nvim-lualine/lualine.nvim",         -- fix: vim-lualine → nvim-lualine
-    "https://github.com/nvim-tree/nvim-web-devicons",       -- fix: vim-tree → nvim-tree
-    -- Fuzzy finder + deps
-    "https://github.com/nvim-telescope/telescope.nvim",     -- fix: vim-telescope → nvim-telescope
-    "https://github.com/nvim-lua/plenary.nvim",             -- fix: vim-lua → nvim-lua
-    -- NOTE: ripgrep (BurntSushi/ripgrep) is a CLI tool, not a Neovim plugin.
-    --       Install it via your system package manager: brew/apt/scoop install ripgrep
-    -- Treesitter (core required by context + textobjects)
+    "https://github.com/navarasu/onedark.nvim",
+    "https://github.com/nvim-lualine/lualine.nvim",
+    "https://github.com/nvim-tree/nvim-web-devicons",
+
+    -- Fuzzy finder
+    "https://github.com/nvim-telescope/telescope.nvim",
+    "https://github.com/nvim-lua/plenary.nvim",
+
+    -- Treesitter
     "https://github.com/nvim-treesitter/nvim-treesitter",
-    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", -- fix: vim-treesitter → nvim-treesitter
-    "https://github.com/nvim-treesitter/nvim-treesitter-context",     -- fix: vim-treesitter → nvim-treesitter
-    -- HTML auto-close tags (requires treesitter)
-    "https://github.com/windwp/nvim-ts-autotag",            -- fix: indwp → windwp
-    -- Code outline / symbol navigation
-    "https://github.com/stevearc/aerial.nvim",              -- fix: tevearc → stevearc
+    "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+    "https://github.com/nvim-treesitter/nvim-treesitter-context",
+
+    -- HTML auto-close
+    "https://github.com/windwp/nvim-ts-autotag",
+
+    -- Code outline
+    "https://github.com/stevearc/aerial.nvim",
+
     -- File explorer
-    "https://github.com/prichrd/netrw.nvim",                -- fix: richrd → prichrd
+    "https://github.com/prichrd/netrw.nvim",
+
     -- Quick file navigation
     {
-        source = "https://github.com/ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        commit = "e76cb03",
+        src = "https://github.com/ThePrimeagen/harpoon",
+        version = "e76cb03",
     },
+
     -- Indentation guides
-    {
-        source = "https://github.com/lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-    },
-    -- Mini plugins suite
-    { source = "https://github.com/echasnovski/mini.nvim", version = false },
-    -- Snacks (notifications, dashboard, etc.)
-    { source = "https://github.com/folke/snacks.nvim", priority = 1000 },
-    -- Debugger (DAP)
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
+
+    -- Mini
+    "https://github.com/echasnovski/mini.nvim",
+
+    -- Snacks
+    -- "https://github.com/folke/snacks.nvim",
+
+    -- Debugger
     "https://github.com/mfussenegger/nvim-dap",
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/rcarriga/nvim-dap-ui",
     "https://github.com/nvim-neotest/nvim-nio",
     "https://github.com/williamboman/mason.nvim",
+
     -- Auto-close brackets
-    {
-        source = "https://github.com/windwp/nvim-autopairs",
-        event = "InsertEnter",
-    },
+    "https://github.com/windwp/nvim-autopairs",
+
     -- Autocompletion
-    {
-        source = "https://github.com/saghen/blink.cmp",
-        version = "1.*",
-    },
-    -- Snippet engine
-    {
-        source = "https://github.com/L3MON4D3/LuaSnip",
-        version = "2.*",
-    },
+    -- "https://github.com/saghen/blink.cmp",
+
+    -- Snippets
+    "https://github.com/L3MON4D3/LuaSnip",
     "https://github.com/rafamadriz/friendly-snippets",
-    -- Color highlighter (#fff, rgb(), etc.)
+
+    -- Color highlighter
     "https://github.com/catgoose/nvim-colorizer.lua",
+
     -- Session persistence
     "https://github.com/folke/persistence.nvim",
+
     -- Search result virtual text
     "https://github.com/kevinhwang91/nvim-hlslens",
-    -- Inline annotation / bookmarks
+
+    -- Bookmarks
     "https://github.com/TheNoeTrevino/haunt.nvim",
 })
 
@@ -99,9 +104,9 @@ require("Config.Colors")
 require("Config.Lualine")
 
 require("Config.Telescope")
-require("Config.LSP.Treesitter")
-require("Config.LSP.Lsp")
-require("Config.LSP.Blink")
+-- require("Config.LSP.Treesitter")
+-- require("Config.LSP.Blink")
+-- require("Config.LSP.Lsp")
 require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
@@ -114,7 +119,7 @@ require("Config.Ibl")
 require("Config.Which")
 
 require('Config.Mini') -- contains comment, map, surround, leap, icons
-require('Config.Snak') -- contains dashboard, dim
+-- require('Config.Snak') -- contains dashboard, dim
 
 require("Remaps.Remaps")
 require("Remaps.Insert")
