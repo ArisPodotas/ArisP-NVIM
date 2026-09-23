@@ -126,8 +126,7 @@ require("Config.Which")
 
 require('Config.Mini') -- contains comment, map, surround, leap, icons
 require('Config.Snak') -- contains dashboard, dim -- dashboard is ruined in v12
+require('Config.Netrw')
 
 require("Remaps")
-
--- Plugins
 require('Tabar')
