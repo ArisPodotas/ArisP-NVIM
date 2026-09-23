@@ -58,18 +58,18 @@ which.setup(
 which.add (
     {
         {
-            {'<leader>a', desc = '[A]erial, [A]utopair'},
+            {'<leader>a', desc = 'Aerial, Autopair'},
             {'c', desc = 'Change'},
             {'<leader>b', desc = 'Buffer'},
             {'<leader>d', desc = 'Document, Diagnostics'},
             {'<leader>g', desc = 'Git'},
-            {'<leader>gr', desc = 'Git [R]emote'},
-            {'<leader>gp', desc = 'Git [P]ull, [P]ush'},
+            {'<leader>gr', desc = 'Git Remote'},
+            {'<leader>gp', desc = 'Git Pull, Push'},
             {'<leader>r', desc = 'Rename'},
             {'<leader>s', desc = 'Search'},
             {'<leader>t', desc = 'Terminal'},
             {'<leader>w', desc = 'Workspace'},
-            {'<leader>i', desc = 'Vertical spl[I]ts'},
+            {'<leader>i', desc = 'Vertical splits'},
             {'<leader>u', desc = 'Horizontal splits'},
             {'<leader>j', desc = 'Swap Next'},
             {'<leader>k', desc = 'Swap Previous'},

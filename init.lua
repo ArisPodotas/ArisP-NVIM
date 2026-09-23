@@ -67,7 +67,7 @@ vim.pack.add({
     "https://github.com/echasnovski/mini.nvim",
 
     -- Snacks
-    -- "https://github.com/folke/snacks.nvim",
+    "https://github.com/folke/snacks.nvim",
 
     -- Debugger
     "https://github.com/mfussenegger/nvim-dap",
@@ -90,7 +90,7 @@ vim.pack.add({
     "https://github.com/catgoose/nvim-colorizer.lua",
 
     -- Session persistence
-    "https://github.com/folke/persistence.nvim",
+    -- "https://github.com/folke/persistence.nvim",
 
     -- Search result virtual text
     "https://github.com/kevinhwang91/nvim-hlslens",
@@ -104,13 +104,15 @@ require("Config.Colors")
 require("Config.Lualine")
 
 require("Config.Telescope")
--- require("Config.LSP.Treesitter")
--- require("Config.LSP.Blink")
--- require("Config.LSP.Lsp")
+
+-- require("Config.LSP.Treesitter") -- removed
+-- require("Config.LSP.Blink") -- removed
+-- require("Config.LSP.Lsp") -- removed
 require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
-require('Config.LSP.Pair') -- Just better
+require('Config.LSP.Pair')
+
 -- require('Config.Animations')
 require('Config.Aerials')
 require("Config.Git")
@@ -119,12 +121,9 @@ require("Config.Ibl")
 require("Config.Which")
 
 require('Config.Mini') -- contains comment, map, surround, leap, icons
--- require('Config.Snak') -- contains dashboard, dim
+require('Config.Snak') -- contains dashboard, dim -- dashboard is ruined in v12
 
-require("Remaps.Remaps")
-require("Remaps.Insert")
-require("Remaps.Splits")
--- require("Remaps.Autosave")
+require("Remaps")
 
 -- Plugins
-require('plugins.tabcus')
+require('Tabar')

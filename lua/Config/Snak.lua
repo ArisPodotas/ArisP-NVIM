@@ -25,7 +25,7 @@ litol_snak.setup(
                 return vim.g.snacks_dim ~= false and vim.b[buf].snacks_dim ~= false and vim.bo[buf].buftype == ""
             end,
         },
-        dashboard = { }
+        -- dashboard = { }
     }
 )
 

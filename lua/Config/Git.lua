@@ -2,13 +2,6 @@ local gs = require('gitsigns')
 
 gs.setup(
     {
-        -- signs = {
-        --     add = { text = '+' },
-        --     change = { text = '~' },
-        --     delete = { text = '_' },
-        --     topdelete = { text = '‾' },
-        --     changedelete = { text = '|' },
-        -- },
         on_attach = function(bufnr)
             -- local gs = package.loaded.gitsigns
             local function map(mode, l, r, opts)
@@ -66,17 +59,17 @@ gs.setup(
 )
 
 --Git
-vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = '[C]ommit changes' })
+vim.keymap.set("n", '<leader>gc', ":Git commit<CR>", { desc = 'Commit changes' })
 vim.keymap.set("n", '<leader>gm', ":Git add .<CR>:Git commit<CR>", { desc = 'Add and Commit' })
-vim.keymap.set("n", '<leader>gf', ":Git fetch ", { desc = 'Add and Commit' })
-vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git [L]og' })
-vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative --all<CR>", { desc = 'Git [L]og [T]ree Full' })
-vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git [S]tatus' })
-vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize' })
-vim.keymap.set("n", '<leader>grr', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
-vim.keymap.set("n", '<leader>gra', ":Git remote add ", { desc = 'Git [R]emote -[V]' })
-vim.keymap.set("n", '<leader>gps', ":Git push ", { desc = 'Git [P]ush' })
-vim.keymap.set("n", '<leader>gpl', ":Git pull --rebase", { desc = 'Git [P]ull' })
-vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
-vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
-vim.keymap.set("n", '<leader>gd', ":Git diff --stat<CR>", { desc = 'Git [D]ifferences' })
+vim.keymap.set("n", '<leader>gf', ":Git fetch ", { desc = 'Fetch' })
+vim.keymap.set("n", '<leader>gl', ":Git log<CR>", { desc = 'Git Log' })
+vim.keymap.set("n", '<leader>gt', ":Git log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit --date=relative --all<CR>", { desc = 'Git Log Tree Full' })
+vim.keymap.set("n", '<leader>gs', ":Git status --ignored<CR>", { desc = 'Git Status' })
+vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git Initialize' })
+vim.keymap.set("n", '<leader>grr', ":Git remote -v<CR>", { desc = 'Git Remote -V' })
+vim.keymap.set("n", '<leader>gra', ":Git remote add ", { desc = 'Git Remote Add' })
+vim.keymap.set("n", '<leader>gps', ":Git push ", { desc = 'Git Push' })
+vim.keymap.set("n", '<leader>gpl', ":Git pull --rebase", { desc = 'Git Pull' })
+vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git Add' })
+vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git Branch' })
+vim.keymap.set("n", '<leader>gd', ":Git diff --stat<CR>", { desc = 'Git Differences' })
