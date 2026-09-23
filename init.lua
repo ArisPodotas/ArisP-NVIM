@@ -26,7 +26,10 @@ vim.pack.add({
     "https://github.com/lewis6991/gitsigns.nvim",
 
     -- LSP
-    "https://github.com/neovim/nvim-lspconfig",
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/mason-org/mason.nvim',
+    'https://github.com/mason-org/mason-lspconfig.nvim',
+    'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Keybinding hints
     "https://github.com/folke/which-key.nvim",
@@ -74,13 +77,14 @@ vim.pack.add({
     "https://github.com/theHamsta/nvim-dap-virtual-text",
     "https://github.com/rcarriga/nvim-dap-ui",
     "https://github.com/nvim-neotest/nvim-nio",
-    "https://github.com/williamboman/mason.nvim",
 
     -- Auto-close brackets
     "https://github.com/windwp/nvim-autopairs",
 
     -- Autocompletion
-    -- "https://github.com/saghen/blink.cmp",
+    --
+    { src = "https://github.com/saghen/blink.lib" },
+    {src = "https://github.com/saghen/blink.cmp"},
 
     -- Snippets
     "https://github.com/L3MON4D3/LuaSnip",
@@ -105,9 +109,9 @@ require("Config.Lualine")
 
 require("Config.Telescope")
 
--- require("Config.LSP.Treesitter") -- removed
--- require("Config.LSP.Blink") -- removed
--- require("Config.LSP.Lsp") -- removed
+require("Config.LSP.Treesitter") -- removed
+require("Config.LSP.Blink") -- removed
+require("Config.LSP.Lsp") -- removed
 require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
