@@ -19,6 +19,34 @@ vim.api.nvim_create_autocmd(
     }
 )
 
+-- local colorscheme_map = {
+--     ["OldJobobo/miasma.nvim"]                     = "miasma",
+--     ["loctvl842/monokai-pro.nvim"]                = "monokai-pro",
+--     ["catppuccin/nvim"]                           = "catppuccin",
+--     ["folke/tokyonight.nvim"]                     = "tokyonight",
+--     ["navarasu/onedark.nvim"]                     = "onedark",
+--     ["bjarneo/ash.nvim"]                          = "ash",
+--     ["bjarneo/aether.nvim"]                       = "aether",
+--     ["bjarneo/ethereal.nvim"]                     = "ethereal",
+--     ["neanias/everforest-nvim"]                   = "everforest",
+--     ["ellisonleao/gruvbox.nvim"]                  = "gruvbox",
+--     ["bjarneo/hackerman.nvim"]                    = "hackerman",
+--     ["rebelot/kanagawa.nvim"]                     = "kanagawa",
+--     ["~/.config/omarchy/themes/frost/frost.nvim"] = 'onedark',
+--     ['nil']                                       = 'onedark',
+--     ["omacom-io/lumon.nvim"]                      = "lumon",
+--     ["tahayvr/matteblack.nvim"]                   = "matteblack",
+--     ["EdenEast/nightfox.nvim"]                    = "nordfox",
+--     ["ribru17/bamboo.nvim"]                       = "bamboo",
+--     ["OldJobobo/retro-82.nvim"]                   = "retro-82",
+--     ["gthelding/monokai-pro.nvim"]                = "monokai-pro",
+--     ["bjarneo/vantablack.nvim"]                   = "vantablack",
+--     ["bjarneo/white.nvim"]                        = "white",
+--     ["rose-pine/neovim"]                          = "rose-pine-dawn",
+--     ["kepano/flexoki-neovim"]                     = "flexoki-light",
+--     ["LazyVim/LazyVim"]                           = "onedark",
+-- }
+
 vim.pack.add({
     -- Git
     "https://github.com/tpope/vim-fugitive",
@@ -55,7 +83,7 @@ vim.pack.add({
     "https://github.com/stevearc/aerial.nvim",
 
     -- File explorer
-    "https://github.com/prichrd/netrw.nvim",
+    "https://github.com/ArisPodotas/netrw.nvim",
 
     -- Quick file navigation
     {
@@ -130,3 +158,49 @@ require('Config.Netrw')
 
 require("Remaps")
 require('Tabar')
+
+-- _G.DARK_THEME = "onedark"   -- fallback or preferred alt-theme
+
+-- -- Apply the colorscheme
+-- if _G.OS_THEME and _G.OS_THEME ~= 'onedark' then
+--     vim.cmd("colorscheme " .. _G.OS_THEME)
+-- -- Your special case
+-- elseif _G.OS_THEME == "onedark" or _G.OS_THEME == nil then
+--     require("Config.Onedark")
+-- else
+--     require("Config.Onedark")
+-- end
+
+-- -- Optional setup for themes that support it
+-- pcall(function()
+--     require(_G.OS_THEME).setup({})
+-- end)
+
+-- local function apply_theme(name)
+--     if name == 'onedark' or name == nil then
+--         vim.cmd("colorscheme " .. name) -- Required to set the vim.g.colors_name
+--         require("Config.Onedark")
+--     else
+--         vim.cmd("colorscheme " .. name)
+--         -- theme-specific setup (safe)
+--         -- pcall(function()
+--         --     require(name).setup({})
+--         -- end)
+--     end
+--     -- print("Theme switched to: " .. name)
+-- end
+
+-- -- Toggle function to switch between OS theme and the fallback dark theme
+-- local function toggle_theme()
+--     local current = vim.g.colors_name
+--     if current == _G.OS_THEME then
+--         apply_theme(_G.DARK_THEME)
+--     else
+--         apply_theme(_G.OS_THEME)
+--     end
+-- end
+
+-- vim.keymap.set("n", "<leader>c", toggle_theme, { desc = "Toggle colorscheme" })
+
+-- require("Config.Onedark")
+-- require('colorizer').setup()

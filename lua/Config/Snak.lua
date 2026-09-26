@@ -25,9 +25,17 @@ litol_snak.setup(
                 return vim.g.snacks_dim ~= false and vim.b[buf].snacks_dim ~= false and vim.bo[buf].buftype == ""
             end,
         },
-        -- dashboard = { }
+        dashboard = {
+            sections = {
+                { section = "header" },
+                { section = "keys", gap = 1, padding = 1 },
+                -- { section = "startup" },
+            },
+        },
     }
 )
+
+-- litol_snak.dashboard()
 
 vim.keymap.set('n', '<leader>de', litol_snak.dim.enable, { desc = '[E]nable [D]imming'} )
 vim.keymap.set('n', '<leader>dd', litol_snak.dim.disable, { desc = '[D]isable [D]imming'} )

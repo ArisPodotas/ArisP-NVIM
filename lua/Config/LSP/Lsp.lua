@@ -72,22 +72,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local servers = {
 	clangd = {},
 	-- gopls = {},
-    basedpyright = {
-        settings = {
-            basedpyright = {
-                analysis = {
-                    typeCheckingMode = "basic",
-                    autoImportCompletions = true,
-                }
-            },
-        }
-    },
+    basedpyright = {},
 	-- r_language_server = {},
 	-- rust_analyzer = {},
     -- eslint = {},
     texlab = { filetypes = {'tex', 'plaintex'} },
 	html = { filetypes = { "html", "twig", "hbs" } },
 	cssls = {},
+    -- qmlls = {},
     -- biome = {},
     -- denols = {},
 	ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
