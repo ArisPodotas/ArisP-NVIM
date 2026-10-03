@@ -4,10 +4,11 @@ local which = require('which-key')
 which.setup(
     {
         opts = {
+            delay = 200,
             triggers = {
                 {
                     "<auto>",
-                    mode = "nxso" 
+                    mode = "nixsotc"
                 },
             }
         }, -- Alt still wont work but at leas now the other binds are not broken
@@ -17,6 +18,11 @@ which.setup(
             },
             marks = true,
             registers = true,
+            presets = {
+                operators = true,
+                motions = true,
+                text_objects = true,
+            },
         },
         layout = {
             height = { min = 1, max = 20 }, -- Min and max number of rows

@@ -80,6 +80,135 @@ vim.keymap.set('n', '<C-s>', ':source %<CR>', { desc = '[S]ource file' })
 -- Sec Tree sitter parser
 vim.keymap.set("n", "<leader>`", vim.cmd.InspectTree, { desc = "Tree sitter parser pane" })
 
+local select = require('nvim-treesitter-textobjects.select').select_textobject
+
+-- Functions
+vim.keymap.set({ 'x', 'o' }, 'if', function()
+    select('@function.inner')
+end, { desc = 'Inside Function' })
+
+vim.keymap.set({ 'x', 'o' }, 'af', function()
+    select('@function.outer')
+end, { desc = 'Around Function' })
+
+-- Classes
+vim.keymap.set({ 'x', 'o' }, 'ic', function()
+    select('@class.inner')
+end, { desc = 'Inside Class' })
+
+vim.keymap.set({ 'x', 'o' }, 'ac', function()
+    select('@class.outer')
+end, { desc = 'Around Class' })
+
+-- Arguments / parameters
+vim.keymap.set({ 'x', 'o' }, 'iv', function()
+    select('@parameter.inner')
+end, { desc = 'Inside Argument' })
+
+vim.keymap.set({ 'x', 'o' }, 'av', function()
+    select('@parameter.outer')
+end, { desc = 'Around Argument' })
+
+-- Loops
+vim.keymap.set({ 'x', 'o' }, 'il', function()
+    select('@loop.inner')
+end, { desc = 'Inside Loop' })
+
+vim.keymap.set({ 'x', 'o' }, 'al', function()
+    select('@loop.outer')
+end, { desc = 'Around Loop' })
+
+-- Blocks
+vim.keymap.set({ 'x', 'o' }, 'ib', function()
+    select('@block.inner')
+end, { desc = 'Inside Block' })
+
+vim.keymap.set({ 'x', 'o' }, 'ab', function()
+    select('@block.outer')
+end, { desc = 'Around Block' })
+
+ -- If statements
+vim.keymap.set({ 'x', 'o' }, 'ii', function()
+    select('@conditional.inner')
+end, { desc = 'Inside If Statement' })
+
+vim.keymap.set({ 'x', 'o' }, 'ai', function()
+    select('@conditional.outer')
+end, { desc = 'Around If Statement' })
+
+local move = require('nvim-treesitter-textobjects.move').goto_next_start
+local move_end = require('nvim-treesitter-textobjects.move').goto_next_end
+local move_prev = require('nvim-treesitter-textobjects.move').goto_previous_start
+local move_prev_end = require('nvim-treesitter-textobjects.move').goto_previous_end
+
+-- Functions
+vim.keymap.set({ 'n', 'x', 'o' }, 'gjf', function()
+    move('@function.outer')
+end, { desc = 'Next Function Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gJf', function()
+    move_end('@function.outer')
+end, { desc = 'Next Function End' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gkf', function()
+    move_prev('@function.outer')
+end, { desc = 'Previous Function Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gKf', function()
+    move_prev_end('@function.outer')
+end, { desc = 'Previous Function End' })
+
+-- Classes
+vim.keymap.set({ 'n', 'x', 'o' }, 'gjc', function()
+    move('@class.outer')
+end, { desc = 'Next Class Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gJc', function()
+    move_end('@class.outer')
+end, { desc = 'Next Class End' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gkc', function()
+    move_prev('@class.outer')
+end, { desc = 'Previous Class Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gKc', function()
+    move_prev_end('@class.outer')
+end, { desc = 'Previous Class End' })
+
+-- Conditionals / If statements
+vim.keymap.set({ 'n', 'x', 'o' }, 'gji', function()
+    move('@conditional.outer')
+end, { desc = 'Next Conditional Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gJi', function()
+    move_end('@conditional.outer')
+end, { desc = 'Next Conditional End' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gki', function()
+    move_prev('@conditional.outer')
+end, { desc = 'Previous Conditional Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gKi', function()
+    move_prev_end('@conditional.outer')
+end, { desc = 'Previous Conditional End' })
+
+-- Loops
+vim.keymap.set({ 'n', 'x', 'o' }, 'gjl', function()
+    move('@loop.outer')
+end, { desc = 'Next Loop Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gJl', function()
+    move_end('@loop.outer')
+end, { desc = 'Next Loop End' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gkl', function()
+    move_prev('@loop.outer')
+end, { desc = 'Previous Loop Start' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, 'gKl', function()
+    move_prev_end('@loop.outer')
+end, { desc = 'Previous Loop End' })
+
 -- Sec buffers
 --
 -- Simple MRU buffer history

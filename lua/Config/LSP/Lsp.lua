@@ -72,7 +72,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local servers = {
 	clangd = {},
 	-- gopls = {},
-    basedpyright = {},
+    basedpyright = {
+        filetypes = {"python"},
+    },
 	-- r_language_server = {},
 	-- rust_analyzer = {},
     -- eslint = {},
