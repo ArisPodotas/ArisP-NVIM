@@ -1,5 +1,6 @@
 -- change the color of the currently selected item in the completion list
 local minies = require('mini.icons')
+require("luasnip.loaders.from_vscode").lazy_load()
 -- This will make sense later
 local provide = {
     snippets = {

@@ -120,19 +120,7 @@ vim.keymap.set("n", "<leader>am", "<cmd>Telescope aerial<CR>")
 
 vim.keymap.set("n", "<A-b>", function()
     tl.oldfiles()
-end, { desc = "[?] Find recently opened files" })
-
-vim.keymap.set("n", "<leader>bb", function()
-    tl.buffers()
-end, { desc = "[ ] Find existing buffers" })
-
-vim.keymap.set("n", "<leader>bf", function()
-	tl.current_buffer_fuzzy_find()
-end, { desc = "[/] Fuzzily search in current buffer" })
-
-vim.keymap.set("n", "<leader>ss", function()
-    tl.builtin()
-end, { desc = "[S]earch [S]elect Telescope" })
+end, { desc = "Find recently opened files" })
 
 vim.keymap.set("n", "<A-g>", function()
     tl.git_files()
@@ -142,13 +130,25 @@ vim.keymap.set("n", "<A-f>", function()
     tl.find_files()
 end, { desc = "[F]ind [F]iles" })
 
-vim.keymap.set("n", "<leader>sh", function()
-    tl.help_tags()
-end, { desc = "[S]earch [H]elp" })
-
 vim.keymap.set("n", "<A-s>", function()
     tl.live_grep()
 end, { desc = "[S]earch by [G]rep" })
+
+vim.keymap.set("n", "<A-/>", function()
+	tl.current_buffer_fuzzy_find()
+end, { desc = "Fuzzily search in current buffer" })
+
+vim.keymap.set("n", "<leader>bb", function()
+    tl.buffers()
+end, { desc = "Find existing buffers" })
+
+vim.keymap.set("n", "<leader>ss", function()
+    tl.builtin()
+end, { desc = "[S]earch [S]elect Telescope" })
+
+vim.keymap.set("n", "<leader>sh", function()
+    tl.help_tags()
+end, { desc = "[S]earch [H]elp" })
 
 vim.keymap.set("n", "<leader>sd", function()
     tl.diagnostics()

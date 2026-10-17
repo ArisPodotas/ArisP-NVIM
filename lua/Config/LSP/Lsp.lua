@@ -84,7 +84,7 @@ local servers = {
     -- qmlls = {},
     -- biome = {},
     -- denols = {},
-	ts_ls = { filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescritpreact'} },
+	ts_ls = {},
     stylua = {}, -- Used to format Lua code
     -- Special Lua Config, as recommended by neovim help docs
     lua_ls = {

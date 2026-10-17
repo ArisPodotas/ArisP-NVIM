@@ -137,9 +137,9 @@ require("Config.Lualine")
 
 require("Config.Telescope")
 
-require("Config.LSP.Treesitter") -- removed
-require("Config.LSP.Blink") -- removed
-require("Config.LSP.Lsp") -- removed
+require("Config.LSP.Treesitter")
+require("Config.LSP.Blink")
+require("Config.LSP.Lsp")
 require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
