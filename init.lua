@@ -48,6 +48,30 @@ vim.api.nvim_create_autocmd(
 -- }
 
 vim.pack.add({
+    -- themes
+    -- "https://github.com/OldJobobo/miasma.nvim",
+    -- "https://github.com/loctvl842/monokai-pro.nvim",
+    -- "https://github.com/catppuccin/nvim",
+    -- "https://github.com/folke/tokyonight.nvim",
+    -- "https://github.com/navarasu/onedark.nvim",
+    -- "https://github.com/bjarneo/ash.nvim",
+    -- "https://github.com/bjarneo/aether.nvim",
+    -- "https://github.com/bjarneo/ethereal.nvim",
+    -- "https://github.com/neanias/everforest-nvim",
+    -- "https://github.com/ellisonleao/gruvbox.nvim",
+    -- "https://github.com/bjarneo/hackerman.nvim",
+    -- "https://github.com/rebelot/kanagawa.nvim",
+    -- "https://github.com/omacom-io/lumon.nvim",
+    -- "https://github.com/tahayvr/matteblack.nvim",
+    -- "https://github.com/EdenEast/nightfox.nvim",
+    -- "https://github.com/ribru17/bamboo.nvim",
+    -- "https://github.com/OldJobobo/retro-82.nvim",
+    -- "https://github.com/bjarneo/vantablack.nvim",
+    -- "https://github.com/bjarneo/white.nvim",
+    -- "https://github.com/rose-pine/neovim",
+    -- "https://github.com/kepano/flexoki-neovim",
+    -- "https://github.com/LazyVim/LazyVim",
+
     -- Git
     "https://github.com/tpope/vim-fugitive",
     "https://github.com/tpope/vim-rhubarb",
@@ -158,49 +182,3 @@ require('Config.Netrw')
 
 require("Remaps")
 require('Tabar')
-
--- _G.DARK_THEME = "onedark"   -- fallback or preferred alt-theme
-
--- -- Apply the colorscheme
--- if _G.OS_THEME and _G.OS_THEME ~= 'onedark' then
---     vim.cmd("colorscheme " .. _G.OS_THEME)
--- -- Your special case
--- elseif _G.OS_THEME == "onedark" or _G.OS_THEME == nil then
---     require("Config.Onedark")
--- else
---     require("Config.Onedark")
--- end
-
--- -- Optional setup for themes that support it
--- pcall(function()
---     require(_G.OS_THEME).setup({})
--- end)
-
--- local function apply_theme(name)
---     if name == 'onedark' or name == nil then
---         vim.cmd("colorscheme " .. name) -- Required to set the vim.g.colors_name
---         require("Config.Onedark")
---     else
---         vim.cmd("colorscheme " .. name)
---         -- theme-specific setup (safe)
---         -- pcall(function()
---         --     require(name).setup({})
---         -- end)
---     end
---     -- print("Theme switched to: " .. name)
--- end
-
--- -- Toggle function to switch between OS theme and the fallback dark theme
--- local function toggle_theme()
---     local current = vim.g.colors_name
---     if current == _G.OS_THEME then
---         apply_theme(_G.DARK_THEME)
---     else
---         apply_theme(_G.OS_THEME)
---     end
--- end
-
--- vim.keymap.set("n", "<leader>c", toggle_theme, { desc = "Toggle colorscheme" })
-
--- require("Config.Onedark")
--- require('colorizer').setup()

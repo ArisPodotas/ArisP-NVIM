@@ -39,13 +39,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 group = highlight_augroup,
                 callback = vim.lsp.buf.document_highlight,
             })
-
             vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
                 buffer = event.buf,
                 group = highlight_augroup,
                 callback = vim.lsp.buf.clear_references,
             })
-
             vim.api.nvim_create_autocmd('LspDetach', {
                 group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
                 callback = function(event2)
@@ -54,10 +52,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 end,
             })
         end
-
         -- The following code creates a keymap to toggle inlay hints in your
         -- code, if the language server you are using supports them
-        --
         -- This may be unwanted, since they displace some of your code
         if client and client:supports_method('textDocument/inlayHint', event.buf) then
             map('<leader>th', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, '[T]oggle Inlay [H]ints')

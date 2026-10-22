@@ -8,6 +8,7 @@ vim.o.hlsearch = false
 -- Decrease update time
 vim.opt.timeout = false
 vim.opt.ttimeout = false
+vim.opt.updatetime = 500
 
 -- nerd font
 vim.g.have_nerd_font = true

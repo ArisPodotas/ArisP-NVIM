@@ -1,6 +1,36 @@
 -- Note: There are some colors in the lualine file
 local colorPalette = require('Config.Palette')
 
+-- visual
+vim.api.nvim_set_hl(0, "Visual", {
+    bg = colorPalette.alt_visual_bg,
+    -- fg = "#ffffff",
+})
+
+-- How cursorhold highlights
+-- for strings
+vim.api.nvim_set_hl(0, "LspReferenceText", {
+    bg = colorPalette.diff_add
+})
+
+-- background highlight color
+vim.api.nvim_set_hl(0, "LspReferenceRead", {
+    bg = colorPalette.cursorhighlight_txt,
+})
+
+-- Random fields sometimes in functions
+vim.api.nvim_set_hl(0, "LspReferenceWrite", {
+    bg = colorPalette.cursorhighlight_txt,
+    bold = true,
+})
+
+vim.api.nvim_set_hl(0, "MatchParen", {
+    fg = colorPalette.bracketmatch,
+    bg = colorPalette.cursorhighlight_txt,
+    bold = true,
+    underline = true
+})
+
 -- Custom tabline colors
 -- vim.api.nvim_set_hl(0, 'TabLine', { fg = colorPalette.bg0, bg = colorPalette.extra1})
 -- vim.api.nvim_set_hl(0, 'TabLineFill',     { fg = colorPalette.bg0, bg = colorPalette.blue})
@@ -8,7 +38,7 @@ vim.api.nvim_set_hl(0, 'TabLineSel',  { fg = colorPalette.blink_fg, bg = colorPa
 
 -- Customize semantic token highlights
 vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
-vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
+-- vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
 vim.api.nvim_set_hl(0, '@spell', {}) -- Anoying ass gray color on everything
 vim.api.nvim_set_hl(0, '@nospell', {}) -- Anoying ass gray color on everything
 vim.api.nvim_set_hl(0, '@lsp.mod.documentation.lua', {fg = colorPalette.cyan})
@@ -23,9 +53,9 @@ vim.api.nvim_set_hl(0, '@lsp.mod.documentation.lua', {fg = colorPalette.cyan})
 
 -- The cursor
 -- Set cursor color
--- vim.api.nvim_set_hl(0, "Cursor", {  bg = colorPalette.red })
+-- vim.api.nvim_set_hl(0, "Cursor", { bg = colorPalette.red })
 -- vim.api.nvim_set_hl(0, "TermCursor", { bg = colorPalette.red})
--- vim.api.nvim_set_hl(0, "CursorLine", { bg = "#659056", blend = 70 })
+vim.api.nvim_set_hl(0, "CursorLine", { bg = '#000000', blend = 70 })
 
 -- Floating windows
 vim.api.nvim_set_hl(0, "NormalFloat", {})

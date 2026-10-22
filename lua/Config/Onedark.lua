@@ -1,5 +1,6 @@
 -- You use the cool pallet for 99% of the time
 local onedark = require('onedark')
+local palette = require('Config.Palette')
 
 onedark.setup(
     {
@@ -30,35 +31,40 @@ onedark.setup(
         },
         -- -- Custom Highlights --
         colors = {
+            -- bg0  = '#12221a'
         },
         highlights = {
+            -- Comment = {
+            --     fg = palette.light_grey,
+            --     bg = palette.bg0,
+            -- },
             CurSearch = {
-                fg = '#ffffff',
-                bg = '#7a05ff',
+                fg = palette.fullwhite,
+                bg = palette.cur_highlight_purple,
                 fmt = 'underline,italic'
             },
             IncSearch = {
-                fg = '#ffffff',
-                bg = '#9c06c9',
+                fg = palette.fullwhite,
+                bg = palette.highlight_purple,
                 fmt = 'underline,italic'
             },
             Visual = {
-                bg = '#555555',
+                -- bg = palette.alt_visual_bg,
                 fmt = 'underline,bold,italic'
             },
             Search = {
-                fg = '#ffffff',
-                bg = '#9c06c9',
+                fg = palette.fullwhite,
+                bg = palette.highlight_purple,
                 fmt = 'underline,italic'
             },
             SpellBad = {
-                bg = '#353535',
+                bg = palette.spellbad_bg,
             },
             ["@lsp.type.namespace"] = {
-                fg = '#93a4c3',
+                fg = palette.alt_namespace,
                 fmt = 'bold,italic'
             },
-            WinSeparator = {fg =  "#25747d" }
+            WinSeparator = {fg = palette.dark_cyan }
         },
         diagnostics = {
             darker = true,
