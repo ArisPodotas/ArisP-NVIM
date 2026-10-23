@@ -6,16 +6,16 @@ onedark.setup(
     {
         transparent = true,
         style = 'deep',
-        toggle_style_key = '<A-c>',
-        toggle_style_list = {
-            'dark',
-            'darker',
-            'cool',
-            'deep',
-            'warm',
-            'warmer',
-            'light'
-        },
+        -- toggle_style_key = '<A-c>',
+        -- toggle_style_list = {
+        --     'dark',
+        --     'darker',
+        --     'cool',
+        --     'deep',
+        --     'warm',
+        --     'warmer',
+        --     'light'
+        -- },
         -- Change code style ---
         -- Options are italic, bold, underline, none
         code_style = {

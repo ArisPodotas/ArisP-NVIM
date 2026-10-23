@@ -44,4 +44,5 @@ return {
     cursorhighlight_read  = "#45475a",
     cursorhighlight_bg = '#585b70',
     bracketmatch = '#ff79c6',
+    indents = "#024202",
 }

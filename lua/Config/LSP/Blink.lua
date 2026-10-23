@@ -6,22 +6,22 @@ local provide = {
     snippets = {
         name = 'Snippet',
         score_offset = 4,
-        max_items = 3,
+        -- max_items = 3,
     },
     lsp = {
         name = 'LSP',
         -- score_offset = 30,
-        max_items = 5,
+        -- max_items = 5,
     },
     path = {
         name = 'Path',
         -- score_offset = 80,
-        max_items = 5,
+        -- max_items = 5,
     },
     buffer = {
         name = 'Buffer',
         score_offset = -1,
-        max_items = 5,
+        -- max_items = 5,
     },
     -- lazydev = {
     --     name = 'Lazy',

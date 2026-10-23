@@ -1,13 +1,20 @@
-vim.api.nvim_set_hl(0, "Whiteness", { fg = "#383838" })
-vim.api.nvim_set_hl(0, "ScopeWhite", { fg = "#6f6f6f" })
+local hooks = require("ibl.hooks")
+local colors = require('Config.Palette')
 
-require("ibl").setup(
-    {
-        indent = { char = "│", tab_char = '│', highlight = { "Whiteness" } },
-        -- whitespace = { remove_blankline_trail = true },
-        scope = { enabled = true, highlight = { "ScopeWhite" } }
-    }
-)
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "Whiteness", { fg = colors.bg3 })
+    vim.api.nvim_set_hl(0, "ScopeWhite", { fg = colors.reder})
+end)
 
--- require("ibl.hooks").register(require("ibl.hooks").type.SCOPE_HIGHLIGHT, require("ibl.hooks").builtin.scope_highlight_from_extmark)
-
+require("ibl").setup({
+    indent = {
+        char = "│",
+        highlight = "Whiteness",
+    },
+    scope = {
+        enabled = true,
+        highlight = "ScopeWhite",
+        show_start = true,
+        show_end = true,
+    },
+})

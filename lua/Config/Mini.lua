@@ -166,24 +166,6 @@ vim.keymap.set('n', '<leader>mc', function() map.close({}) end, { desc = '[C]los
 vim.keymap.set('n', '<leader>mt', function() map.toggle({}) end, { desc = '[T]oggles the [M]ini [M]ap' })
 vim.keymap.set('n', '<leader>mf', function() map.toggle_focus({}) end, { desc = '[F]ocuses the [M]ini [M]ap' })
 
--- local state = false
-
--- I wanted to do the above with one bind
--- Consider it done :)
--- vim.keymap.set(
---     'n', '<leader>mo', function()
---         if state == false then
---             map.open({})
---             map.toggle_focus({})
---             state = true
---         else
---             map.close({})
---             state = false
---         end
---     end,
---     { desc = '[O]pens the [M]ini [M]ap' }
--- )
-
 require('mini.surround').setup(
     {
         -- Add custom surroundings to be used on top of builtin ones. For more
@@ -198,7 +180,7 @@ require('mini.surround').setup(
             find = 'Zf', -- Find surrounding (to the right)
             find_left = 'ZF', -- Find surrounding (to the left)
             highlight = 'Zh', -- Highlight surrounding
-            replace = 'Zr', -- Replace surrounding
+            replace = "Zr", -- Replace surrounding
             update_n_lines = 'Zn', -- Update `n_lines`
             suffix_last = 'l', -- Suffix to search with "prev" method
             suffix_next = 'n', -- Suffix to search with "next" method
