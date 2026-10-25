@@ -2,9 +2,13 @@
 local colorPalette = require('Config.Palette')
 
 -- visual
+-- vim.api.nvim_set_hl(0, "Visual", {
+--     bg = colorPalette.alt_visual_bg,
+--     -- fg = "#ffffff",
+-- })
+--
 vim.api.nvim_set_hl(0, "Visual", {
-    bg = colorPalette.alt_visual_bg,
-    -- fg = "#ffffff",
+    reverse = true,
 })
 
 -- How cursorhold highlights
