@@ -136,7 +136,7 @@ vim.pack.add({
     -- Autocompletion
     --
     { src = "https://github.com/saghen/blink.lib" },
-    {src = "https://github.com/saghen/blink.cmp"},
+    { src = "https://github.com/saghen/blink.cmp" },
 
     -- Snippets
     "https://github.com/L3MON4D3/LuaSnip",
@@ -153,6 +153,9 @@ vim.pack.add({
 
     -- Bookmarks
     "https://github.com/TheNoeTrevino/haunt.nvim",
+
+    { src = 'https://github.com/nvzone/volt' },
+    { src = 'https://github.com/DrKJeff16/triforce.nvim' },
 })
 
 require("Config.Onedark") -- Needs to be up here
@@ -179,6 +182,8 @@ require("Config.Which")
 require('Config.Mini') -- contains comment, map, surround, leap, icons
 require('Config.Snak') -- contains dashboard, dim -- dashboard is ruined in v12
 require('Config.Netrw')
+require('Config.Triforce')
 
 require("Remaps")
 require('Tabar')
+

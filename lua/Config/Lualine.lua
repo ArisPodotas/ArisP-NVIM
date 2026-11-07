@@ -23,8 +23,8 @@ require('lualine').setup(
                         hint = ' ',
                 },
                     sources = {
-                        "nvim_diagnostic" 
-                    } 
+                        "nvim_diagnostic"
+                    }
                 }
             },
             lualine_c = {
@@ -37,7 +37,8 @@ require('lualine').setup(
             },
             -- Progress and total file size
             lualine_y = {
-                'progress', function() return vim.fn.line('$') end
+                'progress', function() return vim.fn.line('$') end,
+                'triforce',
             },
             lualine_z = {
                 'location',

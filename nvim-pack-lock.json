@@ -209,6 +209,10 @@
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
       "src": "https://github.com/folke/tokyonight.nvim"
     },
+    "triforce.nvim": {
+      "rev": "42f54e7c4f7dca06fc5b4890e96f0065096e9b5d",
+      "src": "https://github.com/DrKJeff16/triforce.nvim"
+    },
     "vantablack.nvim": {
       "rev": "8a05ea96343914f1001e937b4fa7d9d44b51d221",
       "src": "https://github.com/bjarneo/vantablack.nvim"
@@ -220,6 +224,10 @@
     "vim-rhubarb": {
       "rev": "5496d7c94581c4c9ad7430357449bb57fc59f501",
       "src": "https://github.com/tpope/vim-rhubarb"
+    },
+    "volt": {
+      "rev": "4351c5cd790a0d39491c4d5c75dd62d7db3d3414",
+      "src": "https://github.com/nvzone/volt"
     },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
