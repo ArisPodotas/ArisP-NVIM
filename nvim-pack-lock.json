@@ -225,6 +225,10 @@
       "rev": "5496d7c94581c4c9ad7430357449bb57fc59f501",
       "src": "https://github.com/tpope/vim-rhubarb"
     },
+    "vimscape2007.nvim": {
+      "rev": "f84c807f1bbadfe6059b383bc1b76eedb8e09df3",
+      "src": "https://github.com/jakewaldrip/vimscape2007.nvim"
+    },
     "volt": {
       "rev": "4351c5cd790a0d39491c4d5c75dd62d7db3d3414",
       "src": "https://github.com/nvzone/volt"

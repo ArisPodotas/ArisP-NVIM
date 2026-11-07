@@ -154,8 +154,13 @@ vim.pack.add({
     -- Bookmarks
     "https://github.com/TheNoeTrevino/haunt.nvim",
 
+    -- xp for insert mode stuff
     { src = 'https://github.com/nvzone/volt' },
     { src = 'https://github.com/DrKJeff16/triforce.nvim' },
+
+    -- xp for normal mode
+    "https://github.com/jakewaldrip/vimscape2007.nvim",
+
 })
 
 require("Config.Onedark") -- Needs to be up here
@@ -183,6 +188,7 @@ require('Config.Mini') -- contains comment, map, surround, leap, icons
 require('Config.Snak') -- contains dashboard, dim -- dashboard is ruined in v12
 require('Config.Netrw')
 require('Config.Triforce')
+require('Config.Runescape')
 
 require("Remaps")
 require('Tabar')
