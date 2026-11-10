@@ -161,6 +161,9 @@ vim.pack.add({
     -- xp for normal mode
     "https://github.com/jakewaldrip/vimscape2007.nvim",
 
+    -- notifications
+    {src = 'https://github.com/rcarriga/nvim-notify' },
+
 })
 
 require("Config.Onedark") -- Needs to be up here
@@ -176,6 +179,8 @@ require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
 require('Config.LSP.Pair')
+
+require('Config.Notifications')
 
 -- require('Config.Animations')
 require('Config.Aerials')

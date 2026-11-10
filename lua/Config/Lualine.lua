@@ -37,8 +37,8 @@ require('lualine').setup(
             },
             -- Progress and total file size
             lualine_y = {
-                'progress', function() return vim.fn.line('$') end,
-                'triforce',
+                {'triforce', currency = { enabled = true, prefix = ''}},
+                {'progress', function() return vim.fn.line('$') end},
             },
             lualine_z = {
                 'location',
