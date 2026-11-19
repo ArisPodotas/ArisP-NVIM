@@ -46,6 +46,50 @@ vim.api.nvim_create_autocmd(
 --     ["LazyVim/LazyVim"]                           = "onedark",
 -- }
 
+-- local themeGits = {
+
+-- }
+
+-- local aliases = {
+--
+-- }
+-- local omarchyThemes = {
+--     'Aetheria',
+--     'Archwave',
+--     'Ash',
+--     'Ayaka',
+--     'Blackgold',
+--     'Catppuccin',
+--     'Catppuccin Latte',
+--     'City 783',
+--     'Cpunk',
+--     'Ethereal',
+--     'Event Horizon',
+--     'Everforest',
+--     'Flexoki Light',
+--     'Frost',
+--     'Gruvbox',
+--     'Hackerman',
+--     'Jade Horse',
+--     'Kanagawa',
+--     'Last Horizon',
+--     'Lumon',
+--     'Lupine',
+--     'Matte Black',
+--     'Miasma',
+--     'Nord',
+--     'One Dark Pro',
+--     'Osaka Jade',
+--     'Retro 82',
+--     'Ristretto',
+--     'Rose Pine',
+--     'Solitude',
+--     'Starship',
+--     'Tokyo Night',
+--     'Vantablack',
+--     'White',
+-- }
+
 vim.pack.add({
     -- themes
     -- "https://github.com/OldJobobo/miasma.nvim",
@@ -133,9 +177,8 @@ vim.pack.add({
     "https://github.com/windwp/nvim-autopairs",
 
     -- Autocompletion
-    --
     { src = "https://github.com/saghen/blink.lib" },
-    { src = "https://github.com/saghen/blink.cmp" },
+    'https://github.com/saghen/blink.cmp',
 
     -- Snippets
     "https://github.com/L3MON4D3/LuaSnip",
@@ -160,9 +203,6 @@ vim.pack.add({
     -- xp for normal mode
     "https://github.com/jakewaldrip/vimscape2007.nvim",
 
-    -- notifications
-    -- {src = 'https://github.com/rcarriga/nvim-notify' },
-
 })
 
 require("Config.Onedark") -- Needs to be up here
@@ -178,8 +218,6 @@ require("Config.LSP.Diagnostics")
 require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
 require('Config.LSP.Pair')
-
--- require('Config.Notifications')
 
 -- require('Config.Animations')
 require('Config.Aerials')
