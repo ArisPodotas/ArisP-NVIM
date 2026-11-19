@@ -134,27 +134,34 @@ vim.keymap.set("n", "<A-s>", function()
     tl.live_grep()
 end, { desc = "[S]earch by [G]rep" })
 
+vim.keymap.set("n", "<A-z>", function()
+    tl.keymaps()
+end, { desc = "Seach keymaps" })
+
+vim.keymap.set("n", "<A-x>", function()
+    tl.commands()
+end, { desc = "Seach commands" })
+
 vim.keymap.set("n", "<A-/>", function()
 	tl.current_buffer_fuzzy_find()
 end, { desc = "Fuzzily search in current buffer" })
 
-vim.keymap.set("n", "<leader>bb", function()
-    tl.buffers()
-end, { desc = "Find existing buffers" })
+vim.keymap.set("n", "<A-r>", function()
+    tl.resume()
+end, { desc = "[S]earch [R]esume" })
+
+-- vim.keymap.set("n", "<leader>bb", function()
+--     tl.buffers()
+-- end, { desc = "Find existing buffers" })
 
 vim.keymap.set("n", "<leader>ss", function()
     tl.builtin()
 end, { desc = "[S]earch [S]elect Telescope" })
 
-vim.keymap.set("n", "<leader>sh", function()
-    tl.help_tags()
-end, { desc = "[S]earch [H]elp" })
+-- vim.keymap.set("n", "<leader>sh", function()
+--     tl.help_tags()
+-- end, { desc = "[S]earch [H]elp" })
 
 vim.keymap.set("n", "<leader>sd", function()
     tl.diagnostics()
 end, { desc = "[S]earch [D]iagnostics" })
-
-vim.keymap.set("n", "<leader>sr", function()
-    tl.resume()
-end, { desc = "[S]earch [R]esume" })
-

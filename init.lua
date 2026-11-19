@@ -5,7 +5,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("Options")
-
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
@@ -162,7 +161,7 @@ vim.pack.add({
     "https://github.com/jakewaldrip/vimscape2007.nvim",
 
     -- notifications
-    {src = 'https://github.com/rcarriga/nvim-notify' },
+    -- {src = 'https://github.com/rcarriga/nvim-notify' },
 
 })
 
@@ -180,7 +179,7 @@ require('Config.LSP.Autotag')
 require("Config.LSP.Debug")
 require('Config.LSP.Pair')
 
-require('Config.Notifications')
+-- require('Config.Notifications')
 
 -- require('Config.Animations')
 require('Config.Aerials')
@@ -198,3 +197,7 @@ require('Config.Runescape')
 require("Remaps")
 require('Tabar')
 
+-- For html highlights since for some reason it does not load it
+vim.opt.rtp:append(
+    vim.fn.stdpath('data') .. '/site/pack/core/opt/nvim-treesitter/runtime'
+)

@@ -75,7 +75,7 @@ local servers = {
 	-- rust_analyzer = {},
     -- eslint = {},
     texlab = { filetypes = {'tex', 'plaintex'} },
-	html = { filetypes = { "html", "twig", "hbs" } },
+	html = {},
 	cssls = {},
     -- qmlls = {},
     -- biome = {},
