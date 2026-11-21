@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 --
 -- 
