@@ -7,11 +7,11 @@ vim.api.nvim_create_autocmd(
                 mode = mode or "n"
                 vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
             end
-            map("H", vim.lsp.buf.hover, "[H]over Documentation")
-            map("gn", vim.lsp.buf.rename, "[R]e[n]ame")
-            map("ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
-            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-            map("gm", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+            map("H", vim.lsp.buf.hover, "Hover Documentation")
+            map("gn", vim.lsp.buf.rename, "Rename")
+            map("ga", vim.lsp.buf.code_action, "Code [A]ction", { "n", "x" })
+            map("gr", require("telescope.builtin").lsp_references, "Goto References")
+            map("gm", require("telescope.builtin").lsp_implementations, "Goto Implementation")
             map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
             map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
             map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
