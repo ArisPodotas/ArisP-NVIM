@@ -23,8 +23,8 @@ end, { desc = 'Opens [T]erminal [S]plit' })
 
 -- Making a way faster way of doing what the animated windows would
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = 'Go to Left split in view' })
-vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
 vim.keymap.set("n", "<A-j>", "<C-w>j", { desc = 'Go to Top split in view' })
 vim.keymap.set("n", "<A-k>", "<C-w>k", { desc = 'Go to Bottom split in view' })
+vim.keymap.set("n", "<A-l>", "<C-w>l", { desc = 'Go to Right split in view' })
 vim.keymap.set("n", "+", "<C-w>3>", { desc = 'Increase width of split by 3' })
 vim.keymap.set("n", "_", "<C-w>3<", { desc = 'Decrease width of split by 3' })
