@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("Options")
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`

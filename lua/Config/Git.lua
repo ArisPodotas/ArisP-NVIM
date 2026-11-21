@@ -2,6 +2,7 @@ local gs = require('gitsigns')
 
 gs.setup(
     {
+        -- See `:help gitsigns.txt`
         -- signs = {
         --     add = { text = '+' },
         --     change = { text = '~' },
@@ -22,7 +23,7 @@ gs.setup(
                     return ']c'
                 end
                 vim.schedule(function()
-                    gs.next_hunk()
+                    gs.nav_hunk('next')
                 end)
                 return '<Ignore>'
             end, { expr = true, desc = 'Jump to next hunk' })
@@ -31,7 +32,7 @@ gs.setup(
                     return '[c'
                 end
                 vim.schedule(function()
-                    gs.prev_hunk()
+                    gs.nav_hunk('prev')
                 end)
                 return '<Ignore>'
             end, { expr = true, desc = 'Jump to previous hunk' })
@@ -46,7 +47,7 @@ gs.setup(
             map('n', '<leader>ghs', gs.stage_hunk, { desc = 'git stage hunk' })
             map('n', '<leader>ghr', gs.reset_hunk, { desc = 'git reset hunk' })
             map('n', '<leader>ghS', gs.stage_buffer, { desc = 'git Stage buffer' })
-            map('n', '<leader>ghu', gs.undo_stage_hunk, { desc = 'undo stage hunk' })
+            map('n', '<leader>ghu', gs.stage_hunk, { desc = 'undo stage hunk' })
             map('n', '<leader>ghR', gs.reset_buffer, { desc = 'git Reset buffer' })
             map('n', '<leader>ghp', gs.preview_hunk, { desc = 'preview git hunk' })
             map('n', '<leader>ghb', function()
@@ -58,7 +59,7 @@ gs.setup(
             end, { desc = 'git diff against last commit' })
             -- Toggles
             map('n', '<leader>gB', gs.toggle_current_line_blame, { desc = 'toggle git blame line' })
-            map('n', '<leader>gd', gs.toggle_deleted, { desc = 'toggle git show deleted' })
+            map('n', '<leader>gd', gs.preview_hunk_inline, { desc = 'toggle git show deleted' })
             -- Text object
             map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'select git hunk' })
         end,
@@ -76,7 +77,7 @@ vim.keymap.set("n", '<leader>gi', ":Git init .<CR>", { desc = 'Git [I]nitialize'
 vim.keymap.set("n", '<leader>grr', ":Git remote -v<CR>", { desc = 'Git [R]emote -[V]' })
 vim.keymap.set("n", '<leader>gra', ":Git remote add ", { desc = 'Git [R]emote -[V]' })
 vim.keymap.set("n", '<leader>gps', ":Git push ", { desc = 'Git [P]ush' })
-vim.keymap.set("n", '<leader>gpl', ":Git pull --rebase", { desc = 'Git [P]ull' })
+vim.keymap.set("n", '<leader>gpl', ":Git pull ", { desc = 'Git [P]ull' })
 vim.keymap.set("n", '<leader>ga', ":Git add ", { desc = 'Git [A]dd' })
 vim.keymap.set("n", '<leader>gb', ":Git branch<CR>:Git checkout ", { desc = 'Git [B]ranch' })
 vim.keymap.set("n", '<leader>gd', ":Git diff --stat<CR>", { desc = 'Git [D]ifferences' })

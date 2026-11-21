@@ -1,5 +1,6 @@
 vim.opt_local.spell = true
 vim.opt_local.wrap = true
+
 -- Spelling
 --
 vim.keymap.set('n', 'zz', 'z=1', {desc = 'Fix spelling', buffer = true})

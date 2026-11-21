@@ -3,11 +3,15 @@
 
 require('telescope').setup({
     defaults = {
+<<<<<<< HEAD
         path_display = {'truncate', truncate = 4},
+=======
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
         cycle_layout_list = {'horizontal', 'vertical', 'center', 'bottom_pane'},
         layout_strategy = 'horizontal',
         layout_config = {
             horizontal = {
+<<<<<<< HEAD
                 height = 0.98,
                 preview_cutoff = 0,
                 prompt_position = "bottom",
@@ -20,10 +24,25 @@ require('telescope').setup({
             },
             bottom_pane = {
                 height = 0.98,
+=======
+                height = 0.9,
+                preview_cutoff = 1,
+                prompt_position = "top",
+                width = 0.9
+            },
+            cursor = { -- I don't like this one
+                height = 0.9,
+                preview_cutoff = 1,
+                width = 0.9
+            },
+            bottom_pane = {
+                height = 25,
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
                 preview_cutoff = 1,
                 prompt_position = "top"
             },
             vertical = {
+<<<<<<< HEAD
                 height = 0.98,
                 preview_cutoff = 1,
                 prompt_position = "bottom",
@@ -34,6 +53,18 @@ require('telescope').setup({
                 preview_cutoff = 1,
                 prompt_position = "top",
                 width = 0.98
+=======
+                height = 0.9,
+                preview_cutoff = 1,
+                prompt_position = "bottom",
+                width = 0.9
+            },
+            center = {
+                height = 0.9,
+                preview_cutoff = 1,
+                prompt_position = "top",
+                width = 0.9
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
             },
         },
         mappings = {
@@ -49,7 +80,11 @@ require('telescope').setup({
                 -- Set the width of the first two columns (the second
                 -- is relevant only when show_columns is set to 'both')
                 col1_width = 4,
+<<<<<<< HEAD
                 col2_width = 10,
+=======
+                col2_width = 30,
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
                 -- How to format the symbols
                 format_symbol = function(symbol_path, filetype)
                     if filetype == "json" or filetype == "yaml" then
@@ -65,13 +100,20 @@ require('telescope').setup({
     }
 })
 
+<<<<<<< HEAD
 -- How to format the symbols
 require("telescope").load_extension("aerial")
 
+=======
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
 local tl = require("telescope.builtin")
 
 -- vim.keymap.set('n', '<A-q>', function() require('telescope.actions.layout').cycle_layout_next() end, {desc = '[C]ycle telescope layout'})
 
+<<<<<<< HEAD
+=======
+-- Telescope live_grep in git root
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
 -- Function to find the git root directory based on the current buffer's path
 local function find_git_root()
     -- Use the current buffer's path as the starting point for the git search
@@ -114,11 +156,62 @@ local function telescope_live_grep_open_files()
 end
 
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
+<<<<<<< HEAD
 vim.keymap.set('n', '<leader>sg', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 
 vim.keymap.set("n", "<leader>am", "<cmd>Telescope aerial<CR>")
 
 vim.keymap.set("n", "<A-b>", function()
+=======
+vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+
+
+-- vim.keymap.set("n", "<leader>br", function()
+--     tl.oldfiles(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[?] Find recently opened files" })
+
+-- vim.keymap.set("n", "<leader>bb", function()
+--     tl.buffers(require('telescope.themes').get_dropdown({theme='dropdown'}))
+-- end, { desc = "[ ] Find existing buffers" })
+
+-- vim.keymap.set("n", "<leader>bf", function()
+-- 	tl.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+-- 		theme = "dropdown",
+-- 	}))
+-- end, { desc = "[/] Fuzzily search in current buffer" })
+
+-- vim.keymap.set("n", "<leader>ss", function()
+--     tl.builtin(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[S]earch [S]elect Telescope" })
+
+-- vim.keymap.set("n", "<A-g>", function()
+--     tl.git_files(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "Search [G]it [F]iles" })
+
+-- vim.keymap.set("n", "<A-f>", function()
+--     tl.find_files(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[F]ind [F]iles" })
+
+-- vim.keymap.set("n", "<leader>sh", function()
+--     tl.help_tags(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[S]earch [H]elp" })
+
+-- vim.keymap.set("n", "<leader>sg", function()
+--     tl.live_grep(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[S]earch by [G]rep" })
+
+-- vim.keymap.set("n", "<leader>sd", function()
+--     tl.diagnostics(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[S]earch [D]iagnostics" })
+
+-- vim.keymap.set("n", "<leader>sr", function()
+--     tl.resume(require('telescope.themes').get_dropdown({theme = 'dropdown'}))
+-- end, { desc = "[S]earch [R]esume" })
+
+-- Different theme
+
+vim.keymap.set("n", "<leader>br", function()
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
     tl.oldfiles()
 end, { desc = "[?] Find recently opened files" })
 
@@ -146,7 +239,11 @@ vim.keymap.set("n", "<leader>sh", function()
     tl.help_tags()
 end, { desc = "[S]earch [H]elp" })
 
+<<<<<<< HEAD
 vim.keymap.set("n", "<A-s>", function()
+=======
+vim.keymap.set("n", "<leader>sg", function()
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
     tl.live_grep()
 end, { desc = "[S]earch by [G]rep" })
 

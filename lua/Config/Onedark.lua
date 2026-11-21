@@ -104,8 +104,11 @@ onedark.load()
 -- Customize semantic token highlights
 vim.api.nvim_set_hl(0, '@lsp.type.variable.python', {})
 vim.api.nvim_set_hl(0, '@lsp.type.class.python', {})
+<<<<<<< HEAD
 vim.api.nvim_set_hl(0, '@spell', {}) -- Anoying ass gray color on everything
 vim.api.nvim_set_hl(0, '@nospell', {}) -- Anoying ass gray color on everything
+=======
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
 vim.api.nvim_set_hl(0, '@lsp.mod.documentation.lua', {fg = colorPalette.cyan})
 
 -- Just line numbers

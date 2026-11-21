@@ -7,11 +7,19 @@ vim.api.nvim_create_autocmd(
                 mode = mode or "n"
                 vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
             end
+<<<<<<< HEAD
             map("H", vim.lsp.buf.hover, "Hover Documentation")
             map("gn", vim.lsp.buf.rename, "Rename")
             map("ga", vim.lsp.buf.code_action, "Code [A]ction", { "n", "x" })
             map("gr", require("telescope.builtin").lsp_references, "Goto References")
             map("gm", require("telescope.builtin").lsp_implementations, "Goto Implementation")
+=======
+            map("H", vim.lsp.buf.hover, "[H]over Documentation")
+            map("gn", vim.lsp.buf.rename, "[R]e[n]ame")
+            map("ga", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+            map("gm", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
             map("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
             map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
             map("gO", require("telescope.builtin").lsp_document_symbols, "Open Document Symbols")
@@ -113,9 +121,15 @@ mason_lspconfig.setup(
             "clangd",
             "basedpyright",
             "texlab",
+<<<<<<< HEAD
             -- "html",
             -- "ts_ls",
             -- "cssls",
+=======
+            "html",
+            "ts_ls",
+            "cssls",
+>>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
             "lua_ls",
         },
         handlers = {
