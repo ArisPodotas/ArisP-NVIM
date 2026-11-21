@@ -125,4 +125,3 @@ vim.o.syntax = 'on'
 -- Lua for Windows
 
 -- vim.g.netrw_browsex_viewer = "opera"
-
