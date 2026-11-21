@@ -1,19 +1,33 @@
 # Introduction
 
-This repository contains my local neovim config. I have finally switched ot a linux computer so now this branch represents this.
+This repository contains my local neovim config. I'm on a windows 11 laptop (now also on a Linux laptop that you can check that branch for) and I made all the config off of kickstart.nvim (), building slowly while my preferences change (you wont find too many traces of kickstart here anymore).
 
 # Contributing? 
 
-I guess you can fork this repo but for what purpose.
+I guess you can fork this repo but for what purpose?
 
 # Todo
 
-- [ ] Remove the firendly snippets already builting to the kickstart.nvim files and write your own snippets from here on
+- [ ] Remove the friendly snippets already builtin to the kickstart.nvim files and write your own snippets from here on (move them to ftplugins)
 - [ ] Find how to do advanced treesitter text objects and things like go to next ""
-- [ ] Edit the plugins by making a different branch for them in git so that mason does not bug my ass about not being able to pull
-- [ ] Make a file sourcing keybing setup
+- [ x ] Make a file sourcing keybind setup
+- [ x ] Split files into separate folders and sub files for all the config
+- [ x ] Autopairs and keymaps for disabling with context
+- [ x ] Blink update
+- [ x ] Mini map
+- [ x ] Replacing redundant things with mini
+- [ x ] 2d jumper
+- [ x ] Debugger
+- [ x ] ftplugins
 
-# Linux
+# Stats
 
-This branch will remove and change things in the config such that it works on linux.
+This sections is to have a few tracking changes of startup time
 
+Pre ftplugin snippet moving (I moved all the snippets of ftplugins to not source on init)
+
+348.445  000.003: --- NVIM STARTED ---
+
+# Note
+
+To fix netrw you need to go int the ui file and make sure the if statement recognizes mini.icons and then set the icon to be returned to the mini one you'll see it on the page
