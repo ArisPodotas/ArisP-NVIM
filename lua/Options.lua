@@ -122,9 +122,4 @@ vim.o.syntax = 'on'
 -- Changing the prgram used for opening files with x
 -- Lua for Windows
 
-<<<<<<< HEAD
 -- vim.g.netrw_browsex_viewer = "opera"
-=======
-vim.g.netrw_browsex_viewer = "opera"
-
->>>>>>> fb284c07047d12e2d3e735f68370d9484059b910

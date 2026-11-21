@@ -11,10 +11,6 @@ require('mini.icons').setup(
             os        = { glyph = '󰟀', hl = 'MiniIconsPurple' },
             snippets   = { glyph = '', hl = 'MiniIconsGreen'  },
         },
-<<<<<<< HEAD
- -- 󰂺
-=======
->>>>>>> fb284c07047d12e2d3e735f68370d9484059b910
         lsp = {
             snippet   = { glyph = '', hl = 'MiniIconsGreen'  },
         }
